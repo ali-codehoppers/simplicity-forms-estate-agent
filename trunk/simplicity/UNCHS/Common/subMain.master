@@ -1,0 +1,147 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="subMain.master.cs" Inherits="Common_subMain" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+    <link rel="stylesheet" type="text/css" href='<%=this.ResolveClientUrl("~/Common/StyleSheets/newstylesheet.css")%>' />
+    <title>Simplicity Health & Safety Live</title>
+    <link id="Link1" runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico"/>
+    <!--YUI -->
+    <!--<link rel="stylesheet" type="text/css" href="/Includes/yui/build/reset-fonts-grids/reset-fonts-grids.css">-->
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/fonts/fonts-min.css")%>" />
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/menu/assets/skins/sam/menu.css")%>" />
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/yahoo-dom-event/yahoo-dom-event.js")%>"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container_core.js")%>"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/menu/menu.js")%>"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/yahoo/yahoo-min.js")%>"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/event/event-min.js")%>"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/unchs/nifty.js")%>"></script>
+    <!--YUI END-->
+    <style type="text/css">
+        div.rounded div
+        {
+            height: 1px;
+            overflow: hidden;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function renderHelpDialog() {
+
+            if (!NiftyCheck()) {
+                return;
+            }
+            Rounded("div#help", "#FFFFFF", "#21A8E2", 30, 30);
+
+        }
+        YAHOO.util.Event.onDOMReady(renderHelpDialog);
+		
+    </script>
+    <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="yui-skin-sam" style="background: #e7f3f6 url('<%=this.ResolveClientUrl("~/Images/bg_r_sub.jpg")%>') repeat-x;">
+    <form id="form1" runat="server">
+    <div style="width: 1100px; margin: auto">
+        <div style="background-color: #FFFFFF;width: 100%;">
+            <div style="float: left;  width: 100%;">
+                <div style="float: left; padding-top: 15px; padding-left: 10px; width: 40%">
+                    <img src="<%=this.ResolveClientUrl("~/Images/newlogo.jpg")%>" alt="" width="271"
+                        height="87" />
+                </div>
+                <div style="float: left; padding-right: 10px; width: 58%">
+                    <div style="float:right;">
+                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_right.jpg")%>" alt="" width="7"
+                            height="27" />
+                    </div>
+                    <div style="float:right; height: 27px; background-color: #4FA2C2" class="txt_white">
+                        <div style="padding-top: 3px;">
+                            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="txt_white">Logout</asp:LinkButton>
+                            |<asp:LinkButton ID="btnAccount" OnClick="btnAccount_Click" runat="server" class="txt_white">My Account</asp:LinkButton>|
+                            <a href="#help" class="txt_white">Help</a></div>
+                    </div>
+                    <div style="float:right;">
+                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
+                            height="27" />
+                    </div>
+                    <div style="float:right; height: 27px; background-color: #FEC828" class="txt_white">
+                        <div style="padding-top: 3px;">
+                            <strong>
+                                <asp:Label ID="Logginuser" runat="server"></asp:Label>
+                                Logged In</strong></div>
+                    </div>
+                    <div style="float:right;">
+                        <img src="<%=this.ResolveClientUrl("~/Images/top_yellow_left.jpg")%>" alt="" width="7"
+                            height="27" />
+                    </div>
+                    <div style="float:right;padding-right: 10px;">
+                        <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
+                            ImageUrl="~/Images/back_home.jpg" Height="27" />
+                    </div>
+                    <div style="clear: both">
+                    </div>
+                    <div style="float:right;padding-top: 10px;width:280px;">
+                        <%--<div>
+                            <div class="trialArea">
+                                <%=GetTrialHTML()%></div>
+                        </div>--%>
+                        <div style="text-align: right">
+                            <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
+                            <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
+                                Font-Size="14"></asp:Label>
+                        </div>
+                        <div style="text-align: right">
+                            <%--<asp:Label runat="server" ID="productTrial" Visible="false" Style="font-size: 24px;
+                                color: #1FA8DF">Health &amp; Safety Demo</asp:Label>--%>
+                            <asp:Label runat="server" ID="notproductTrial" Visible="false" Style="font-size: 24px;
+                                color: #1FA8DF">Estate Agent</asp:Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+        </div>
+        <div class="topLeftCurve">
+        </div>
+        <div class="topRightCurve">
+        </div>
+        <div style="clear: both">
+        </div>  
+        <div style="padding-top: 15px;">
+            <div id="content" style="min-height: 330px;">
+                <asp:Panel runat="server" Visible="false" ID="errorPanel" Style="padding: 0px 0px 0px 0px">
+                    <div style="background-color: White;">
+                        <div class="error_msg">
+                            <asp:Label ID="lblError" runat="server" CssClass="error" Text="" Visible="false"></asp:Label>
+                            <asp:Label ID="lblInfo" runat="server" CssClass="error" Text="" Visible="false"></asp:Label></div>
+                    </div>
+                </asp:Panel>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+                <%--<%if (helpHTML != null && helpHTML.Length > 0)
+                  { %>
+                <div class="help" id="help">
+                    <div class="help_heading">
+                        <a name="help">Help</a></div>
+                    <div class="help_text">
+                        <%=helpHTML%></div>
+                </div>
+                <%} %>--%>
+            </div>
+        </div>
+        <div style="clear:both">
+        </div>
+        <div class="footer_sub_pages" style="padding-top: 10px; width: 250px; margin: auto">
+            Copyright (c) Ultranova Coding Securities Ltd
+        </div>
+    </div>
+    </form>
+</body>
+</html>

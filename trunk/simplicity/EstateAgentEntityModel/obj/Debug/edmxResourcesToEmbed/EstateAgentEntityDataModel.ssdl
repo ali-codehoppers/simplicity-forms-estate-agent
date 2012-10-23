@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SimplicityWebEstateAgentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SimplicityWebEstateAgentModelStoreContainer">
+    <EntitySet Name="PropertyDetails" EntityType="SimplicityWebEstateAgentModel.Store.PropertyDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropertyFieldCategories" EntityType="SimplicityWebEstateAgentModel.Store.PropertyFieldCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropertyFieldDepartments" EntityType="SimplicityWebEstateAgentModel.Store.PropertyFieldDepartments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropertyRooms" EntityType="SimplicityWebEstateAgentModel.Store.PropertyRooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RefCategories" EntityType="SimplicityWebEstateAgentModel.Store.RefCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RefDepartments" EntityType="SimplicityWebEstateAgentModel.Store.RefDepartments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TmpImpPropDesc (Design TBC)" EntityType="SimplicityWebEstateAgentModel.Store.TmpImpPropDesc (Design TBC)" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TmpImpPropRooms (Design TBC)" EntityType="SimplicityWebEstateAgentModel.Store.TmpImpPropRooms (Design TBC)" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_PropertyFieldCategories_PropertyDetails" Association="SimplicityWebEstateAgentModel.Store.FK_PropertyFieldCategories_PropertyDetails">
+      <End Role="PropertyDetails" EntitySet="PropertyDetails" />
+      <End Role="PropertyFieldCategories" EntitySet="PropertyFieldCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyFieldCategories_RefCategories" Association="SimplicityWebEstateAgentModel.Store.FK_PropertyFieldCategories_RefCategories">
+      <End Role="RefCategories" EntitySet="RefCategories" />
+      <End Role="PropertyFieldCategories" EntitySet="PropertyFieldCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyFieldDepartments_PropertyDetails" Association="SimplicityWebEstateAgentModel.Store.FK_PropertyFieldDepartments_PropertyDetails">
+      <End Role="PropertyDetails" EntitySet="PropertyDetails" />
+      <End Role="PropertyFieldDepartments" EntitySet="PropertyFieldDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyFieldDepartments_RefDepartments" Association="SimplicityWebEstateAgentModel.Store.FK_PropertyFieldDepartments_RefDepartments">
+      <End Role="RefDepartments" EntitySet="RefDepartments" />
+      <End Role="PropertyFieldDepartments" EntitySet="PropertyFieldDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyRooms_PropertyDetails" Association="SimplicityWebEstateAgentModel.Store.FK_PropertyRooms_PropertyDetails">
+      <End Role="PropertyDetails" EntitySet="PropertyDetails" />
+      <End Role="PropertyRooms" EntitySet="PropertyRooms" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PropertyDetails">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="int" />
+    <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FlgDeleted" Type="bit" />
+    <Property Name="ValuationCode" Type="nvarchar" MaxLength="64" />
+    <Property Name="AddressNo" Type="nvarchar" MaxLength="32" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="128" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="128" />
+    <Property Name="AddressLine3" Type="nvarchar" MaxLength="128" />
+    <Property Name="AddressLine4" Type="nvarchar" MaxLength="128" />
+    <Property Name="AddressLine5" Type="nvarchar" MaxLength="128" />
+    <Property Name="AddressPostCode" Type="nvarchar" MaxLength="9" />
+    <Property Name="AddressFull" Type="ntext" />
+    <Property Name="FlgPropertyCodeSet" Type="bit" />
+    <Property Name="DatePropertyCodeSet" Type="datetime" />
+    <Property Name="PropertyCode" Type="nvarchar" MaxLength="64" />
+    <Property Name="DateImported" Type="datetime" />
+    <Property Name="FlgExported" Type="bit" />
+    <Property Name="DateExported" Type="datetime" />
+    <Property Name="PropHeading" Type="ntext" />
+    <Property Name="PropDetailed" Type="ntext" />
+    <Property Name="PropSummary" Type="ntext" />
+    <Property Name="PropBulletPoint01" Type="nvarchar" MaxLength="128" />
+    <Property Name="PropBulletPoint02" Type="nvarchar" MaxLength="128" />
+    <Property Name="PropBulletPoint03" Type="nvarchar" MaxLength="128" />
+    <Property Name="PropBulletPoint04" Type="nvarchar" MaxLength="128" />
+    <Property Name="PropBulletPoint05" Type="nvarchar" MaxLength="128" />
+    <Property Name="PropBulletPoint06" Type="nvarchar" MaxLength="128" />
+    <Property Name="PropBulletPoint07" Type="nvarchar" MaxLength="128" />
+    <Property Name="PropBulletPoint08" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="LastAmendedBy" Type="int" />
+    <Property Name="DateLastAmended" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PropertyFieldCategories">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="int" />
+    <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PropertySequence" Type="int" />
+    <Property Name="CategorySequence" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="LastAmendedBy" Type="int" />
+    <Property Name="DateLastAmended" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PropertyFieldDepartments">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="int" />
+    <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PropertySequence" Type="int" />
+    <Property Name="DepartmentSequence" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="LastAmendedBy" Type="int" />
+    <Property Name="DateLastAmended" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PropertyRooms">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="int" />
+    <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PropertySequence" Type="int" />
+    <Property Name="RoomNo" Type="float" />
+    <Property Name="RoomHeading" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoomLengthM" Type="float" />
+    <Property Name="RoomLengthFt" Type="float" />
+    <Property Name="RoomLengthIn" Type="float" />
+    <Property Name="RoomLengthText" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoomWidthM" Type="float" />
+    <Property Name="RoomWidthFt" Type="float" />
+    <Property Name="RoomWidthIn" Type="float" />
+    <Property Name="RoomWidthText" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoomAspect" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoomText" Type="ntext" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="LastAmendedBy" Type="int" />
+    <Property Name="DateLastAmended" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RefCategories">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="int" />
+    <Property Name="Sequence" Type="int" Nullable="false" />
+    <Property Name="FlgDeleted" Type="bit" />
+    <Property Name="RowIndex" Type="int" />
+    <Property Name="CategoryDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="LastAmendedBy" Type="int" />
+    <Property Name="DateLastAmended" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RefDepartments">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="int" />
+    <Property Name="Sequence" Type="int" Nullable="false" />
+    <Property Name="FlgDeleted" Type="bit" />
+    <Property Name="RowIndex" Type="int" />
+    <Property Name="DepartmentDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="LastAmendedBy" Type="int" />
+    <Property Name="DateLastAmended" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TmpImpPropDesc (Design TBC)">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="smallint" />
+    <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ImpCode" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="TmpImpPropRooms (Design TBC)">
+    <Key>
+      <PropertyRef Name="Sequence" />
+    </Key>
+    <Property Name="CompanySequence" Type="smallint" />
+    <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ImpCode" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <Association Name="FK_PropertyFieldCategories_PropertyDetails">
+    <End Role="PropertyDetails" Type="SimplicityWebEstateAgentModel.Store.PropertyDetails" Multiplicity="0..1" />
+    <End Role="PropertyFieldCategories" Type="SimplicityWebEstateAgentModel.Store.PropertyFieldCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyDetails">
+        <PropertyRef Name="Sequence" />
+      </Principal>
+      <Dependent Role="PropertyFieldCategories">
+        <PropertyRef Name="PropertySequence" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyFieldCategories_RefCategories">
+    <End Role="RefCategories" Type="SimplicityWebEstateAgentModel.Store.RefCategories" Multiplicity="0..1" />
+    <End Role="PropertyFieldCategories" Type="SimplicityWebEstateAgentModel.Store.PropertyFieldCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCategories">
+        <PropertyRef Name="Sequence" />
+      </Principal>
+      <Dependent Role="PropertyFieldCategories">
+        <PropertyRef Name="CategorySequence" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyFieldDepartments_PropertyDetails">
+    <End Role="PropertyDetails" Type="SimplicityWebEstateAgentModel.Store.PropertyDetails" Multiplicity="0..1" />
+    <End Role="PropertyFieldDepartments" Type="SimplicityWebEstateAgentModel.Store.PropertyFieldDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyDetails">
+        <PropertyRef Name="Sequence" />
+      </Principal>
+      <Dependent Role="PropertyFieldDepartments">
+        <PropertyRef Name="PropertySequence" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyFieldDepartments_RefDepartments">
+    <End Role="RefDepartments" Type="SimplicityWebEstateAgentModel.Store.RefDepartments" Multiplicity="0..1" />
+    <End Role="PropertyFieldDepartments" Type="SimplicityWebEstateAgentModel.Store.PropertyFieldDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefDepartments">
+        <PropertyRef Name="Sequence" />
+      </Principal>
+      <Dependent Role="PropertyFieldDepartments">
+        <PropertyRef Name="DepartmentSequence" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyRooms_PropertyDetails">
+    <End Role="PropertyDetails" Type="SimplicityWebEstateAgentModel.Store.PropertyDetails" Multiplicity="0..1" />
+    <End Role="PropertyRooms" Type="SimplicityWebEstateAgentModel.Store.PropertyRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyDetails">
+        <PropertyRef Name="Sequence" />
+      </Principal>
+      <Dependent Role="PropertyRooms">
+        <PropertyRef Name="PropertySequence" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

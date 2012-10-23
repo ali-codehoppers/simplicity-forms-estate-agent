@@ -1,0 +1,65 @@
+body {
+	font: bold 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	text-decoration: none;
+	background-color:#f2f2f2;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	line-height:20px;
+}
+
+h1 {
+	font: normal 25px "Trebuchet MS", Arial, Verdana, Helvetica, sans-serif;
+	color: #4b94d5;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.solid_line {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #4b94d5;
+}
+.field_txt {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	width:400px;
+	height:18px;
+	background-image: url(../../Images/filed_gradient.jpg);
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+}
+.field_btn {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;color: #333;height:18px;background-image: url(../../Images/filed_gradient.jpg);background-repeat: repeat-x;border: 1px solid #cccccc;
+}
+.field_small_txt {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	height:18px;
+	background-image: url(../../Images/filed_gradient.jpg);
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+}
+.textarea_txt {
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	width:400px;
+	border: 1px solid #cccccc;
+}
+
+.footer
+{
+    font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+    color: #4b94d5;
+    padding: 0px 0px 0px 0px;
+    margin: 30px 0px 0px 0px;
+}
+.button_bar
+{
+    text-align:center;
+    margin-bottom:20px;
+    margin-top:10px;
+}
+.infoMessage
+{
+    color:Green;
+}

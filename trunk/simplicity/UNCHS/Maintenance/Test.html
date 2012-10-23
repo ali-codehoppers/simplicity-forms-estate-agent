@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link rel="stylesheet" type="text/css" href="/UNCHS/Common/layout.css" />
+		<title>UNCHS</title>
+
+		 <!--YUI -->
+		<link rel="stylesheet" type="text/css" href="/Includes/yui/build/reset-fonts-grids/reset-fonts-grids.css">
+	    <link rel="stylesheet" type="text/css" href="/UNCHS/Includes/yui/build/menu/assets/skins/sam/menu.css">    
+		<script type="text/javascript" src="/UNCHS/Includes/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="/UNCHS/Includes/yui/build/container/container_core.js"></script>
+		<script type="text/javascript" src="/UNCHS/Includes/yui/build/menu/menu.js"></script>
+        <!--YUI END-->
+	 
+		<style>
+			html {margin:0;padding:0;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;background-color:#646874; width:100%;height:100%}		
+		</style>
+		<script type="text/javascript">
+
+			/*
+				 Initialize and render the MenuBar when its elements are ready 
+				 to be scripted.
+			*/
+
+			YAHOO.util.Event.onContentReady("productsandservices", function () {
+
+				/*
+					Instantiate a MenuBar:  The first argument passed to the constructor
+					is the id for the Menu element to be created, the second is an 
+					object literal of configuration properties.
+				*/
+
+				var oMenuBar = new YAHOO.widget.MenuBar("productsandservices", { 
+															autosubmenudisplay: true, 
+															hidedelay: 750, 
+															lazyload: true });
+
+				/*
+					 Call the "render" method with no arguments since the 
+					 markup for this MenuBar instance is already exists in 
+					 the page.
+				*/
+
+				oMenuBar.render();
+
+			});
+
+		</script>
+		
+    <link rel="stylesheet" type="text/css" href="/UNCHS/Includes/yui/build/fonts/fonts-min.css" />   
+    <script type="text/javascript" src="/UNCHS/Includes/yui/build/animation/animation-min.js"></script>
+    <script type="text/javascript" src="/UNCHS/Includes/yui/build/dragdrop/dragdrop-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/UNCHS/Common/DDStyle.css">
+    <script type="text/javascript" src="/UNCHS/Includes/unchs/DragDrop.js"></script>
+
+	</head>
+	<body class="yui-skin-sam" id="yahoo-com" style="width:100%;height:100%;">
+		<div id="center">
+		   <div id="productsandservices" class="yuimenubar yuimenubarnav">
+				<div class="bd">
+					<ul class="first-of-type">
+
+						<li class="yuimenubaritem first-of-type"><a class="yuimenubaritemlabel" href="#">Orders</a>
+	
+							<!--<div id="orders" class="yuimenu">
+								<div class="bd">
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://360.yahoo.com">360&#176;</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://alerts.yahoo.com">Alerts</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://avatars.yahoo.com">Avatars</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://groups.yahoo.com">Groups</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://promo.yahoo.com/broadband/">Internet Access</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">PIM</a>
+										
+											<div id="pim" class="yuimenu">
+												<div class="bd">
+													<ul class="first-of-type">
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mail.yahoo.com">Yahoo! Mail</a></li>
+
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://addressbook.yahoo.com">Yahoo! Address Book</a></li>
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://calendar.yahoo.com">Yahoo! Calendar</a></li>
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://notepad.yahoo.com">Yahoo! Notepad</a></li>
+													</ul>            
+												</div>
+											</div>                    
+										
+										</li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://members.yahoo.com">Member Directory</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://messenger.yahoo.com">Messenger</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mobile.yahoo.com">Mobile</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.flickr.com">Flickr Photo Sharing</a></li>
+									</ul>
+								</div>
+							</div>      -->
+						
+						</li>
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">Reports</a>
+
+	
+							<!--<div id="reports" class="yuimenu">
+								<div class="bd">                    
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://auctions.shopping.yahoo.com">Auctions</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://autos.yahoo.com">Autos</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://classifieds.yahoo.com">Classifieds</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://shopping.yahoo.com/b:Flowers%20%26%20Gifts:20146735">Flowers &#38; Gifts</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://realestate.yahoo.com">Real Estate</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://travel.yahoo.com">Travel</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://wallet.yahoo.com">Wallet</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://yp.yahoo.com">Yellow Pages</a></li>
+									</ul>
+								</div>
+							</div>                    -->
+						
+						</li>
+
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">Analysis</a>
+	
+							<!--<div id="analysis" class="yuimenu">
+								<div class="bd">                    
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://fantasysports.yahoo.com">Fantasy Sports</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://games.yahoo.com">Games</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.yahooligans.com">Kids</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://music.yahoo.com">Music</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://movies.yahoo.com">Movies</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://music.yahoo.com/launchcast">Radio</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://travel.yahoo.com">Travel</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://tv.yahoo.com">TV</a></li>
+									</ul>                    
+								</div>
+
+							</div>                                        -->
+						
+						</li>
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">Reports</a>
+	
+							<!--<div id="reports" class="yuimenu">
+								<div class="bd">                                        
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://downloads.yahoo.com">Downloads</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://finance.yahoo.com">Finance</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://health.yahoo.com">Health</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://local.yahoo.com">Local</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://maps.yahoo.com">Maps &#38; Directions</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://my.yahoo.com">My Yahoo!</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://news.yahoo.com">News</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://search.yahoo.com">Search</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://smallbusiness.yahoo.com">Small Business</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://weather.yahoo.com">Weather</a></li>
+									</ul>
+								</div>
+							</div>                                        -->
+						
+						</li>
+						
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">Maintenance</a>
+
+							<div id="maintenance" class="yuimenu">
+								<div class="bd">                                        
+									<ul>
+                                        <li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">Departments</a>										
+											<div id="departments" class="yuimenu">
+												<div class="bd">
+													<ul class="first-of-type">
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="/UNCHS/Maintenance/AddDepartment.aspx">Add Department</a></li>
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="/UNCHS/Maintenance/DepartmentList.aspx">Deparment List</a></li>
+													</ul>            
+												</div>
+											</div>                    
+										
+										</li>
+    									<li class="yuimenuitem"><a class="yuimenuitemlabel" href="/UNCHS/Maintenance/DepartmentPersonList.aspx">Default Department Person List</a></li>
+    									<li class="yuimenuitem"><a class="yuimenuitemlabel" href="/UNCHS/Maintenance/DepartmentPPEList.aspx">Default Department PPE List</a></li>
+    									<li class="yuimenuitem"><a class="yuimenuitemlabel" href="/UNCHS/Maintenance/DepartmentHazardList.aspx">Default Department Hazard List</a></li>
+    									<li class="yuimenuitem"><a class="yuimenuitemlabel" href="/UNCHS/Maintenance/DepartmentToolList.aspx">Default Department Tool List</a></li>
+			<!--							<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://local.yahoo.com">Local</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://maps.yahoo.com">Maps &#38; Directions</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://my.yahoo.com">My Yahoo!</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://news.yahoo.com">News</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://search.yahoo.com">Search</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://smallbusiness.yahoo.com">Small Business</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://weather.yahoo.com">Weather</a></li>-->
+									</ul>
+								</div>
+							</div>                                        
+						
+						</li>
+
+					</ul>            
+				</div>
+			</div>
+			<div id="main">
+				<div id="content">
+				    <h1>Default Department Tool List</h1>
+				    <div class="error"><span id="ctl00_lblError"></span></div>
+                    <div class="info"><span id="ctl00_lblInfo"></span></div>    
+				    <form name="aspnetForm" method="post" action="DepartmentToolList.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzNzExMTMzNzUPZBYCZg9kFgYCAg8PFgQeBFRleHRlHgdWaXNpYmxlZ2RkAgMPDxYEHwBlHwFnZGQCBA9kFgICAQ9kFgoCAQ8PFgIfAAUJTWljcm9zb2Z0ZGQCAw8QDxYCHgtfIURhdGFCb3VuZGdkEBUEBUNEb2NzCVRlY2hsb2dpeAdEaWdpUGx5ATEVBAExATMBNAE1FCsDBGdnZ2dkZAISDxYCHgtfIUl0ZW1Db3VudAICFgRmD2QWCGYPFQEBMWQCAQ8PFgIeD0NvbW1hbmRBcmd1bWVudAUBMWRkAgMPDxYCHwQFATFkZAIEDxUBB1Rvb2wgMTNkAgEPZBYIZg8VAQEzZAIBDw8WAh8EBQEzZGQCAw8PFgIfBAUBM2RkAgQPFQEHVG9vbCAxMmQCFA8PZA8QFgFmFgEWAh4OUGFyYW1ldGVyVmFsdWUCARYBAgVkZAIWDw9kDxAWAmYCARYCFgIfBQUBMRYCHwUCARYCZgIFZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgQFL2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlciRyZXBlYXRlciRjdGwwMCRidG5FZGl0BTFjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIkcmVwZWF0ZXIkY3RsMDAkYnRuRGVsZXRlBS9jdGwwMCRDb250ZW50UGxhY2VIb2xkZXIkcmVwZWF0ZXIkY3RsMDEkYnRuRWRpdAUxY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyJHJlcGVhdGVyJGN0bDAxJGJ0bkRlbGV0Ze8d9aCGMaJRhWb1WTFd9HNEvRaJ" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/UNCHS/WebResource.axd?d=dYpXx-oaEe9EKajG1BTH1g2&amp;t=633595552183430636" type="text/javascript"></script>
+
+
+<script src="/UNCHS/WebResource.axd?d=BwvizNdHUTFHMMRnrWUSVA9aVZGdJaYgkExruUNP1ag1&amp;t=633595552183430636" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWEALt2/ijCwKMur37DALIueWIBQLH1s/mCQLF1s/mCQLE1s/mCQLD1s/mCQL+oMyIAQLVrofZCwLgi4vmBwKNuoTRAQLh7/jCCAKml/73BALM+9WzDALBqNKeBQKd3+WEARZTGqqgg1Np2wBeUtvLWIEOidF0" />
+</div>
+				        
+<div class="field"><span>Comany:</span><input name="ctl00$ContentPlaceHolder$tbCoName" type="text" value="Microsoft" readonly="readonly" id="ctl00_ContentPlaceHolder_tbCoName" disabled="disabled" style="width:200px;" /></div>
+<div class="field"><span>Department:</span><select name="ctl00$ContentPlaceHolder$ddlDepartment" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder$ddlDepartment\',\'\')', 0)" id="ctl00_ContentPlaceHolder_ddlDepartment" style="width:200px;">
+	<option selected="selected" value="1">CDocs</option>
+	<option value="3">Techlogix</option>
+	<option value="4">DigiPly</option>
+	<option value="5">1</option>
+
+</select></div>
+<div class="field"><span>Tool:</span><input name="ctl00$ContentPlaceHolder$tbName" type="text" id="ctl00_ContentPlaceHolder_tbName" style="width:200px;" /><span id="ctl00_ContentPlaceHolder_RequiredFieldValidator1" class="error" style="color:Red;visibility:hidden;">*</span>
+<div class="button_bar">
+    <input type="submit" name="ctl00$ContentPlaceHolder$btnAdd" value="Add Tool" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder$btnAdd&quot;, &quot;&quot;, true, &quot;Top&quot;, &quot;&quot;, false, false))" id="ctl00_ContentPlaceHolder_btnAdd" />
+    
+    <input type="submit" name="ctl00$ContentPlaceHolder$btnCancel" value="Cancel" id="ctl00_ContentPlaceHolder_btnCancel" />
+    <input type="hidden" name="ctl00$ContentPlaceHolder$hfDeptPersonId" id="ctl00_ContentPlaceHolder_hfDeptPersonId" />
+</div>
+<hr />
+<input type="hidden" name="idOrdering" id="idOrdering" />
+<div class="button_bar">
+    <input type="submit" name="ctl00$ContentPlaceHolder$btnSave" value="Save Ordering" onclick="return saveReorderedList();" id="ctl00_ContentPlaceHolder_btnSave" />    
+</div>
+<div class="workArea">
+  <ul id="dragDropUL" class="draglist">
+            
+            <li class="ddLi" id="li_1">
+                <p class="liDataP">
+                    <input type="image" name="ctl00$ContentPlaceHolder$repeater$ctl00$btnEdit" id="ctl00_ContentPlaceHolder_repeater_ctl00_btnEdit" src="../Images/edit.png" alt="Edit" style="border-width:0px;" />                
+                </p>
+                <p class="liDataP">
+                    <input type="image" name="ctl00$ContentPlaceHolder$repeater$ctl00$btnDelete" id="ctl00_ContentPlaceHolder_repeater_ctl00_btnDelete" src="../Images/delete.png" alt="Delete" style="border-width:0px;" />                                    
+                </p>
+                <p class="liDataP">Tool 13</p>
+            </li>
+                
+            <li class="ddLi" id="li_3">
+                <p class="liDataP">
+                    <input type="image" name="ctl00$ContentPlaceHolder$repeater$ctl01$btnEdit" id="ctl00_ContentPlaceHolder_repeater_ctl01_btnEdit" src="../Images/edit.png" alt="Edit" style="border-width:0px;" />                
+                </p>
+                <p>
+                    <input type="image" name="ctl00$ContentPlaceHolder$repeater$ctl01$btnDelete" id="ctl00_ContentPlaceHolder_repeater_ctl01_btnDelete" src="../Images/delete.png" alt="Delete" style="border-width:0px;" />                                    
+                </p>
+                <p>Tool 12</p>
+            </li>
+        
+  </ul>
+</div>    
+
+    
+    
+</div>
+
+				    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_ContentPlaceHolder_RequiredFieldValidator1"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_ContentPlaceHolder_RequiredFieldValidator1 = document.all ? document.all["ctl00_ContentPlaceHolder_RequiredFieldValidator1"] : document.getElementById("ctl00_ContentPlaceHolder_RequiredFieldValidator1");
+ctl00_ContentPlaceHolder_RequiredFieldValidator1.controltovalidate = "ctl00_ContentPlaceHolder_tbName";
+ctl00_ContentPlaceHolder_RequiredFieldValidator1.errormessage = "*";
+ctl00_ContentPlaceHolder_RequiredFieldValidator1.validationGroup = "Top";
+ctl00_ContentPlaceHolder_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder_RequiredFieldValidator1.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+				</div>				
+				<div class="cleaner"> &nbsp;</div>               
+			</div>
+		
+		</div>
+		<div id="footer">DigiPly</div>	
+	<!--</div>-->
+	</body>
+</html>

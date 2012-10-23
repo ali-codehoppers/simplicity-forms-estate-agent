@@ -1,0 +1,50 @@
+﻿div.workarea { padding:10px; float:left;margin-top:50px; }
+
+ul.draglist { 
+    position: relative;
+    width: 100%; 
+    list-style: none;
+    margin:0;
+    padding:0;
+    font: normal 12px 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	color: #333;
+}
+div.draglistHeader { 
+    position: relative;
+    width: 619px; 
+    background: #f7f7f7;
+    border: 1px solid gray;
+    list-style: none;
+    margin:0;
+    padding:0;
+    margin-top:10px;
+    height: 18px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+
+
+li.ddLi {
+    background-color: #D8D4E2;
+    border:1px solid #7EA6B2;
+	/*margin-top:1px;
+	margin-bottom:1px;	    */
+}
+
+div.liData
+{
+	margin-left:2px;
+	margin-right:2px;
+	/*margin-top:1px;
+	margin-bottom:1px;	*/
+	/*float:right;*/
+}
+p.liDataP
+{
+	margin-left:2px;
+	margin-right:2px;
+	/*margin-top:1px;
+	margin-bottom:1px;	*/
+	float:left;
+}

@@ -1,0 +1,12 @@
+D:\webProjects\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.dll.config
+D:\webProjects\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.dll
+D:\webProjects\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.pdb
+D:\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\ResolveAssemblyReference.cache
+D:\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.dll
+D:\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.pdb
+E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.dll.config
+E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.dll
+E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.pdb
+E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.csprojResolveAssemblyReference.cache
+E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.dll
+E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.pdb

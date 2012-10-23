@@ -1,0 +1,12 @@
+- Change order word to H & S Docs
+- change description to Notes
+- hide multiple emergency exitis and mutliple assembly points
+- change description to notes
+- Order SMS - prepopulate with sequence. and user can change it. 
+- Hide document to client
+- estimation of work needs to be changed to Duration of work(days)
+- Date created - prepopulate with today's date and user can change it
+- review date - prepoulate it with today's date + 1 year with check box ticked.
+- Main 
+- SuperVisor
+- 
