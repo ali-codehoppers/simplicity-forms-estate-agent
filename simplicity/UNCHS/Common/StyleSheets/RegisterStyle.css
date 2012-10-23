@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#horizmenu { width:950px; height:32px; margin:10px 0; position:relative; z-index:1000; border-bottom:4px solid #4b94d5;}
+#horizmenu #menudescription {float:left; max-height:32px; width:180px; font-weight:bold; padding:5px 10px 0 0; text-align:right;}
+
+.selectcontainer {float:left; display:block; height:32px; width:181px; background:url(../../Images/selectcontainerbtn.png); background-position:0 32px; text-align:center; position:relative; z-index:10; }
+.selectcontainerselected{float:left; display:block; height:32px; width:181px; background:url(../../Images/selectcontainerbtn.png); background-position:0 0px; text-align:center; position:relative; z-index:10; }
+
+.schedule {display:block; float:left; height:32px; width:200px; background:url(../../Images/schedulebtn.png); background-position:0 0px; text-align:center; position:relative; z-index:9; left:-20px; }
+.scheduleselected {display:block; float:left; height:32px; width:200px; background:url(../../Images/schedulebtn.png); background-position:0 32px; text-align:center; position:relative; z-index:9; left:-20px; }
+
+.checkout {display:block; float:left; height:32px; width:160px; background:url(../../Images/checkoutbtn.png); background-position:0 0px; text-align:center; position:relative; z-index:8; left:-40px; }
+.checkoutselected {display:block; float:left; height:32px; width:160px; background:url(../../Images/checkoutbtn.png); background-position:0 32px; text-align:center; position:relative; z-index:8; left:-40px; }
+
+.userbilling {display:block; float:left; height:32px; width:179px; background:url(../../Images/userbillingbtn.png); background-position:0 0px; text-align:center; position:relative; z-index:7; left:-60px; }
+.userbillingselected {display:block; float:left; height:32px; width:179px; background:url(../../Images/userbillingbtn.png); background-position:0 32px; text-align:center; position:relative; z-index:7; left:-60px; }
+
+.verification {display:block; float:left; height:32px; width:193px; background:url(../../Images/verificationbtn.png); background-position:0 0px; text-align:center; position:relative; z-index:6; left:-80px; }
+.verificationselected {display:block; float:left; height:32px; width:193px; background:url(../../Images/verificationbtn.png); background-position:0 32px; text-align:center; position:relative; z-index:6; left:-80px; }
+
+
+        .text_field {margin-left:20px;margin-top:4px;}
+        .text_field span{width:200px;height:100%;display:inline-block;}   
+        .field  {margin-left:20px;}
+
+.uploadTable 
+{
+    color: #000000;
+    border: 1px solid #000000;
+}
+.uploadTable thead tr
+{
+    background-color: #808080;
+    font-weight: bold;
+}
+
+.uploadTable td
+{
+    border: 1px solid #000000;
+}

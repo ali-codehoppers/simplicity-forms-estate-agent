@@ -1,0 +1,24 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Plain.master.cs" Inherits="Common_Plain" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>UNCHS</title>
+    <link rel="stylesheet" type="text/css" href="~/Common/StyleSheets/layout.css" />
+    <link rel="stylesheet" type="text/css" href="~/Common/StyleSheets/newstylesheet.css" />
+
+    <asp:contentplaceholder id="HeadContentPlaceHolder" runat="server"></asp:contentplaceholder>
+    <style type="text/css">
+			html {margin:0;padding:0;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;background-color:White; width:100%;height:100%}		
+	</style>
+</head>
+<body class="yui-skin-sam" id="yahoo-com" style="width:100%;height:100%;">
+    <form id="form1" runat="server">
+        <div class="plain_center">
+            <asp:contentplaceholder id="ContentPlaceHolder" runat="server">
+            </asp:contentplaceholder>
+        </div>
+    </form>
+</body>
+</html>

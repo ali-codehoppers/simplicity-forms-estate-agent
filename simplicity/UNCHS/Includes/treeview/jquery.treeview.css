@@ -1,0 +1,201 @@
+﻿.treeview, .treeview ul
+{
+	margin: 0px;
+	padding: 0px;
+	list-style:none;
+	/*list-style-image: url('../../Images/arrow_left.jpg');
+	list-style-position: inside;*/
+}
+
+.treeview ul 
+{
+
+	background-color: white;
+	margin-top: 4px;
+}
+
+.treeview .hitarea
+{
+
+	height: 16px;
+	width: 10px;
+	padding-right:5px;
+	float: left;
+	cursor: pointer;
+}
+/* fix for IE6 */
+* html .hitarea 
+{
+
+	display: inline;
+	float:none;
+}
+
+.treeview li
+{
+    padding-top: 7px;
+    margin: 0px 0px 0px 10px;
+}
+
+.treeview a.selected 
+{
+	background-color: #eee;
+}
+
+#treecontrol { margin: 1em 0; display: none; }
+
+.treeview .hover  
+{
+	color: #fead12;
+	text-decoration: none; 
+	cursor: pointer; }
+
+.treeview li 
+{
+			
+}
+.treeview .collapsable-hitarea
+{
+    background-position: left;
+    list-style-image: none;
+    background-image: url('../../Images/arrow_bottom.jpg');
+    background-repeat: no-repeat;
+}
+.treeview li.collapsable
+{    
+	/*list-style-image: url('../../Images/arrow_bottom.jpg');
+	list-style-position: inside;
+*/
+}
+.treeview li.expandable  
+{
+/*
+	list-style-image: url('../../Images/arrow_left.jpg');
+	list-style-position: inside;	
+*/
+list-style-image: none;
+}
+
+.treeview .expandable-hitarea
+{
+    background-position: left;
+    list-style-image: none;
+    background-image: url('../../Images/arrow_left.jpg');
+    background-repeat: no-repeat;
+}
+
+.treeview li.last {}
+.treeview li.lastCollapsable, .treeview li.lastExpandable {  }  
+.treeview li.lastCollapsable  
+{
+    list-style-image: none;
+  /*                             	
+    list-style-image: url('../../Images/arrow_bottom.jpg');
+	list-style-position: inside;
+                              */ }
+.treeview li.lastExpandable  
+{
+    list-style-image: none;
+                          /*   	list-style-image: url('../../Images/arrow_left.jpg');
+	list-style-position: inside;	*/}
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea {  }
+
+.treeview-red li
+{
+
+}
+.treeview-red .hitarea
+{
+
+} 
+.treeview-red li.lastCollapsable
+{
+
+}
+.treeview-red li.lastExpandable
+{
+
+}
+.treeview-famfamfam li  
+{
+
+}
+.treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable   
+{
+	
+} 
+
+.treeview .placeholder {
+	
+	height: 16px;
+	width: 16px;
+	display: block;
+}
+
+a.txt_black:active, a.txt_black:link,a.txt_black:visited 
+{
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	text-decoration: none;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+a.txt_black:hover 
+{
+	color: #fead12;
+	text-decoration: none;
+}
+a.txt_select:active,  a.txt_select:link, a.txt_select:visited 
+{
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #ffa810;
+	text-decoration: none;
+	padding:0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+a.txt_select:hover 
+{
+	color: #fead12;
+	text-decoration: none;
+}
+span.txt_black, span.txt_black_collapse
+{
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #333;
+	text-decoration: none;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	display:inline-block;
+	height: 25px;
+	background-image: url('../../Images/left_nav_partition.jpg');
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+span.txt_black
+{
+	width:100%;
+	}
+span.txt_black_collapse
+{
+	width:90%;
+}
+.left_nav
+{
+	font: normal 12px Arial, Verdana, Helvetica, sans-serif;
+	color: #000;
+	height: 25px;
+	background-image: url('../../Images/left_nav_partition.jpg');
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+.selectNodeSelected
+{
+
+	padding-right:5px;
+}
+
+.selectNodeNotSelected
+{
+	padding-right:5px;
+}

@@ -1,0 +1,113 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Register.master.cs" Inherits="Common_Register" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Simplicity4Business</title>
+    <link rel="stylesheet" type="text/css" href='../Common/StyleSheets/RegisterSteps.css' />
+    <link rel="stylesheet" type="text/css" href='../Common/StyleSheets/RegisterStyle.css' />
+    <script src='../Includes/unchs/RegisterMenu.js' type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 119px;
+            height: 43px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form3" runat="server">
+    <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Image ID="Image1" runat="server" Height="17" Width="1002" ImageUrl="~/Images/top_curve.jpg" />
+            </td>
+        </tr>
+        <tr>
+            <td align="center" bgcolor="#FFFFFF">
+                <table width="95%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="110">
+                            <div style="float: left;">
+                                <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/logo.jpg" Width="307" Height="102" />
+                            </div>
+                            <div style="float: right;">
+                                <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
+                                    ImageUrl="~/Images/back_home.png" /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <div id="horizmenu">
+                                <asp:ContentPlaceHolder ID="MenuContentPlaceHolder" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="48" align="left" class="solid_line">
+                            <table width="95%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="3%" height="34">
+                                        <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/h_arrow.jpg" Width="18"
+                                            Height="20" />
+                                    </td>
+                                    <td width="97%" align="left">
+                                        <h1>
+                                            <asp:ContentPlaceHolder ID="HeadingContentPlaceHolder" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </h1>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="error">
+                                <asp:Label ID="lblError" runat="server" Text="" Visible="false"></asp:Label></div>
+                            <div class="info">
+                                <asp:Label ID="lblInfo" runat="server" Text="" Visible="false"></asp:Label></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="footer">
+                            Copyright © Ultranova Coding Ltd 2008-2010
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btm_curve.jpg" Width="1002"
+                    Height="21" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

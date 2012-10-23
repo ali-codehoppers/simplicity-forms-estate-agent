@@ -1,0 +1,43 @@
+/* CSS Document */
+
+body  {margin:0;padding:0;}
+
+ul, li {list-style:none;margin:0;padding:0;}
+li a {text-decoration:none;color:black;}
+h1 {font-size:19px;font-weight:normal;}
+img {display: block;border:none;}
+img p {margin:0;padding:0;}
+.field {margin-top:3px;}
+.field span{width:75px;display:inline-block;}
+.button_bar {margin-top:10px;}
+.button_bar input{width:75px;}
+.error{color:Red;}
+#login_center {vertical-align:middle;background-color:white;width:255px;margin:auto;margin-top:200px;margin-bottom:100px}
+#center {background-color:white;width:755px;margin:auto;margin-bottom:15px;margin-top:10px;}
+
+.active {background-image:url(../Images/subnavi_active.jpg);width:185px;padding:0;margin:0;}
+.current {font-weight:bold;}
+.normal {background-image:url(../Iimages/border.gif);background-repeat:no-repeat;padding:0;margin:0;}
+
+#subnavigation {float:left;}
+#subnavigation ul li {margin-left:9px;padding-top:9px;padding-bottom:7px;}
+#subnavigation ul li a {padding-left:25px;}
+
+#content {float:left;width:725px;margin-left:10px;padding-left:10px;line-height:16px;margin-top:5px;padding-bottom:45px;}
+#login_content {vertical-align:middle;width:180px;margin-left:24px;padding-left:24px;line-height:16px;margin-top:20px;padding-bottom:45px;}
+
+#footer {font-size:9px;text-align:center;margin-right:14px;padding-bottom:10px;text-decoration:none;color:#BBBEC7;}
+#footer a {text-decoration:none;color:#BBBEC7;}
+
+.float-left {float:left;width:230px;padding-right:10px;margin:0;}
+.float-none {clear:left;display:block;}
+
+.cleaner
+{
+	clear:both;
+	height:1px;
+	Font-size:1px;
+	border:0px none;
+	margin:0;padding:0;
+	background:transparent;
+}

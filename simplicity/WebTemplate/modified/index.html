@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link rel="stylesheet" type="text/css" href="layout.css" />
+		<title>UNCHS</title>
+
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css">
+	 
+		<style>
+			html {margin:0;padding:0;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;background-color:#646874; width:100%;height:100%}		
+		</style>
+			<!-- CSS for Menu -->
+
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/menu/assets/skins/sam/menu.css">    
+
+			<!-- Dependency source files -->
+
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.7.0/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.7.0/build/container/container_core.js"></script>
+
+
+			<!-- Menu source file -->
+
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.7.0/build/menu/menu.js"></script>
+
+
+			<!-- Page-specific script -->
+
+		<script type="text/javascript">
+
+			/*
+				 Initialize and render the MenuBar when its elements are ready 
+				 to be scripted.
+			*/
+
+			YAHOO.util.Event.onContentReady("productsandservices", function () {
+
+				/*
+					Instantiate a MenuBar:  The first argument passed to the constructor
+					is the id for the Menu element to be created, the second is an 
+					object literal of configuration properties.
+				*/
+
+				var oMenuBar = new YAHOO.widget.MenuBar("productsandservices", { 
+															autosubmenudisplay: true, 
+															hidedelay: 750, 
+															lazyload: true });
+
+				/*
+					 Call the "render" method with no arguments since the 
+					 markup for this MenuBar instance is already exists in 
+					 the page.
+				*/
+
+				oMenuBar.render();
+
+			});
+
+		</script>
+	</head>
+	<body class="yui-skin-sam" id="yahoo-com" style="width:100%;height:100%;">
+	<!--<div id="complete">-->
+		<div id="center">
+		   <div id="productsandservices" class="yuimenubar yuimenubarnav">
+				<div class="bd">
+					<ul class="first-of-type">
+
+						<li class="yuimenubaritem first-of-type"><a class="yuimenubaritemlabel" href="#communication">Communication</a>
+	
+							<div id="communication" class="yuimenu">
+								<div class="bd">
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://360.yahoo.com">360&#176;</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://alerts.yahoo.com">Alerts</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://avatars.yahoo.com">Avatars</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://groups.yahoo.com">Groups</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://promo.yahoo.com/broadband/">Internet Access</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="#">PIM</a>
+										
+											<div id="pim" class="yuimenu">
+												<div class="bd">
+													<ul class="first-of-type">
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mail.yahoo.com">Yahoo! Mail</a></li>
+
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://addressbook.yahoo.com">Yahoo! Address Book</a></li>
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://calendar.yahoo.com">Yahoo! Calendar</a></li>
+														<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://notepad.yahoo.com">Yahoo! Notepad</a></li>
+													</ul>            
+												</div>
+											</div>                    
+										
+										</li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://members.yahoo.com">Member Directory</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://messenger.yahoo.com">Messenger</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mobile.yahoo.com">Mobile</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.flickr.com">Flickr Photo Sharing</a></li>
+									</ul>
+								</div>
+							</div>      
+						
+						</li>
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="http://shopping.yahoo.com">Shopping</a>
+
+	
+							<div id="shopping" class="yuimenu">
+								<div class="bd">                    
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://auctions.shopping.yahoo.com">Auctions</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://autos.yahoo.com">Autos</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://classifieds.yahoo.com">Classifieds</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://shopping.yahoo.com/b:Flowers%20%26%20Gifts:20146735">Flowers &#38; Gifts</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://realestate.yahoo.com">Real Estate</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://travel.yahoo.com">Travel</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://wallet.yahoo.com">Wallet</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://yp.yahoo.com">Yellow Pages</a></li>
+									</ul>
+								</div>
+							</div>                    
+						
+						</li>
+
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="http://entertainment.yahoo.com">Entertainment</a>
+	
+							<div id="entertainment" class="yuimenu">
+								<div class="bd">                    
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://fantasysports.yahoo.com">Fantasy Sports</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://games.yahoo.com">Games</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.yahooligans.com">Kids</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://music.yahoo.com">Music</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://movies.yahoo.com">Movies</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://music.yahoo.com/launchcast">Radio</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://travel.yahoo.com">Travel</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://tv.yahoo.com">TV</a></li>
+									</ul>                    
+								</div>
+
+							</div>                                        
+						
+						</li>
+						<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#information">Information</a>
+	
+							<div id="information" class="yuimenu">
+								<div class="bd">                                        
+									<ul>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://downloads.yahoo.com">Downloads</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://finance.yahoo.com">Finance</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://health.yahoo.com">Health</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://local.yahoo.com">Local</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://maps.yahoo.com">Maps &#38; Directions</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://my.yahoo.com">My Yahoo!</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://news.yahoo.com">News</a></li>
+
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://search.yahoo.com">Search</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://smallbusiness.yahoo.com">Small Business</a></li>
+										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://weather.yahoo.com">Weather</a></li>
+									</ul>
+								</div>
+							</div>                                        
+						
+						</li>
+					</ul>            
+				</div>
+			</div>
+			<div id="main">
+				<div id="content">
+					<h1>Headline</h1>
+					<p class="float-left">
+					 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed erat. Sed dui odio, tristique in, viverra sit amet, tristique nec, odio. Integer in dui vel tellus rutrum ultricies. Vestibulum convallis, lectus non auctor dignissim, mi sem fringilla diam, nec aliquet mauris metus eu elit. Maecenas nec diam vel massa faucibus bibendum. Fusce arcu. Curabitur nec arcu. Curabitur a dui .</p>
+	<img class="float-left" src="images/kid.jpg" alt="kid"/>
+
+	<p class="float-none">
+	Integer ligula. In tempus ultricies nisl. Duis auctor, tellus scelerisque fermentum luctus, erat turpis pharetra est, mollis consectetuer justo risus sit amet eros. Mauris tortor. Sed velit. Aliquam turpis odio, imperdiet sed, mattis sit amet, tempor non, pede. Nullam tincidunt turpis id dolor. Suspendisse lectus. Curabitur venenatis, arcu vel condimentum tincidunt, enim turpis blandit mauris, et tincidunt velit nisl sit amet velit. Morbi vitae erat. Sed fermentum, nisl et iaculis sodales, neque sapien aliquet pede, blandit dignissim ligula eros eu sem. In quam lectus. 
+				  </p>
+					<p class="float-none">
+	Integer ligula. In tempus ultricies nisl. Duis auctor, tellus scelerisque fermentum luctus, erat turpis pharetra est, mollis consectetuer justo risus sit amet eros. Mauris tortor. Sed velit. Aliquam turpis odio, imperdiet sed, mattis sit amet, tempor non, pede. Nullam tincidunt turpis id dolor. Suspendisse lectus. Curabitur venenatis, arcu vel condimentum tincidunt, enim turpis blandit mauris, et tincidunt velit nisl sit amet velit. Morbi vitae erat. Sed fermentum, nisl et iaculis sodales, neque sapien aliquet pede, blandit dignissim ligula eros eu sem. In quam lectus. 
+					</p>
+				</div>				
+				<div class="cleaner"> &nbsp;</div>               
+			</div>
+		
+		</div>
+		<div id="footer">DigiPly</div>	
+	</body>
+</html>

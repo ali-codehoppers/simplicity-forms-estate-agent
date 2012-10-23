@@ -1,0 +1,9 @@
+- Department can upload there own document types Department Level - Done 
+- People_Type, Single select or multi select, company level - Done 
+- Configuration table, constants table - Not needed for now 
+- Add Edit Document Type, General/Specific. - Add/Edit Document Type Added. Need to add association with Document. Also add check on Document Type People Type Association edit of not adding an existing association again. 
+- Document Type, and document will be assigned with peopelt type - See above
+- When generating folder, we will generate folder for all the - To be done 
+- Document type will have a general/specific. - We will computer this from above 
+- We will need to change the log screen - To be done 
+- Labels need to be changed to be more generic with in the document generation. - Done 
