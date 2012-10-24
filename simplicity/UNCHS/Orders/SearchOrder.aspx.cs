@@ -11,135 +11,213 @@ using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Text;
 
-public partial class Orders_SearchOrder : DepartmentPage
+using System.Linq;
+
+using EstateAgentEntityModel;
+
+public partial class Orders_SearchOrder : AuthenticatedPage
 {
-    protected override void  Department_Page_Handling(object sender, EventArgs e)
+
+    SimplicityWebEstateAgentEntities db = new SimplicityWebEstateAgentEntities();
+    protected override void Page_Load_Extended(object sender, EventArgs e)
     {
+        SetWhereClause();
     }
-    protected void btnCopy_Click(object sender, EventArgs e)
+    
+
+    private void SetWhereClause()
     {
-       
-        DepartmentOrder.DepartmentOrderRowRow order = DatabaseUtility.GetDepartmentOrder(int.Parse(hfSourceOrderId.Value));
-        if (order != null)
+        edsProperties.Where = "";
+        if (tbValuationCode.Text.Length > 0)
         {
-            Nullable<bool> flgDocToClient = null;
-            Nullable<int> estWork = null;
-            Nullable<bool> multiEmerExits = null;
-            Nullable<bool> multiAssemPts = null;
-            Nullable<bool> flgCancelled = null;
-            Nullable<DateTime> dateCancelled = null;
-            Nullable<int> estNumOfOperatives = null;
-            if (order.Isflg_order_doc_to_clientNull() == false) flgDocToClient = order.flg_order_doc_to_client;
-            if (order.Isorder_est_of_worksNull() == false) estWork = order.order_est_of_works;
-            if (order.Isflg_multi_emer_exitsNull() == false) multiEmerExits = order.flg_multi_emer_exits;
-            if (order.Isflg_multi_assem_pointsNull() == false) multiAssemPts = order.flg_multi_assem_points;
-            if (order.Isflg_cancelledNull() == false) flgCancelled = order.flg_cancelled;
-            if (order.Isdate_cancelledNull() == false) dateCancelled = order.date_cancelled;
-            if (order.Isest_num_of_operativesNull() == false) estNumOfOperatives = order.est_num_of_operatives;
-
-            DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter da = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
-            IEnumerator iEnum = da.InsertAndReturn(false, order.dept_id, order.co_id, order.order_ref, order.order_client_ref, order.order_sms,
-                DateTime.Now, estWork, DateTime.Now.AddYears(1), flgDocToClient, tbAddressNo.Text,tbAddress1.Text,tbAddress2.Text,tbAddress3.Text,
-                tbAddress4.Text,tbAddress5.Text,tbPostalCode.Text,getFullAddress(),(order.Isorder_descNull()) ? null : order.order_desc,
-                multiEmerExits, multiAssemPts, flgCancelled, dateCancelled,(order.Isdesc_of_workNull()) ? null : order.desc_of_work,estNumOfOperatives,
-                (order.Isrisk_takingNull())?null:order.risk_taking,loggedInUserId, DateTime.Now, loggedInUserId, DateTime.Now).GetEnumerator();
-            if (iEnum.MoveNext())
+            edsProperties.Where += "it.ValuationCode LIKE @ValuationCode";
+            if (edsProperties.WhereParameters["ValuationCode"] != null)
             {
-                DepartmentOrder.DepartmentOrderRowRow newOrder = (DepartmentOrder.DepartmentOrderRowRow)iEnum.Current;
-
-                //copy persons
-                DepartmentOrderPersonTableAdapters.DepartmentOrderPersonEntityTableAdapter personTA = new DepartmentOrderPersonTableAdapters.DepartmentOrderPersonEntityTableAdapter();
-                IEnumerator iEPerson = personTA.GetAllOrderPersonsByOrderId(order.dept_id, order.co_id, order.sequence).GetEnumerator();
-                
-                while (iEPerson.MoveNext())
-                {
-                    DepartmentOrderPerson.DepartmentOrderPersonEntityRow personDR = (DepartmentOrderPerson.DepartmentOrderPersonEntityRow)iEPerson.Current;
-                    Nullable<bool> flgSupervisor = null;
-                    Nullable<bool> flgFirstAider = null;
-                    Nullable<bool> flgFireWarden = null;
-                    string personName = (personDR.Isname_descNull()) ? null : personDR.name_desc;
-                    if (personDR.Issuperrvisor_checkNull() == false) flgSupervisor = Convert.ToBoolean(personDR.superrvisor_check);
-                    if (personDR.Isfirstaiderr_checkNull() == false) flgFirstAider = Convert.ToBoolean(personDR.firstaiderr_check);
-                    if (personDR.Isfirewardenn_checkNull() == false) flgFireWarden = Convert.ToBoolean(personDR.firewardenn_check);
-
-                    personTA.Insert(personDR.dept_id, personDR.co_id, newOrder.sequence, personName, loggedInUserId, flgSupervisor, flgFirstAider, flgFireWarden,false);
-                }
-
-                //copy hazards
-                DepartmentOrderDetailTableAdapters.DepartmentOrderHazardTableAdapter hazaradTA = new DepartmentOrderDetailTableAdapters.DepartmentOrderHazardTableAdapter();
-                IEnumerator iEHazard = hazaradTA.GetAllHazards(order.dept_id, order.co_id, order.sequence).GetEnumerator();
-                while (iEHazard.MoveNext())
-                {
-                    DepartmentOrderDetail.DepartmentOrderHazardRow hazardDR = (DepartmentOrderDetail.DepartmentOrderHazardRow)iEHazard.Current;
-                    hazaradTA.Insert(order.dept_id, order.co_id, newOrder.sequence, hazardDR.hazard_desc, loggedInUserId);
-                }
-
-                //copy sequence of work
-                DepartmentOrderDetailTableAdapters.DepartmentOrderWorkTableAdapter workTA = new DepartmentOrderDetailTableAdapters.DepartmentOrderWorkTableAdapter();
-                IEnumerator iEWork = workTA.GetAllWorks(order.dept_id, order.co_id, order.sequence).GetEnumerator();
-                while (iEWork.MoveNext())
-                {
-                    DepartmentOrderDetail.DepartmentOrderWorkRow workDR = (DepartmentOrderDetail.DepartmentOrderWorkRow)iEWork.Current;
-                    workTA.Insert(order.dept_id, order.co_id, newOrder.sequence, workDR.work_desc, loggedInUserId);
-                }
-
-                //copy plats and tools
-                DepartmentOrderDetailTableAdapters.DepartmentOrderToolTableAdapter toolTA = new DepartmentOrderDetailTableAdapters.DepartmentOrderToolTableAdapter();
-                IEnumerator iETool = toolTA.GetAllDepartmentTool(order.dept_id, order.co_id, order.sequence).GetEnumerator();
-                while (iETool.MoveNext())
-                {
-                    DepartmentOrderDetail.DepartmentOrderToolRow toolDR = (DepartmentOrderDetail.DepartmentOrderToolRow)iETool.Current;
-                    toolTA.Insert(order.dept_id, order.co_id, newOrder.sequence, toolDR.tool_desc, loggedInUserId);
-                }
-
-                //copy PPE
-                DepartmentOrderDetailTableAdapters.DepartmentOrderPPETableAdapter ppeTA = new DepartmentOrderDetailTableAdapters.DepartmentOrderPPETableAdapter();
-                IEnumerator iEPPE = ppeTA.GetAllPPE(order.dept_id, order.co_id, order.sequence).GetEnumerator();
-                while (iEPPE.MoveNext())
-                {
-                    DepartmentOrderDetail.DepartmentOrderPPERow ppeDR = (DepartmentOrderDetail.DepartmentOrderPPERow)iEPPE.Current;
-                    ppeTA.Insert(order.dept_id, order.co_id, newOrder.sequence, ppeDR.ppe_desc, loggedInUserId);
-                }
-
-                //copy Emergency
-                DepartmentOrderDetailTableAdapters.DepartmentOrderEmergencyExitTableAdapter emergencyTA = new DepartmentOrderDetailTableAdapters.DepartmentOrderEmergencyExitTableAdapter();
-                IEnumerator iEEmergency = emergencyTA.GetAllEmergencyExits(order.dept_id, order.co_id, order.sequence).GetEnumerator();
-                while (iEEmergency.MoveNext())
-                {
-                    DepartmentOrderDetail.DepartmentOrderEmergencyExitRow emergencyDR = (DepartmentOrderDetail.DepartmentOrderEmergencyExitRow)iEEmergency.Current;
-                    emergencyTA.Insert(order.dept_id, order.co_id, newOrder.sequence, emergencyDR.emer_exit_title, null, loggedInUserId);
-                }
-
-                //copy Requirements
-                DepartmentOrderDetailTableAdapters.DepartmentOrderRequirementTableAdapter requirementTA = new DepartmentOrderDetailTableAdapters.DepartmentOrderRequirementTableAdapter();
-                IEnumerator iERequirements = requirementTA.GetAllRequirements(order.dept_id,order.co_id,order.sequence).GetEnumerator();
-                while(iERequirements.MoveNext())
-                {
-                    DepartmentOrderDetail.DepartmentOrderRequirementRow requirementDR = (DepartmentOrderDetail.DepartmentOrderRequirementRow)iERequirements.Current;
-                    requirementTA.Insert(order.dept_id,order.co_id,newOrder.sequence,requirementDR.requirement_header,null,loggedInUserId);
-                }
-                
-                //copy Aspects
-                DepartmentOrderDetailTableAdapters.DepartmentOrderKeyAspectsTableAdapter aspectsTA = new DepartmentOrderDetailTableAdapters.DepartmentOrderKeyAspectsTableAdapter();
-                IEnumerator iEAspects = aspectsTA.GetAllKeyAspects(order.dept_id,order.co_id,order.sequence).GetEnumerator();
-                while(iEAspects.MoveNext())
-                {
-                    DepartmentOrderDetail.DepartmentOrderKeyAspectsRow aspectsDR = (DepartmentOrderDetail.DepartmentOrderKeyAspectsRow)iEAspects.Current;
-                    aspectsTA.Insert(order.dept_id,order.co_id,newOrder.sequence,aspectsDR.key_aspect_header,null,loggedInUserId);
-                }
-
-                //copy Docs
-
-                DepartmentOrderDocTableAdapters.DepartmentOrderDocTableAdapter docTA = new DepartmentOrderDocTableAdapters.DepartmentOrderDocTableAdapter();
-                IEnumerator iEDocs = docTA.GetAllDocs(order.co_id,order.dept_id,order.sequence).GetEnumerator();
-                while(iEDocs.MoveNext())
-                {
-                    DepartmentOrderDoc.DepartmentOrderDocEntityRow docDR = (DepartmentOrderDoc.DepartmentOrderDocEntityRow)iEDocs.Current;
-                    docTA.Insert(newOrder.sequence,docDR.doc_id,order.dept_id,order.co_id,false);
-                }
+                edsProperties.WhereParameters["ValuationCode"].DefaultValue = "%" + tbValuationCode.Text + "%";
+            }
+            else
+            {
+                Parameter parameter = new Parameter();
+                parameter.Name = "ValuationCode";
+                parameter.DbType = System.Data.DbType.String;
+                parameter.DefaultValue = "%" + tbValuationCode.Text + "%";
+                edsProperties.WhereParameters.Add(parameter);
             }
         }
-    
+        if (tbAddress.Text.Length > 0)
+        {
+            if(edsProperties.Where.Length > 0)
+            {
+                edsProperties.Where += " AND ";
+            }
+            edsProperties.Where += "it.AddressFull LIKE @Address";
+
+            if (edsProperties.WhereParameters["Address"] != null)
+            {
+                edsProperties.WhereParameters["Address"].DefaultValue = "%" + tbAddress.Text + "%";
+            }
+            else
+            {
+                Parameter parameter = new Parameter();
+                parameter.Name = "Address";
+                parameter.DbType = System.Data.DbType.String;
+                parameter.DefaultValue = "%" + tbAddress.Text + "%";
+                edsProperties.WhereParameters.Add(parameter);
+            }
+        }
+        if (tbPostalCode.Text.Length > 0)
+        {
+            if (edsProperties.Where.Length > 0)
+            {
+                edsProperties.Where += " AND ";
+            }
+            edsProperties.Where += "it.AddressPostCode LIKE @PostalCode";
+
+            if (edsProperties.WhereParameters["PostalCode"] != null)
+            {
+                edsProperties.WhereParameters["PostalCode"].DefaultValue = "%" + tbPostalCode.Text + "%";
+            }
+            else
+            {
+                Parameter parameter = new Parameter();
+                parameter.Name = "PostalCode";
+                parameter.DbType = System.Data.DbType.String;
+                parameter.DefaultValue = "%" + tbPostalCode.Text + "%";
+                   edsProperties.WhereParameters.Add(parameter);
+            }
+        }
+
+        if (tbFromDate.Text.Length > 0)
+        {
+            if (edsProperties.Where.Length > 0)
+            {
+                edsProperties.Where += " AND ";
+            }
+            edsProperties.Where += "it.DateCreated >= @FromDate";
+                
+            if (edsProperties.WhereParameters["FromDate"] != null)
+            {
+                edsProperties.WhereParameters["FromDate"].DefaultValue = tbFromDate.Text ;
+            }
+            else
+            {
+                Parameter parameter = new Parameter();
+                parameter.Name = "FromDate";
+                parameter.DbType = System.Data.DbType.Date;
+                parameter.DefaultValue = tbFromDate.Text;
+                edsProperties.WhereParameters.Add(parameter);
+            }
+        }
+
+        if (tbToDate.Text.Length > 0)
+        {
+            if (edsProperties.Where.Length > 0)
+            {
+                edsProperties.Where += " AND ";
+            }
+            edsProperties.Where += "it.DateCreated <= @ToDate";
+            
+            if (edsProperties.WhereParameters["ToDate"] != null)
+            {
+                edsProperties.WhereParameters["ToDate"].DefaultValue = DateTime.Parse(tbToDate.Text).AddDays(1).ToShortDateString();
+            }
+            else
+            {
+                Parameter parameter = new Parameter();
+                parameter.Name = "ToDate";
+                parameter.DbType = System.Data.DbType.Date;
+                parameter.DefaultValue = tbToDate.Text;
+                edsProperties.WhereParameters.Add(parameter);
+            }
+        }
+    }
+
+    protected void btnCopy_Click(object sender, EventArgs e)
+    {
+
+        int propertyId = int.Parse(hfSourceOrderId.Value);
+        PropertyDetail property = (from p in db.PropertyDetails where p.Sequence == propertyId select p).FirstOrDefault();
+        PropertyDetail newProperty = new PropertyDetail();
+        newProperty.AddressNo = tbAddressNo.Text;
+        newProperty.AddressLine1 = tbAddress1.Text;
+        newProperty.AddressLine2 = tbAddress2.Text;
+        newProperty.AddressLine3 = tbAddress3.Text;
+        newProperty.AddressLine4 = tbAddress4.Text;
+        newProperty.AddressLine5 = tbAddress5.Text;
+        newProperty.AddressPostCode = tbPostalCode.Text;
+        newProperty.AddressFull = GetFullAddress();
+
+        newProperty.CompanySequence = property.CompanySequence;
+        newProperty.DateCreated = DateTime.Now;
+        newProperty.CreatedBy = loggedInUserId;
+        newProperty.FlgDeleted = false;
+        newProperty.LastAmendedBy = loggedInUserId;
+        newProperty.DateLastAmended = DateTime.Now;
+        newProperty.PropBulletPoint01 = property.PropBulletPoint01;
+        newProperty.PropBulletPoint02 = property.PropBulletPoint02;
+        newProperty.PropBulletPoint03 = property.PropBulletPoint03;
+        newProperty.PropBulletPoint04 = property.PropBulletPoint04;
+        newProperty.PropBulletPoint05 = property.PropBulletPoint05;
+        newProperty.PropBulletPoint06 = property.PropBulletPoint06;
+        newProperty.PropBulletPoint07 = property.PropBulletPoint07;
+        newProperty.PropBulletPoint08 = property.PropBulletPoint08;
+        newProperty.PropDetailed = property.PropDetailed;
+        newProperty.PropertyCode = property.PropertyCode;
+        //categories
+        //departments
+        //rooms
+        newProperty.PropHeading = property.PropHeading;
+        newProperty.PropSummary = property.PropSummary;
+        newProperty.ValuationCode = property.ValuationCode;
+
+        foreach (PropertyFieldCategory propertyCategory in property.PropertyFieldCategories)
+        {
+            PropertyFieldCategory newPropertyCategory = new PropertyFieldCategory();
+            newPropertyCategory.CategorySequence = propertyCategory.CategorySequence;
+            newPropertyCategory.CreatedBy = loggedInUserId;
+            newPropertyCategory.DateCreated = DateTime.Now;
+            newPropertyCategory.DateLastAmended = DateTime.Now;
+            newPropertyCategory.LastAmendedBy = loggedInUserId;
+            newProperty.PropertyFieldCategories.Add(newPropertyCategory);
+        }
+
+        foreach (PropertyFieldDepartment propertyDepartment in property.PropertyFieldDepartments)
+        {
+            PropertyFieldDepartment newPropertyDepartment = new PropertyFieldDepartment();
+            newPropertyDepartment.CompanySequence = propertyDepartment.CompanySequence;
+            newPropertyDepartment.CreatedBy = loggedInUserId;
+            newPropertyDepartment.DateCreated = DateTime.Now;
+            newPropertyDepartment.DateLastAmended = DateTime.Now;
+            newPropertyDepartment.LastAmendedBy = loggedInUserId;
+            newPropertyDepartment.DepartmentSequence = propertyDepartment.DepartmentSequence;
+            newProperty.PropertyFieldDepartments.Add(newPropertyDepartment);
+        }
+
+        foreach (PropertyRoom room in property.PropertyRooms)
+        {
+            PropertyRoom newRoom = new PropertyRoom();
+            newRoom.CompanySequence = room.CompanySequence;
+            newRoom.CreatedBy = loggedInUserId;
+            newRoom.DateCreated = DateTime.Now;
+            newRoom.DateLastAmended = DateTime.Now;
+            newRoom.LastAmendedBy = loggedInUserId;
+            newRoom.RoomAspect = room.RoomAspect;
+            newRoom.RoomHeading = room.RoomHeading;
+            newRoom.RoomLengthFt = room.RoomLengthFt;
+            newRoom.RoomLengthIn = room.RoomLengthIn;
+            newRoom.RoomLengthM = room.RoomLengthM;
+            newRoom.RoomLengthText = room.RoomLengthText;
+            newRoom.RoomNo = room.RoomNo;
+            newRoom.RoomText = room.RoomText;
+            newRoom.RoomWidthFt = room.RoomWidthFt;
+            newRoom.RoomWidthIn = room.RoomWidthIn;
+            newRoom.RoomWidthM = room.RoomWidthM;
+            newRoom.RoomWidthText = room.RoomWidthText;
+            newProperty.PropertyRooms.Add(newRoom);
+        }
+        db.PropertyDetails.AddObject(newProperty);
+        db.SaveChanges();
+        
         GridView1.DataBind();
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -148,7 +226,7 @@ public partial class Orders_SearchOrder : DepartmentPage
     }
     protected void DeleteDepartmentOrder(int deptOrderId)
     {
-
+        /*
         DataTable department = getDepartmentOrder(deptOrderId);
         if (department == null)
         {
@@ -167,7 +245,7 @@ public partial class Orders_SearchOrder : DepartmentPage
             {
                 SetErrorMessage(WebConstants.Messages.Error.CONNECTION_ERROR);
             }
-        }
+        }*/
     }
     private DataTable getDepartmentOrder(int DepartmentOrderId)
     {
@@ -180,43 +258,44 @@ public partial class Orders_SearchOrder : DepartmentPage
         e.Cancel = true;
         DeleteDepartmentOrder((int)e.Keys["sequence"]);
     }
-    protected void ddlDepartments_DataBound(object sender, EventArgs e)
-    {
-        if (ddlDepartments.Items.Count <= 1)
-        {
-            ddlDepartments.Visible = false;
-            lblDepartment.Visible = false;
-        }
-        else
-        {
-            ddlDepartments.Visible = true;
-            lblDepartment.Visible = true;
-        }
-    }
+    
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {        
-        DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter ta = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
+        
         if (e.CommandName.Equals("CancelOrder"))
         {
-            int orderId = int.Parse(e.CommandArgument.ToString());
-            ta.UpdateCancel(loggedInUserId,orderId,true,DateTime.Now);
-            SetInfoMessage(WebConstants.Messages.Information.ORDER_CANCELLED);
-            GridView1.DataBind();
+            int propertyId = int.Parse(e.CommandArgument.ToString());
+            PropertyDetail property = GetProperty(propertyId);
+            if (property != null)
+            {
+                property.FlgDeleted = true;
+                db.SaveChanges();
+                GridView1.DataBind();
+            }                        
         }
         else if (e.CommandName.Equals("UncancelOrder"))
         {
-            int orderId = int.Parse(e.CommandArgument.ToString());
-            ta.UpdateCancel(loggedInUserId,orderId,false,null);
-            SetInfoMessage(WebConstants.Messages.Information.ORDER_UNCANCELLED);
-            GridView1.DataBind();
+            int propertyId = int.Parse(e.CommandArgument.ToString());
+            PropertyDetail property = GetProperty(propertyId);
+            if (property != null)
+            {
+                property.FlgDeleted = false;
+                db.SaveChanges();
+                GridView1.DataBind();
+            }
         }
         else if (e.CommandName.Equals("EditOrder"))
         {
-            int orderId = int.Parse(e.CommandArgument.ToString());
-            Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + orderId);
+            int propertyId = int.Parse(e.CommandArgument.ToString());
+            Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyId);
         }        
     }
-    private string getFullAddress()
+
+    private PropertyDetail GetProperty(int propertyId)
+    {
+        return (from p in db.PropertyDetails where p.Sequence == propertyId select p).FirstOrDefault();
+    }
+    private string GetFullAddress()
     {
         StringBuilder addressFull = new StringBuilder();
         addressFull.Append(tbAddressNo.Text).Append(" ");
