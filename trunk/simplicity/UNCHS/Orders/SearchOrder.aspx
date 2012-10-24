@@ -153,25 +153,13 @@
                 </div>
             </div>
         </div>
-        <div class="field" style="padding-bottom: 5px;">
-            <div style="width: 200px; float: left; font-weight: bold">
-                <asp:Label ID="lblDepartment" CssClass="label" runat="server" Text="Department:">
-                </asp:Label>
-            </div>
-            <asp:DropDownList ID="ddlDepartments" runat="server" AppendDataBoundItems="True"
-                DataSourceID="odsDepartments" DataTextField="co_name_short" DataValueField="dept_id"
-                OnDataBound="ddlDepartments_DataBound" CssClass="dropdown_txt">
-            </asp:DropDownList>
-        </div>
-        <div style="clear:both">
-        </div>
         <div class="field">
             <div style="width: 200px; float: left">
-                <span class="label" style="width: 110px;"><strong>Reference:</strong></span>
+                <span class="label" style="width: 110px;"><strong>Valuation Code:</strong></span>
             </div>
             <div style="padding-bottom: 5px;">
-                <asp:TextBox ID="tbOrderRef" runat="server" CssClass="field_txt"></asp:TextBox>
-            </div>
+                <asp:TextBox ID="tbValuationCode" runat="server" CssClass="field_txt"></asp:TextBox>
+            </div>            
         </div>
         <div class="field">
             <div style="width: 200px; float: left">
@@ -182,19 +170,19 @@
         </div>
         <div class="field">
             <div style="width: 200px; float: left">
-                <span class="label" style="width: 110px;"><strong>Site Address:</strong></span>
+                <span class="label" style="width: 110px;"><strong>Address:</strong></span>
             </div>
             <div style="padding-bottom: 5px;">
-                <asp:TextBox ID="tbSiteAddress" runat="server" CssClass="field_txt"></asp:TextBox></div>
+                <asp:TextBox ID="tbAddress" runat="server" CssClass="field_txt"></asp:TextBox></div>
         </div>
         <div>
             <div style="width: 200px; float: left">
-                <span style="width: 100px;"><strong>Order Date:</strong></span>
+                <span style="width: 100px;"><strong>Date:</strong></span>
             </div>
             <div style="float: left;">
                 <span class="label" style="width: 40px; padding-right: 10px; padding-top: 5px; float: left">
                     From:</span>
-                <asp:TextBox runat="server" ID="tbDateFrom" CssClass="field_txt_small"></asp:TextBox>
+                <asp:TextBox runat="server" ID="tbFromDate" CssClass="field_txt_small"></asp:TextBox>
             </div>
             <div>
                 <span class="label" style="width: 25px; padding-right: 10px; padding-left: 10px;
@@ -220,39 +208,19 @@
             </div>
             <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
         </div>
-        <asp:ObjectDataSource ID="odsDepartments" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetDepartmentsByCoId" TypeName="DepartmentTableAdapters.DepartmentSelectCommandTableAdapter">
-            <SelectParameters>
-                <asp:SessionParameter DefaultValue="0" Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="odsDeptOrder" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetSearchResults" TypeName="DepartmentOrderTableAdapters.DepartmentOrderSearchCommandTableAdapter">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="ddlDepartments" DefaultValue="0" Name="dept_id"
-                    PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="tbSiteAddress" DefaultValue="" Name="site_add" PropertyName="Text"
-                    Type="String" />
-                <asp:ControlParameter ControlID="tbOrderRef" Name="ord_ref" PropertyName="Text" Type="String" />
-                <asp:ControlParameter ControlID="tbClientRef" Name="client_ref" PropertyName="Text"
-                    Type="String" DefaultValue="" />
-                <asp:ControlParameter ControlID="tbDateFrom" DefaultValue="" Name="from_date" PropertyName="Text" />
-                <asp:ControlParameter ControlID="tbToDate" Name="to_date" PropertyName="Text" Type="String" />
-                <asp:ControlParameter ControlID="tbPostCode" Name="postal_code" PropertyName="Text"
-                    Type="String" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
         <div class="grid" style="margin-right: 15px;">
+            <asp:EntityDataSource ID="edsProperties" runat="server" ConnectionString="name=SimplicityWebEstateAgentEntities" DefaultContainerName="SimplicityWebEstateAgentEntities" EnableFlattening="False" EntitySetName="PropertyDetails" EntityTypeFilter="PropertyDetail">
+            </asp:EntityDataSource>
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                 CssClass="table_header_result" Style="width: 100%;" AutoGenerateColumns="False"
-                DataKeyNames="sequence" OnRowDeleting="GridView1_RowDeleting" DataSourceID="odsDeptOrder"
-                PageSize="50" OnRowCommand="GridView1_RowCommand">
+                DataKeyNames="sequence" OnRowDeleting="GridView1_RowDeleting"
+                PageSize="50" OnRowCommand="GridView1_RowCommand" DataSourceID="edsProperties">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" ImageUrl="~/Images/icon_edit.png"
-                                    CommandName="EditOrder" CommandArgument='<%# Eval("sequence") %>' AlternateText="Edit" />
+                                    CommandName="EditOrder" CommandArgument='<%# Eval("Sequence") %>' AlternateText="Edit" />
                             </center>
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
@@ -261,11 +229,11 @@
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="ImageButton4" runat="server" CausesValidation="False" ImageUrl="~/Images/icon_cancel.png"
-                                    Visible='<%#!Convert.ToBoolean(Eval("flg_cancelled"))%>' CommandName="CancelOrder"
-                                    CommandArgument='<%# Eval("sequence") %>' AlternateText="Cancel" OnClientClick="return confirm('Are you sure you want to Cancel this order?');" />
+                                    Visible='<%#!Convert.ToBoolean(Eval("FlgDeleted"))%>' CommandName="CancelOrder"
+                                    CommandArgument='<%# Eval("Sequence") %>' AlternateText="Cancel" OnClientClick="return confirm('Are you sure you want to Cancel this order?');" />
                                 <asp:ImageButton ID="ImageButton5" runat="server" CausesValidation="False" ImageUrl="~/Images/un_cancel_order.png"
-                                    Visible='<%#Convert.ToBoolean(Eval("flg_cancelled"))%>' CommandName="UncancelOrder"
-                                    CommandArgument='<%# Eval("sequence") %>' AlternateText="Uncancel" OnClientClick="return confirm('Are you sure you want to Uncancel this order?');" />
+                                    Visible='<%#Convert.ToBoolean(Eval("FlgDeleted"))%>' CommandName="UncancelOrder"
+                                    CommandArgument='<%# Eval("Sequence") %>' AlternateText="Uncancel" OnClientClick="return confirm('Are you sure you want to Uncancel this order?');" />
                             </center>
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
@@ -273,7 +241,7 @@
                     <asp:TemplateField HeaderText="Clone">
                         <ItemTemplate>
                             <center>
-                                <img alt="Clone" src="../Images/icon_clone.png" onclick='showCopyDialog(<%# Eval("sequence")%>)'
+                                <img alt="Clone" src="../Images/icon_clone.png" onclick='showCopyDialog(<%# Eval("Sequence")%>)'
                                     style="cursor: pointer" />
                             </center>
                         </ItemTemplate>
@@ -282,7 +250,7 @@
                     <asp:TemplateField HeaderText="Print">
                         <ItemTemplate>
                             <center>
-                                <asp:HyperLink NavigateUrl='<%#"~/Orders/OrderLog.aspx?deptOrderId=" +  Eval("sequence") %>'
+                                <asp:HyperLink NavigateUrl='<%#"~/Orders/OrderLog.aspx?deptOrderId=" +  Eval("Sequence") %>'
                                     runat="server" Style="text-decoration: none">
                         <img alt="Print" src="../Images/icon_print.png" style="border:0px;" />
                                 </asp:HyperLink>
@@ -290,65 +258,57 @@
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
                     </asp:TemplateField>
-                    <asp:BoundField DataField="order_sms" HeaderText="SMS Reference" SortExpression="order_sms">
-                    </asp:BoundField>
-                    <asp:TemplateField HeaderText="Address" SortExpression="address_post_code">
+                    
+                    <asp:TemplateField HeaderText="Address" SortExpression="AdressPostCode">
                         <ItemTemplate>
-                            <div id="addressText<%# Eval("sequence") %>" onmouseover='showCompleteAddress(<%# Eval("sequence") %>);'
-                                onmouseout='hideCompleteAddress(<%# Eval("sequence") %>);'>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("address_no") %> '></asp:Label>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("address_line1") %> '></asp:Label>
-                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("address_post_code") %>'></asp:Label>
+                            <div id="addressText<%# Eval("Sequence") %>" onmouseover='showCompleteAddress(<%# Eval("Sequence") %>);'
+                                onmouseout='hideCompleteAddress(<%# Eval("Sequence") %>);'>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("AddressNo") %> '></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("AddressLine1") %> '></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("AddressPostCode") %>'></asp:Label>
                             </div>
-                            <div id="addressDetail<%# Eval("sequence") %>" class="addressArea" style="position: absolute;
+                            <div id="addressDetail<%# Eval("Sequence") %>" class="addressArea" style="position: absolute;
                                 display: none; background-color: White; border: solid 1px #000; color: Black;
                                 width: 400px">
                                 <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
-                                    <b>Brief Description of Works</b>
+                                    <b>Property Summary</b>
                                 </div>
                                 <div>
-                                    <%# Eval("desc_of_work")%>
+                                    <%# Eval("PropSummary")%>
                                 </div>
                                 <hr />
                                 <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
                                     <b>Address</b>
                                 </div>
                                 <div>
-                                    <span>House/Flat No:</span><%# Eval("address_no") %></div>
+                                    <span>House/Flat No:</span><%# Eval("AddressNo") %></div>
                                 <div>
                                     <span>Address: </span>
-                                    <%# Eval("address_line1")%>
+                                    <%# Eval("AddressLine1")%>
                                 </div>
                                 <div>
                                     <span></span>
-                                    <%# Eval("address_line2")%>
+                                    <%# Eval("AddressLine2")%>
                                 </div>
                                 <div>
                                     <span></span>
-                                    <%# Eval("address_line3")%>
+                                    <%# Eval("AddressLine3")%>
                                 </div>
                                 <div>
                                     <span></span>
-                                    <%# Eval("address_line4")%>
+                                    <%# Eval("AddressLine4")%>
                                 </div>
                                 <div>
                                     <span></span>
-                                    <%# Eval("address_line5")%>
+                                    <%# Eval("AddressLine5")%>
                                 </div>
                                 <div>
-                                    <span>Postal Code:</span><%# Eval("address_post_code")%></div>
+                                    <span>Postal Code:</span><%# Eval("AddressPostCode")%></div>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="date_order_created" HeaderText="Date Created" SortExpression="date_order_created"
+                    <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated"
                         DataFormatString="{0:dd/MM/yyyy}"></asp:BoundField>
-                    <asp:BoundField DataField="date_order_review" HeaderText="Review Date" SortExpression="date_order_review"
-                        DataFormatString="{0:dd/MM/yyyy}"></asp:BoundField>
-                    <asp:TemplateField HeaderText="Risk Assessments" SortExpression="num_of_risk_assessments">
-                        <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("num_of_risk_assessments") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                 </Columns>
                 <PagerStyle CssClass="grid_pager" />
                 <FooterStyle CssClass="grid_footer" />
@@ -372,7 +332,7 @@
     <script type="text/javascript">
 
         $(function () {
-            $('#<%=tbDateFrom.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
+            $('#<%=tbFromDate.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
             $('#<%=tbToDate.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
         });
     </script>
