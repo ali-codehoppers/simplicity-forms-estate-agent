@@ -165,6 +165,13 @@
             </asp:DropDownList>
         </div>
         <div class="text_field">
+            <%--<asp:HiddenField ID="HiddenField2" runat="server" />--%>
+            <asp:Label ID="lblCategory" runat="server" Text="Category:"></asp:Label><asp:DropDownList
+                CssClass="dropdown_txt" ID="ddlCategory" runat="server"
+                DataTextField="CategoryDesc" DataValueField="Sequence" OnDataBound="ddlCategory_DataBound">
+            </asp:DropDownList>
+        </div>
+        <div class="text_field">
             <span>House/Flat No:</span><asp:TextBox ID="tbAddressNo" CssClass="field_txt" runat="server"></asp:TextBox></div>
         <div class="text_field">
             <span>Address:</span><asp:TextBox ID="tbAddress1" CssClass="field_txt" runat="server"></asp:TextBox></div>

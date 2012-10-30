@@ -20,7 +20,7 @@ public partial class Common_TabControl : System.Web.UI.UserControl
     protected void InitializeComponent()
     {
         menuItems.Add("Main", "AddOrder.aspx");
-        menuItems.Add("Add Room", "AddOrderPeople.aspx");
+        //menuItems.Add("Add Room", "AddOrderPeople.aspx");
             //menuItems.Add("Key Hazards", "AddOrderHazard.aspx");
             //menuItems.Add("Work", "AddOrderSeqOfWoks.aspx");
             //menuItems.Add("Plants & Tools", "AddOrderTool.aspx");
@@ -33,7 +33,7 @@ public partial class Common_TabControl : System.Web.UI.UserControl
         //menuItems.Add("Sig Hazards", "AddOrderSigHazard.aspx");
         //menuItems.Add("Assem Pts", "AddOrderAssemPts.aspx");        
         //menuItems.Add("Measures", "AddOrderCtrlMeasures.aspx");
-        menuItems.Add("Docs", "AddOrderDocuments.aspx");
+        //menuItems.Add("Docs", "AddOrderDocuments.aspx");
         //menuItems.Add("Log", "OrderLog.aspx");
 
         StringBuilder lis = new StringBuilder();

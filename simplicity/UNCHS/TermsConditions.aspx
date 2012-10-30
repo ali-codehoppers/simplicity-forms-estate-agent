@@ -24,28 +24,13 @@
         <div style="margin: auto; width: 839px;">
             
             <div class="terms" style="margin-top:30px">
-                Simplicity for Business H&S Live is a unique document management application that
-                assists you in easily and quickly creating and maintaining your health and safety
-                documents, that are required as part of your Company&#8217;s health and safety policy
-                and procedures.
+                
             </div>
             <div class="terms">
-                Risk Assessments and Method Statements are important tools in protecting both your
-                workers and your business and for supporting you in maintaining safe working practices
-                and should be treated as such. They help you to focus on those risks that have the
-                potential to cause harm. Most of these risks can be readily controlled by straightforward
-                measures.
+                
             </div>
             <div class="terms">
-                Simplicity for Business H&S Live alone cannot ensure the safety of your staff or
-                your business. As an employer, it is your responsibility to assess and manage health
-                and safety risks &#8211; whether you are a large or small business, or a one person
-                operation. Accidents and ill health can ruin lives and damage your business. You
-                are not expected to eliminate all risk, but you are required to protect people as
-                far as is &#8216;reasonably practicable&#8217;. Once you have completed the risk
-                assessment, it is important to put your results into practice. If you need to make
-                a number of improvements, you should produce an action plan to deal with and implement
-                those improvements, starting with the most important actions first.
+                
                 
             </div>
             <div style="width:100%;text-align:center">

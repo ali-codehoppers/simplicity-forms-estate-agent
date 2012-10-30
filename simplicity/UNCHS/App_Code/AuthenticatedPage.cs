@@ -20,7 +20,6 @@ public abstract class AuthenticatedPage : VerifyLoginPage
 		//
 		// TODO: Add constructor logic here
 		//
-        
 	}
     
 

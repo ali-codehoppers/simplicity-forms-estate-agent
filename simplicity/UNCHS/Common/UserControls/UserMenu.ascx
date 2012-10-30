@@ -8,16 +8,18 @@
             <asp:Image runat="server" ID="HomeNodeImage" ImageUrl="~/Images/arrow_left.jpg" />
             <asp:HyperLink runat="server" CssClass="txt_black" ID="HomeNode" NavigateUrl="~/UserHome.aspx">Home</asp:HyperLink>
         </span></li>
-        <li id="red-folder"><span class="txt_black_collapse">Properties List</span>
+        <li id="red-folder"><span class="txt_black_collapse">
+            <%--<asp:Image runat="server" ID="SearchNodeImage" ImageUrl="~/Images/arrow_left.jpg" />--%>
+                    <asp:HyperLink runat="server" CssClass="txt_black" ID="SearchNode" NavigateUrl="~/Orders/SearchOrder.aspx">Properties List</asp:HyperLink></span>
             <ul>
                 <li id="red-createfolder"><span class="txt_black">
                     <asp:Image runat="server" ID="CreateNodeImage" ImageUrl="~/Images/arrow_left.jpg" />
                     <asp:HyperLink runat="server" CssClass="txt_black" ID="CreateNode" NavigateUrl="~/Orders/AddOrder.aspx">Create Address</asp:HyperLink>
                 </span></li>
-                <li id="red-searchfolder"><span class="txt_black">
+                <%--<li id="red-searchfolder"><span class="txt_black">
                     <asp:Image runat="server" ID="SearchNodeImage" ImageUrl="~/Images/arrow_left.jpg" />
                     <asp:HyperLink runat="server" CssClass="txt_black" ID="SearchNode" NavigateUrl="~/Orders/SearchOrder.aspx">Search Properties</asp:HyperLink>
-                </span></li>
+                </span></li>--%>
                 <li id="red-uploadfolder"><span class="txt_black">
                     <asp:Image runat="server" ID="UploadNodeImage" ImageUrl="~/Images/arrow_left.jpg" />
                     <asp:HyperLink runat="server" CssClass="txt_black" ID="UploadNode" NavigateUrl="~/Orders/UploadOrder.aspx">Upload Addresses</asp:HyperLink>
@@ -42,6 +44,21 @@
                         </span></li>
                     </ul>
                 </li>
+
+                <li id="red-categories"><span class="txt_black_collapse">Categories</span>
+                    <ul>
+                        <li id="red-addcategories"><span class="txt_black">
+                            <asp:Image runat="server" ID="CreateCategoryNodeImage" ImageUrl="~/Images/arrow_left.jpg" />
+                            <asp:HyperLink runat="server" CssClass="txt_black" ID="CreateCategoryNode" NavigateUrl="~/Maintenance/AddCategories.aspx">Create Categories</asp:HyperLink>
+                        </span></li>
+                        <li id="red-listcategories"><span class="txt_black">
+                            <asp:Image runat="server" ID="CreateCategoryListNodeImage" ImageUrl="~/Images/arrow_left.jpg" />
+                            <asp:HyperLink runat="server" CssClass="txt_black" ID="CreateCategoryListNode" NavigateUrl="~/Maintenance/CategoriesList.aspx">Categories List</asp:HyperLink>
+                        </span></li>
+                    </ul>
+                </li>
+
+
                 <%--<li id="red-safety"><span class="txt_black_collapse">Safety Method Statement Default</span>
                     <ul>
                         <li id="red-default"><span class="txt_black">

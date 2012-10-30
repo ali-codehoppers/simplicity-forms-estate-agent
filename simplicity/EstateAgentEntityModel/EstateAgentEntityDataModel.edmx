@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SimplicityWebEstateAgentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SimplicityWebEstateAgentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SimplicityWebEstateAgentModelStoreContainer">
           <EntitySet Name="PropertyDetails" EntityType="SimplicityWebEstateAgentModel.Store.PropertyDetails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PropertyFieldCategories" EntityType="SimplicityWebEstateAgentModel.Store.PropertyFieldCategories" store:Type="Tables" Schema="dbo" />
@@ -128,7 +128,7 @@
             <PropertyRef Name="Sequence" />
           </Key>
           <Property Name="CompanySequence" Type="int" />
-          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FlgDeleted" Type="bit" />
           <Property Name="RowIndex" Type="int" />
           <Property Name="CategoryDesc" Type="nvarchar" MaxLength="255" />
@@ -142,7 +142,7 @@
             <PropertyRef Name="Sequence" />
           </Key>
           <Property Name="CompanySequence" Type="int" />
-          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FlgDeleted" Type="bit" />
           <Property Name="RowIndex" Type="int" />
           <Property Name="DepartmentDesc" Type="nvarchar" MaxLength="255" />
@@ -227,8 +227,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SimplicityWebEstateAgentModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -279,11 +278,11 @@
           <Property Name="AddressPostCode" Type="String" MaxLength="9" Unicode="true" FixedLength="false" />
           <Property Name="AddressFull" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="FlgPropertyCodeSet" Type="Boolean" />
-          <Property Name="DatePropertyCodeSet" Type="DateTime" />
+          <Property Name="DatePropertyCodeSet" Type="DateTime" Precision="3" />
           <Property Name="PropertyCode" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
-          <Property Name="DateImported" Type="DateTime" />
+          <Property Name="DateImported" Type="DateTime" Precision="3" />
           <Property Name="FlgExported" Type="Boolean" />
-          <Property Name="DateExported" Type="DateTime" />
+          <Property Name="DateExported" Type="DateTime" Precision="3" />
           <Property Name="PropHeading" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="PropDetailed" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="PropSummary" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -296,9 +295,9 @@
           <Property Name="PropBulletPoint07" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="PropBulletPoint08" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" />
+          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PropertyFieldCategories" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" FromRole="PropertyDetails" ToRole="PropertyFieldCategories" />
           <NavigationProperty Name="PropertyFieldDepartments" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" FromRole="PropertyDetails" ToRole="PropertyFieldDepartments" />
           <NavigationProperty Name="PropertyRooms" Relationship="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" FromRole="PropertyDetails" ToRole="PropertyRooms" />
@@ -312,9 +311,9 @@
           <Property Name="PropertySequence" Type="Int32" />
           <Property Name="CategorySequence" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" />
+          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" FromRole="PropertyFieldCategories" ToRole="PropertyDetails" />
           <NavigationProperty Name="RefCategory" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" FromRole="PropertyFieldCategories" ToRole="RefCategories" />
         </EntityType>
@@ -327,9 +326,9 @@
           <Property Name="PropertySequence" Type="Int32" />
           <Property Name="DepartmentSequence" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" />
+          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" FromRole="PropertyFieldDepartments" ToRole="PropertyDetails" />
           <NavigationProperty Name="RefDepartment" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" FromRole="PropertyFieldDepartments" ToRole="RefDepartments" />
         </EntityType>
@@ -353,9 +352,9 @@
           <Property Name="RoomAspect" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="RoomText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" />
+          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" FromRole="PropertyRooms" ToRole="PropertyDetails" />
         </EntityType>
         <EntityType Name="RefCategory">
@@ -368,9 +367,9 @@
           <Property Name="RowIndex" Type="Int32" />
           <Property Name="CategoryDesc" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" />
+          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PropertyFieldCategories" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" FromRole="RefCategories" ToRole="PropertyFieldCategories" />
         </EntityType>
         <EntityType Name="RefDepartment">
@@ -383,9 +382,9 @@
           <Property Name="RowIndex" Type="Int32" />
           <Property Name="DepartmentDesc" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" />
+          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PropertyFieldDepartments" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" FromRole="RefDepartments" ToRole="PropertyFieldDepartments" />
         </EntityType>
         <EntityType Name="TmpImpPropDesc__Design_TBC_">

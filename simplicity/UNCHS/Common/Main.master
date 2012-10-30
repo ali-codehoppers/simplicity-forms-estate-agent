@@ -206,7 +206,7 @@
                     //document.getElementById("red-folder").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
                     //document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
                 }
-                if ((url.indexOf("AddDepartment.aspx") == -1) && (url.indexOf("DepartmentList.aspx") == -1) && (url.indexOf("DepartmentPersonList.aspx") == -1) && (url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1) && (url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1) && (url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1) && (url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1) && (url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1) && (url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1) && (url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1) && (url.indexOf("DocumentCategoryList.aspx") == -1) && (url.indexOf("SectionList.aspx") == -1) && (url.indexOf("DocumentList.aspx") == -1) && (url.indexOf("SectionDetailList.aspx") == -1) && (url.indexOf("DocumentItemList.aspx") == -1)) {
+                if ((url.indexOf("AddDepartment.aspx") == -1) && (url.indexOf("DepartmentList.aspx") == -1) && (url.indexOf("AddCategories.aspx") == -1) && (url.indexOf("CategoriesList.aspx") == -1) && (url.indexOf("DepartmentPersonList.aspx") == -1) && (url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1) && (url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1) && (url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1) && (url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1) && (url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1) && (url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1) && (url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1) && (url.indexOf("DocumentCategoryList.aspx") == -1) && (url.indexOf("SectionList.aspx") == -1) && (url.indexOf("DocumentList.aspx") == -1) && (url.indexOf("SectionDetailList.aspx") == -1) && (url.indexOf("DocumentItemList.aspx") == -1)) {
                     //document.getElementById("red-settings").setAttribute("class", "expandable");
                     //document.getElementById("red-settings").firstChild.setAttribute("class", "hitarea expandable-hitarea");
                     //document.getElementById("red-settings").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
@@ -217,6 +217,14 @@
                         $("#red-departments").attr("class", "expandable");
                         $("#red-departments").children(":first").attr("class", "hitarea expandable-hitarea");
                         $("#red-departments").find("ul").attr("style", "display:none");
+                        //document.getElementById("red-departments").setAttribute("class", "expandable");
+                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea expandable-hitarea");
+                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
+                    }
+                    if ((url.indexOf("AddCategories.aspx") == -1) && (url.indexOf("CategoriesList.aspx") == -1)) {
+                        $("#red-categories").attr("class", "expandable");
+                        $("#red-categories").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-categories").find("ul").attr("style", "display:none");
                         //document.getElementById("red-departments").setAttribute("class", "expandable");
                         //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea expandable-hitarea");
                         //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
@@ -321,6 +329,18 @@
                         //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
                         //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
                     }
+
+                    if ((url.indexOf("AddCategories.aspx") == -1) && (url.indexOf("CategoriesList.aspx") == -1)) {
+                        $("#red-categories").attr("class", "expandable");
+                        $("#red-categories").children(":first").attr("class", "hitarea expandable-hitarea");
+                        $("#red-categories").find("ul").attr("style", "display:none");
+                    }
+                    else {
+                        $("#red-categories").attr("class", "collapsable");
+                        $("#red-categories").children(":first").attr("class", "hitarea collapsable-hitarea");
+                        $("#red-categories").find("ul").attr("style", "display:block");
+                    }
+
                     if ((url.indexOf("DepartmentPersonList.aspx") == -1) && (url.indexOf("DepartmentPPECategoryList.aspx") == -1) && (url.indexOf("DepartmentPPEList.aspx") == -1) && (url.indexOf("DepartmentHazardCategoryList.aspx") == -1) && (url.indexOf("DepartmentHazardList.aspx") == -1) && (url.indexOf("DepartmentToolCategoryList.aspx") == -1) && (url.indexOf("DepartmentToolList.aspx") == -1) && (url.indexOf("DepartmentWorkCategoryList.aspx") == -1) && (url.indexOf("DepartmentWorkList.aspx") == -1) && (url.indexOf("DepartmentEmergencyCategoryList.aspx") == -1) && (url.indexOf("DepartmentEmergencyList.aspx") == -1) && (url.indexOf("DepartmentRequirementCategoryList.aspx") == -1) && (url.indexOf("DepartmentRequirementList.aspx") == -1) && (url.indexOf("DepartmentAspectCategoryList.aspx") == -1) && (url.indexOf("DepartmentAspectList.aspx") == -1)) {
                         $("#red-safety").attr("class", "expandable");
                         $("#red-safety").children(":first").attr("class", "hitarea expandable-hitarea");

@@ -8,8 +8,13 @@
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-1.8.0.min.js")%>"></script>
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-ui-1.8.23.custom.min.js")%>"></script>
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/css/ui-lightness/jquery-ui-1.8.23.custom.css")%>" />
+
     <script type="text/javascript">
-        var buttonId = null;
+        var buttonContentId = null;
+        var buttonListId = null;
         $(document).ready(function () {
 
             //define config object
@@ -25,16 +30,15 @@
                         $(this).dialog('close');
                     },
                     OK: function () {
-                        var idNum = buttonId;
-                        $("#RoomsList_RoomLengthInMeters_" + idNum).attr("value", $("#LengthInMTextBox").val());
-                        $("#RoomsList_RoomLengthInFeet_" + idNum).attr("value", $("#LengthInFeetTextBox").val());
-                        $("#RoomsList_RoomLengthInInches_" + idNum).attr("value", $("#LengthInInchesTextBox").val());
-                        $("#RoomsList_RoomLengthText_" + idNum).attr("value", $("#LengthTextTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomLengthInMeters").attr("value", $("#LengthInMTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomLengthInFeet").attr("value", $("#LengthInFeetTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomLengthInInches").attr("value", $("#LengthInInchesTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomLengthText").attr("value", $("#LengthTextTextBox").val());
 
-                        $("#RoomsList_RoomWidthInMeters_" + idNum).attr("value", $("#WidthInMTextBox").val());
-                        $("#RoomsList_RoomWidthInFeet_" + idNum).attr("value", $("#WidthInFeetTextBox").val());
-                        $("#RoomsList_RoomWidthInInches_" + idNum).attr("value", $("#WidthInInchesTextBox").val());
-                        $("#RoomsList_RoomWidthText_" + idNum).attr("value", $("#WidthTextTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthInMeters").attr("value", $("#WidthInMTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthInFeet").attr("value", $("#WidthInFeetTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthInInches").attr("value", $("#WidthInInchesTextBox").val());
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthText").attr("value", $("#WidthTextTextBox").val());
 
                         $(this).dialog('close');
                     }
@@ -125,17 +129,19 @@
         });
         function showDimensionDialog(element) {
             var id = element.id;
-            var idNum = id.split('_')[2];
-            buttonId = idNum;
-            $("#LengthInMTextBox").attr("value", $("#RoomsList_RoomLengthInMeters_" + idNum).val());
-            $("#LengthInFeetTextBox").attr("value", $("#RoomsList_RoomLengthInFeet_" + idNum).val());
-            $("#LengthInInchesTextBox").attr("value", $("#RoomsList_RoomLengthInInches_" + idNum).val());
-            $("#LengthTextTextBox").attr("value", $("#RoomsList_RoomLengthText_" + idNum).val());
+            var elementIdSplit = id.split('_');
+            //var idNum = id.split('_')[2];
+            buttonContentId = elementIdSplit[0];
+            buttonListId = elementIdSplit[3];
+            $("#LengthInMTextBox").attr("value", $("#"+elementIdSplit[0]+"_ContentPlaceHolder_RoomsList_"+elementIdSplit[3]+"_RoomLengthInMeters").val());
+            $("#LengthInFeetTextBox").attr("value", $("#" + elementIdSplit[0] + "_ContentPlaceHolder_RoomsList_" + elementIdSplit[3] + "_RoomLengthInFeet").val());
+            $("#LengthInInchesTextBox").attr("value", $("#" + elementIdSplit[0] + "_ContentPlaceHolder_RoomsList_" + elementIdSplit[3] + "_RoomLengthInInches").val());
+            $("#LengthTextTextBox").attr("value", $("#" + elementIdSplit[0] + "_ContentPlaceHolder_RoomsList_" + elementIdSplit[3] + "_RoomLengthText").val());
 
-            $("#WidthInMTextBox").attr("value", $("#RoomsList_RoomWidthInMeters_" + idNum).val());
-            $("#WidthInFeetTextBox").attr("value", $("#RoomsList_RoomWidthInFeet_" + idNum).val());
-            $("#WidthInInchesTextBox").attr("value", $("#RoomsList_RoomWidthInInches_" + idNum).val());
-            $("#WidthTextTextBox").attr("value", $("#RoomsList_RoomWidthText_" + idNum).val());
+            $("#WidthInMTextBox").attr("value", $("#" + elementIdSplit[0] + "_ContentPlaceHolder_RoomsList_" + elementIdSplit[3] + "_RoomWidthInMeters").val());
+            $("#WidthInFeetTextBox").attr("value", $("#" + elementIdSplit[0] + "_ContentPlaceHolder_RoomsList_" + elementIdSplit[3] + "_RoomWidthInFeet").val());
+            $("#WidthInInchesTextBox").attr("value", $("#" + elementIdSplit[0] + "_ContentPlaceHolder_RoomsList_" + elementIdSplit[3] + "_RoomWidthInInches").val());
+            $("#WidthTextTextBox").attr("value", $("#" + elementIdSplit[0] + "_ContentPlaceHolder_RoomsList_" + elementIdSplit[3] + "_RoomWidthText").val());
 
             $("#DimensionDialogId").dialog("open");
             return false;
@@ -337,5 +343,20 @@
         </div>
         <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/right_bottom.gif" alt=""
             Width="15" Height="14" />
+    </div>
+
+
+    <div id="DimensionDialogId" style="background-color:#D3E2FF">
+        <center><h1>Room Dimensions</h1></center>
+        <div>
+            <h3>Length </h3><input type="text" id="LengthInMTextBox" style="width:50px;" />
+            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
+            <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="LengthTextTextBox"  />
+        </div>
+        <div>
+            <h3 style="margin-right:9px">Width </h3><input type="text" id="WidthInMTextBox" style="width:50px;" />
+            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
+            <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="WidthTextTextBox"  />
+        </div>
     </div>
 </asp:Content>

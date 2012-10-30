@@ -39,11 +39,11 @@
     <div style="background-color: White; padding: 15px 10px 25px 10px">
         <div class="ddl_field" style="padding-bottom:5px;">
             <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
-            <asp:DropDownList ID="ddlCompany" runat="server" DataSourceID="odsCompanies" DataTextField="co_name_short"  CssClass="dropdown_txt"
-                DataValueField="co_id">
+            <asp:DropDownList ID="ddlCompany" runat="server" DataTextField="Name"  CssClass="dropdown_txt"
+                DataValueField="CompanyID">
             </asp:DropDownList>
         </div>
-        <div class="text_field" style="padding-bottom:5px;">
+        <%--<div class="text_field" style="padding-bottom:5px;">
             <div style="float: left; width: 200px;">
                 <span>Department Name Short:</span>
             </div>
@@ -112,12 +112,12 @@
             <span>Email:</span></div><asp:TextBox ID="txtEmail" runat="server" CssClass="field_txt"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail"
                 ErrorMessage="*Enter a valid email address." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-        </div>
+        </div>--%>
         <div class="text_field" style="padding-bottom:5px;">
             <div style="float:left; width:200px;">
-                        <span>Notes:</span>
+                        <span>Department Description:</span>
             </div>
-                        <asp:TextBox ID="txtCoNotes" runat="server" Rows="5" CssClass="text_area" TextMode="MultiLine" style="width:300px"></asp:TextBox>
+                        <asp:TextBox ID="txtDeptDescription" runat="server" Rows="5" CssClass="text_area" TextMode="MultiLine" style="width:300px"></asp:TextBox>
 
         </div>
         <div class="button_bar">
@@ -131,12 +131,11 @@
             
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             
-            
          </div>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-        <asp:ObjectDataSource ID="odsCompanies" runat="server" OldValuesParameterFormatString="original_{0}"
+        <%--<asp:ObjectDataSource ID="odsCompanies" runat="server" OldValuesParameterFormatString="original_{0}"
             SelectMethod="GetAllCompanies" TypeName="CompanyTableAdapters.un_co_detailsTableAdapter">
-        </asp:ObjectDataSource>
+        </asp:ObjectDataSource>--%>
     </div>
     <div style="float: left; width: 100%">
         <div class="floatLeft">
