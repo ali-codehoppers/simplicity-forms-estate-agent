@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Linq;
 using System.Configuration;
@@ -13,9 +13,8 @@ using System.Text;
 using EstateAgentEntityModel;
 using System.Collections.Generic;
 
-public partial class Maintenance_AddDepartment : AuthenticatedPage
+public partial class Maintenance_AddCategories : AuthenticatedPage
 {
-    //DataTable dt;
     int dept_id;
     override protected void Page_Load_Extended(object sender, EventArgs e)
     {
@@ -30,22 +29,22 @@ public partial class Maintenance_AddDepartment : AuthenticatedPage
             lblCompany.Visible = false;
             ddlCompany.Visible = false;
         }
-        if (Request[WebConstants.Request.NO_DEPT] != null)
+        if (Request[WebConstants.Request.NO_CATEGORY] != null)//to do
         {
-            SetErrorMessage(WebConstants.Messages.Error.NO_DEPT_DEFINED);
+            SetErrorMessage(WebConstants.Messages.Error.NO_CATEGORY_DEFINED);
         }
-        if (Request[WebConstants.Request.DEPT_ID] != null)
+        if (Request[WebConstants.Request.CATEGORY_ID] != null)
         {
             if (IsPostBack == false)
             {
                 SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
-                int deptId = int.Parse(Request[WebConstants.Request.DEPT_ID]);
-                EstateAgentEntityModel.RefDepartment department = estateAgentDB.RefDepartments.SingleOrDefault(dept => dept.Sequence == deptId);
-                if (department != null)
+                int categId = int.Parse(Request[WebConstants.Request.CATEGORY_ID]);
+                EstateAgentEntityModel.RefCategory category = estateAgentDB.RefCategories.SingleOrDefault(categ => categ.Sequence == categId);
+                if (category != null)
                 {
-                    ddlCompany.SelectedValue = department.CompanySequence.ToString();
+                    ddlCompany.SelectedValue = category.CompanySequence.ToString();
                     ddlCompany.Enabled = false;
-                    txtDeptDescription.Text = department.DepartmentDesc;
+                    txtCategoryDescription.Text = category.CategoryDesc;
                     btnUpdate.Visible = true;
                     btnSave.Visible = false;
                 }
@@ -61,29 +60,25 @@ public partial class Maintenance_AddDepartment : AuthenticatedPage
             btnSave.Visible = true;
         }
     }
+
     protected void btnSave_Update_Click(object sender, EventArgs e)
     {
     }
-    //private DataTable getDepartment(int departmentId)
-    //{
-    //    DepartmentTableAdapters.DepartmentSelectCommandTableAdapter tableAdapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-    //    DataTable dt = tableAdapter.GetDepartmentByDeptId(departmentId);
-    //    return dt;
-    //}
+
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         try
         {
             SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
-            int deptId = int.Parse(Request[WebConstants.Request.DEPT_ID]);
-            EstateAgentEntityModel.RefDepartment department = estateAgentDB.RefDepartments.SingleOrDefault(dept => dept.Sequence == deptId);
+            int categoryId = int.Parse(Request[WebConstants.Request.CATEGORY_ID]);
+            EstateAgentEntityModel.RefCategory category = estateAgentDB.RefCategories.SingleOrDefault(categ => categ.Sequence == categoryId);
 
-            department.DateLastAmended = System.DateTime.Now;
-            department.LastAmendedBy = loggedInUserId;
-            department.DepartmentDesc = txtDeptDescription.Text;
+            category.DateLastAmended = System.DateTime.Now;
+            category.LastAmendedBy = loggedInUserId;
+            category.CategoryDesc = txtCategoryDescription.Text;
 
             estateAgentDB.SaveChanges();
-            Response.Redirect("DepartmentList.aspx");
+            Response.Redirect("CategoriesList.aspx");
         }
         catch
         {
@@ -95,22 +90,22 @@ public partial class Maintenance_AddDepartment : AuthenticatedPage
         try
         {
             SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
-            EstateAgentEntityModel.RefDepartment department = new RefDepartment();
+            EstateAgentEntityModel.RefCategory category = new RefCategory();
 
-            department.CompanySequence = loggedInUserCoId;
-            department.CreatedBy = loggedInUserId;
-            department.DateCreated = System.DateTime.Now;
-            department.LastAmendedBy = loggedInUserId;
-            department.DateLastAmended = System.DateTime.Now;
-            department.DepartmentDesc = txtDeptDescription.Text;
-            department.FlgDeleted = false;
-            
-            IEnumerable<EstateAgentEntityModel.RefDepartment> departments = (from dept in estateAgentDB.RefDepartments where dept.CompanySequence == loggedInUserCoId select dept);
-            department.RowIndex = (departments.Count()+1);
+            category.CompanySequence = loggedInUserCoId;
+            category.CreatedBy = loggedInUserId;
+            category.DateCreated = System.DateTime.Now;
+            category.LastAmendedBy = loggedInUserId;
+            category.DateLastAmended = System.DateTime.Now;
+            category.CategoryDesc = txtCategoryDescription.Text;
+            category.FlgDeleted = false;
 
-            estateAgentDB.RefDepartments.AddObject(department);
+            IEnumerable<EstateAgentEntityModel.RefCategory> categories = (from categ in estateAgentDB.RefCategories where categ.CompanySequence == loggedInUserCoId select categ);
+            category.RowIndex = (categories.Count() + 1);
+
+            estateAgentDB.RefCategories.AddObject(category);
             estateAgentDB.SaveChanges();
-            Response.Redirect("DepartmentList.aspx");
+            Response.Redirect("CategoriesList.aspx");
 
             //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter dep_Adapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
             //DataTable dt = dep_Adapter.GetDepartmentByShortName(txtCompanyShortName.Text, loggedInUserCoId);
@@ -125,18 +120,17 @@ public partial class Maintenance_AddDepartment : AuthenticatedPage
             //    {
             //        coId = loggedInUserCoId;
             //    }
-                
+
             //}
             //else
             //{
             //    SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
             //}
         }
-        catch(Exception exc)
+        catch (Exception exc)
         {
             SetErrorMessage(WebConstants.Messages.Error.CONNECTION_ERROR);
         }
 
     }
-
 }

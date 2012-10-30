@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SimplicityWebEstateAgentModelStoreContainer" CdmEntityContainer="SimplicityWebEstateAgentEntities">
+    <EntitySetMapping Name="PropertyDetails">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyDetail">
+        <MappingFragment StoreEntitySet="PropertyDetails">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
+          <ScalarProperty Name="ValuationCode" ColumnName="ValuationCode" />
+          <ScalarProperty Name="AddressNo" ColumnName="AddressNo" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+          <ScalarProperty Name="AddressLine4" ColumnName="AddressLine4" />
+          <ScalarProperty Name="AddressLine5" ColumnName="AddressLine5" />
+          <ScalarProperty Name="AddressPostCode" ColumnName="AddressPostCode" />
+          <ScalarProperty Name="AddressFull" ColumnName="AddressFull" />
+          <ScalarProperty Name="FlgPropertyCodeSet" ColumnName="FlgPropertyCodeSet" />
+          <ScalarProperty Name="DatePropertyCodeSet" ColumnName="DatePropertyCodeSet" />
+          <ScalarProperty Name="PropertyCode" ColumnName="PropertyCode" />
+          <ScalarProperty Name="DateImported" ColumnName="DateImported" />
+          <ScalarProperty Name="FlgExported" ColumnName="FlgExported" />
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="PropHeading" ColumnName="PropHeading" />
+          <ScalarProperty Name="PropDetailed" ColumnName="PropDetailed" />
+          <ScalarProperty Name="PropSummary" ColumnName="PropSummary" />
+          <ScalarProperty Name="PropBulletPoint01" ColumnName="PropBulletPoint01" />
+          <ScalarProperty Name="PropBulletPoint02" ColumnName="PropBulletPoint02" />
+          <ScalarProperty Name="PropBulletPoint03" ColumnName="PropBulletPoint03" />
+          <ScalarProperty Name="PropBulletPoint04" ColumnName="PropBulletPoint04" />
+          <ScalarProperty Name="PropBulletPoint05" ColumnName="PropBulletPoint05" />
+          <ScalarProperty Name="PropBulletPoint06" ColumnName="PropBulletPoint06" />
+          <ScalarProperty Name="PropBulletPoint07" ColumnName="PropBulletPoint07" />
+          <ScalarProperty Name="PropBulletPoint08" ColumnName="PropBulletPoint08" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+          <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyFieldCategories">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyFieldCategory">
+        <MappingFragment StoreEntitySet="PropertyFieldCategories">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
+          <ScalarProperty Name="CategorySequence" ColumnName="CategorySequence" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+          <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyFieldDepartments">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyFieldDepartment">
+        <MappingFragment StoreEntitySet="PropertyFieldDepartments">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
+          <ScalarProperty Name="DepartmentSequence" ColumnName="DepartmentSequence" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+          <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyRooms">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyRoom">
+        <MappingFragment StoreEntitySet="PropertyRooms">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
+          <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+          <ScalarProperty Name="RoomHeading" ColumnName="RoomHeading" />
+          <ScalarProperty Name="RoomLengthM" ColumnName="RoomLengthM" />
+          <ScalarProperty Name="RoomLengthFt" ColumnName="RoomLengthFt" />
+          <ScalarProperty Name="RoomLengthIn" ColumnName="RoomLengthIn" />
+          <ScalarProperty Name="RoomLengthText" ColumnName="RoomLengthText" />
+          <ScalarProperty Name="RoomWidthM" ColumnName="RoomWidthM" />
+          <ScalarProperty Name="RoomWidthFt" ColumnName="RoomWidthFt" />
+          <ScalarProperty Name="RoomWidthIn" ColumnName="RoomWidthIn" />
+          <ScalarProperty Name="RoomWidthText" ColumnName="RoomWidthText" />
+          <ScalarProperty Name="RoomAspect" ColumnName="RoomAspect" />
+          <ScalarProperty Name="RoomText" ColumnName="RoomText" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+          <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefCategories">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.RefCategory">
+        <MappingFragment StoreEntitySet="RefCategories">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
+          <ScalarProperty Name="RowIndex" ColumnName="RowIndex" />
+          <ScalarProperty Name="CategoryDesc" ColumnName="CategoryDesc" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+          <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefDepartments">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.RefDepartment">
+        <MappingFragment StoreEntitySet="RefDepartments">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
+          <ScalarProperty Name="RowIndex" ColumnName="RowIndex" />
+          <ScalarProperty Name="DepartmentDesc" ColumnName="DepartmentDesc" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+          <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TmpImpPropDesc__Design_TBC_">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.TmpImpPropDesc__Design_TBC_">
+        <MappingFragment StoreEntitySet="TmpImpPropDesc (Design TBC)">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="ImpCode" ColumnName="ImpCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TmpImpPropRooms__Design_TBC_">
+      <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.TmpImpPropRooms__Design_TBC_">
+        <MappingFragment StoreEntitySet="TmpImpPropRooms (Design TBC)">
+          <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="ImpCode" ColumnName="ImpCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

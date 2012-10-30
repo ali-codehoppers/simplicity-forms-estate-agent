@@ -99,6 +99,7 @@ public static class WebConstants
             public static string SELECT_ATLEAST_ONE_DOCTYPE = "Atleast one Document Type must be selected.";
             public static string DOC_NOT_GENERATED = "Document could not be generated.";
             public static string NO_DEPT_DEFINED = "No department defined in the system. Atleast one department must be defined.";
+            public static string NO_CATEGORY_DEFINED = "No category defined in the system. Atleast one category must be defined.";
             public static string INVALID_CACHE = "You have been logged out because you logged in from another machine";
             public static string PASSWORDS_DONOT_MATCH = "The passwords that you have entered do not match";
         }
@@ -111,11 +112,13 @@ public static class WebConstants
         public static string DEPT_PERSON_ID = "deptPersonId";
         public static string ACTION = "action";
         public static string DEPT_ID = "depId";
+        public static string CATEGORY_ID = "categoryId";
         public static string ERROR_MSG = "errorMsg";
         public static string INFO_MSG = "infoMsg";
         public static string PROPERTY_ORDER_ID = "propertyId";
         public static string DEPT_ORDER_ID = "deptOrderId";
         public static string NO_DEPT = "noDept";
+        public static string NO_CATEGORY = "noCategory";
         public static string SEC_ID = "secId";
         public static string DOC_ID = "docId";
         public static string DOC_TYPE_ID = "docTypeId";

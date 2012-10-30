@@ -213,15 +213,15 @@
         float: left; width: 97.65%">
         <div class="RoomPanel">
 
-                <input type="hidden" id="RoomLengthInMeters" runat="server" />
-                <input type="hidden" id="RoomLengthInFeet" runat="server" />
-                <input type="hidden" id="RoomLengthInInches" runat="server" />
-                <input type="hidden" id="RoomLengthText" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomLengthInMeters" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomLengthInFeet" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomLengthInInches" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomLengthText" runat="server" />
 
-                <input type="hidden" id="RoomWidthInMeters" runat="server" />
-                <input type="hidden" id="RoomWidthInFeet" runat="server" />
-                <input type="hidden" id="RoomWidthInInches" runat="server" />
-                <input type="hidden" id="RoomWidthText" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomWidthInMeters" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomWidthInFeet" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomWidthInInches" runat="server" />
+                <input type="hidden" clientidmode="Static" id="RoomWidthText" runat="server" />
 
                 <div class="column1">
 				    <div>
@@ -266,25 +266,20 @@
 			    </div>
             </div>
             &nbsp;
-        </div>
+        <div style="clear:both;"></div>
         <div class="button_bar">
             <div class="button_right" style="padding-left: 340px;">
                 <div style="float: left">
-                    <asp:Image runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                     <asp:LinkButton ID="SaveRoomButton" runat="server" OnClick="SaveNewRoomDetails" CssClass="txt_white">Save</asp:LinkButton>
                 </div>
-                <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
         </div>
-       
-        <div class="button_right" style="float: left; padding-left: 340px; padding-top: 20px">
-            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/btn_pre.jpg" />
         </div>
-        <div class="button_right" style="padding-top: 20px">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/btn_next.jpg" />
-        </div>
+        
     <div style="float: left; width: 100%">
         <div style="float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/left_bottom.gif" alt=""
@@ -297,14 +292,16 @@
 
     <div id="DimensionDialogId" style="background-color:#D3E2FF">
         <center><h1>Room Dimensions</h1></center>
-
-        <h3>Length </h3><input type="text" id="LengthInMTextBox" style="width:50px;" />
-        <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-        <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="LengthTextTextBox"  />
-
-        <h3 style="margin-right:9px">Width </h3><input type="text" id="WidthInMTextBox" style="width:50px;" />
-        <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-        <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="WidthTextTextBox"  />
+        <div>
+            <h3>Length </h3><input type="text" id="LengthInMTextBox" style="width:50px;" />
+            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
+            <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="LengthTextTextBox"  />
+        </div>
+        <div>
+            <h3 style="margin-right:9px">Width </h3><input type="text" id="WidthInMTextBox" style="width:50px;" />
+            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
+            <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="WidthTextTextBox"  />
+        </div>
     </div>
 
 </asp:Content>

@@ -210,10 +210,10 @@ public partial class Orders_AddOrderPeople : RoomDetailPage
             }
             catch (Exception exc)
             {
-                Response.Redirect("~/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + property.Sequence + "&" + WebConstants.Request.ERROR + "=invalid room id: " + roomSeqNo.Value);
+                Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + property.Sequence + "&" + WebConstants.Request.ERROR + "=invalid room id: " + roomSeqNo.Value);
             }
         }
-        Response.Redirect("~/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + property.Sequence);
+        Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + property.Sequence);
     }
 
     protected void AddNewRoom(object sender, EventArgs e)

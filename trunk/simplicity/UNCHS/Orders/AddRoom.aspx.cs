@@ -82,15 +82,15 @@ public partial class Order_AddRoom : RoomDetailPage
     }
 
 
-    protected void btnBack_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + Request[WebConstants.Request.PROPERTY_ORDER_ID]);
-    }
-    protected void btnNext_Click(object sender, EventArgs e)
-    {
-        //if (Save())
-        {
-            Response.Redirect("~/Orders/AddOrderHazard.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + Request[WebConstants.Request.DEPT_ORDER_ID]);
-        }
-    }
+    //protected void btnBack_Click(object sender, EventArgs e)
+    //{
+    //    Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + Request[WebConstants.Request.PROPERTY_ORDER_ID]);
+    //}
+    //protected void btnNext_Click(object sender, EventArgs e)
+    //{
+    //    //if (Save())
+    //    {
+    //        Response.Redirect("~/Orders/AddOrderHazard.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + Request[WebConstants.Request.DEPT_ORDER_ID]);
+    //    }
+    //}
 }
