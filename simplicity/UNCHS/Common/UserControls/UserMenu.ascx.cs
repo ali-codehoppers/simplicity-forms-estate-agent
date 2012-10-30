@@ -12,9 +12,9 @@ using System.Web.UI.HtmlControls;
 public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
 {
     private String urlString;
-    private String[] order = { "AddOrder.aspx", "AddOrderPeople.aspx", "AddOrderHazard.aspx", "AddOrderSeqOfWoks.aspx", "AddOrderTool.aspx", "AddOrderPPE.aspx", "AddOrderEmergencyExits.aspx", "AddOrderRequirements.aspx", "AddOrderKeyAspects.aspx", "AddOrderRiskAssessments.aspx", "AddOrderDocuments.aspx", "OrderLog.aspx" };
-    private String[] section = { "SectionList.aspx","SectionDetailList.aspx" };
-    private String[] document = { "DocumentList.aspx", "DocumentItemList.aspx" };    
+    private String[] order = { "AddOrder.aspx", "AddOrderPeople.aspx" };
+    //private String[] section = { "SectionList.aspx","SectionDetailList.aspx" };
+    //private String[] document = { "DocumentList.aspx", "DocumentItemList.aspx" };    
     protected void Page_Load(object sender, EventArgs e)
     {
         urlString = Request.Url.ToString();
@@ -32,10 +32,12 @@ public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
         }
         
         //SearchNode.CssClass = SelectClass("SearchOrder.aspx", SearchNodeImage);
-        UploadNode.CssClass = SelectClass("UploadOrder.aspx", UploadNodeImage);
+        //UploadNode.CssClass = SelectClass("UploadOrder.aspx", UploadNodeImage);
         //SignageNode.CssClass = SelectClass("GenerateSignage.aspx", SignageNodeImage);
         CreateDeptNode.CssClass = SelectClass("AddDepartment.aspx",CreateDeptNodeImage);
         CreateDeptListNode.CssClass = SelectClass("DepartmentList.aspx",CreateDeptListNodeImage);
+        CreateCategoryNode.CssClass = SelectClass("AddCategories.aspx", CreateCategoryNodeImage);
+        CreateCategoryListNode.CssClass = SelectClass("CategoriesList.aspx", CreateCategoryListNodeImage);
         //DefaultListNode.CssClass = SelectClass("DepartmentPersonList.aspx",DefaultListNodeImage);
         //PPENode.CssClass=SelectClass("DepartmentPPECategoryList.aspx",PPENodeImage);
         //PPEListNode.CssClass = SelectClass("DepartmentPPEList.aspx",PPEListNodeImage);

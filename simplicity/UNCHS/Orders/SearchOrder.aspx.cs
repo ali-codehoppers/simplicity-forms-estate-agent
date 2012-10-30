@@ -224,6 +224,12 @@ public partial class Orders_SearchOrder : AuthenticatedPage
     {
         GridView1.DataBind();
     }
+
+    protected void btnCreate_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Orders/AddOrder.aspx");
+    }
+
     protected void DeleteDepartmentOrder(int deptOrderId)
     {
         /*

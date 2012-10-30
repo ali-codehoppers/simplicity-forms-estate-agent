@@ -79,7 +79,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 240px">
+    <div style="background-color: White; padding: 15px 10px 70px 10px; min-height: 240px">
         <div id="copyDialog" style="display: none">
             <div class="hd">
                 Enter the Address for new folder:</div>
@@ -238,7 +238,7 @@
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Clone">
+                    <asp:TemplateField HeaderText="(Delete)">
                         <ItemTemplate>
                             <center>
                                 <img alt="Clone" src="../Images/icon_clone.png" onclick='showCopyDialog(<%# Eval("Sequence")%>)'
@@ -258,7 +258,9 @@
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
                     </asp:TemplateField>
-                    
+
+                    <asp:BoundField DataField="ValuationCode" HeaderText="Valuation Code"> </asp:BoundField>
+
                     <asp:TemplateField HeaderText="Address" SortExpression="AdressPostCode">
                         <ItemTemplate>
                             <div id="addressText<%# Eval("Sequence") %>" onmouseover='showCompleteAddress(<%# Eval("Sequence") %>);'
@@ -318,6 +320,18 @@
                 <RowStyle CssClass="grid_row" />
                 <PagerSettings PageButtonCount="100" />
             </asp:GridView>
+        </div>
+        <div class="button_bar">
+            <div style="float: left; display: block">
+                &nbsp;
+            </div>
+            <div style="float: left;">
+                <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+            </div>
+            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                <asp:LinkButton ID="CreateNewPropertyButton" runat="server" OnClick="btnCreate_Click" CssClass="txt_white">Create</asp:LinkButton>
+            </div>
+            <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
         </div>
     </div>
     <div style="float: left; width: 100%;">
