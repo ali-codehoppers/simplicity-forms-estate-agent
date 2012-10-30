@@ -19,7 +19,7 @@
             <div style="float: left">
                 <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
             <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
-                Upload H&amp;S Folder<br />
+                Upload E&amp;A Folder<br />
             </div>
             <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
         </div>
@@ -34,8 +34,20 @@
                
                 </asp:Label></div>
             <asp:DropDownList ID="ddlDepartments" runat="server" CssClass="dropdown_txt" AppendDataBoundItems="True"
-                DataSourceID="odsDepartments" DataTextField="co_name_short" DataValueField="dept_id"
+                DataTextField="DepartmentDesc" DataValueField="Sequence"
                 OnDataBound="ddlDepartments_DataBound">
+            </asp:DropDownList>
+            &nbsp;
+        </div>
+        <div class="field">
+            <div style="float: left; width: 200px;">
+                <asp:Label ID="lblCategory" runat="server" CssClass="label" Style="font-weight: bold"
+                    Text="Category:">
+               
+                </asp:Label></div>
+            <asp:DropDownList ID="ddlCategory" runat="server" CssClass="dropdown_txt" AppendDataBoundItems="True"
+                DataTextField="CategoryDesc" DataValueField="Sequence"
+                OnDataBound="ddlCategories_DataBound">
             </asp:DropDownList>
             &nbsp;
         </div>
@@ -75,12 +87,12 @@
                 </tr>
             </table>
         </div>
-        <asp:ObjectDataSource ID="odsDepartments" runat="server" OldValuesParameterFormatString="original_{0}"
+        <%--<asp:ObjectDataSource ID="odsDepartments" runat="server" OldValuesParameterFormatString="original_{0}"
             SelectMethod="GetDepartmentsByCoId" TypeName="DepartmentTableAdapters.DepartmentSelectCommandTableAdapter">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="0" Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
             </SelectParameters>
-        </asp:ObjectDataSource>
+        </asp:ObjectDataSource>--%>
     </div>
     <div style="float: left; width: 100%">
         <div style="float: left">
