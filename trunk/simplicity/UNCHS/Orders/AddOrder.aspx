@@ -303,7 +303,7 @@
             Width="15" Height="14" />
     </div>
     <script type="text/javascript">
-        document.getElementById("ctl00_ContentPlaceHolder_tbOrderSMS").disabled = true;
+        
         $(function () {
             //$('#<%//=tbReviewDate.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
             //$('#<%//=dtCreated.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });

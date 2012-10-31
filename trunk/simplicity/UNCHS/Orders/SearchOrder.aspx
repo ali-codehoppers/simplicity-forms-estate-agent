@@ -153,7 +153,7 @@
                 </div>
             </div>
         </div>
-        <div class="field">
+        <%--<div class="field">
             <div style="width: 200px; float: left">
                 <span class="label" style="width: 110px;"><strong>Valuation Code:</strong></span>
             </div>
@@ -207,7 +207,68 @@
                 <asp:LinkButton ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="txt_white">Search</asp:LinkButton>
             </div>
             <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+        </div>--%>
+
+        <div class="field" style="height:70px; width:98%;">
+            <div style="width: 110px; height:50px; padding-bottom:5px; display:inline-block; float:left;">
+                <div style="height:25px; padding-bottom:5px;">
+                    <span class="label" style="height:24px; font-size:larger;"><strong>Valuation Code:</strong></span>
+                </div>
+                <div style="height:25px;">
+                    <span class="label" style="height:24px;">Address:</span>
+                </div>
+            </div>
+            <div style="height:50px; width:270px; padding-bottom:5px; display:inline-block; float:left;">
+                <div style="height:25px; padding-bottom:5px;">
+                    <asp:TextBox ID="tbValuationCode" runat="server" CssClass="field_txt" style="width:260px;"></asp:TextBox>
+                </div>
+                <div style="height:25px;">
+                    <asp:TextBox ID="tbAddress" runat="server" CssClass="field_txt" style="width:260px;"></asp:TextBox>
+                </div>
+            </div>
+
+            <div style="width: 80px; height:50px; padding-bottom:5px; display:inline-block; float:left; padding-left:70px;">
+                <div style="height:25px; padding-bottom:5px;">
+                    <span class="label" style="width: 40px; padding-right: 10px; padding-top: 5px;">Date:</span>
+                    <span class="label" style="width: 40px; padding-right: 10px; padding-top: 5px;">From:</span>
+                </div>
+                <div style="height:25px;">
+                    <span class="label" style="width: 110px;">Post Code:</span>
+                </div>
+            </div>
+
+            <div style="width: 110px; height:50px; padding-bottom:5px; display:inline-block; float:left;">
+                <div style="height:25px; padding-bottom:5px;">
+                    <asp:TextBox runat="server" ID="tbFromDate" CssClass="field_txt_small"></asp:TextBox>
+                </div>
+                <div style="height:25px; padding-bottom:5px;">
+                    <asp:TextBox ID="tbPostCode" runat="server" CssClass="field_txt_small"></asp:TextBox>
+                </div>
+            </div>
+
+            <div style="width: 50px; height:50px; padding-bottom:5px; display:inline-block; float:left;">
+                <div style="height:25px; float:right;">
+                    <span class="label" style="width: 25px; padding-left: 10px;">To:</span>
+                </div>
+            </div>
+
+            <div style="width: 110px; height:50px; padding-bottom:5px; display:inline-block; float:right;">
+                <div style="height:25px; float:right; padding-bottom:5px;">
+                    <asp:TextBox runat="server" ID="tbToDate" CssClass="field_txt_small"></asp:TextBox>
+                </div>
+                <div style="height:25px; float:right;">
+                    <div style="float: left;">
+                        <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                    </div>
+                    <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                        <asp:LinkButton ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="txt_white">Search</asp:LinkButton>
+                    </div>
+                    <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+                </div>
+            </div>
+            <div style="clear:both;"></div>
         </div>
+
         <div class="grid" style="margin-right: 15px;">
             <asp:EntityDataSource ID="edsProperties" runat="server" ConnectionString="name=SimplicityWebEstateAgentEntities" DefaultContainerName="SimplicityWebEstateAgentEntities" EnableFlattening="False" EntitySetName="PropertyDetails" EntityTypeFilter="PropertyDetail">
             </asp:EntityDataSource>
@@ -225,7 +286,7 @@
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Cancel">
+                    <asp:TemplateField HeaderText="(Delete)">
                         <ItemTemplate>
                             <center>
                                 <asp:ImageButton ID="ImageButton4" runat="server" CausesValidation="False" ImageUrl="~/Images/icon_cancel.png"
@@ -238,7 +299,7 @@
                         </ItemTemplate>
                         <HeaderStyle Width="45px" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="(Delete)">
+                    <asp:TemplateField HeaderText="Clone">
                         <ItemTemplate>
                             <center>
                                 <img alt="Clone" src="../Images/icon_clone.png" onclick='showCopyDialog(<%# Eval("Sequence")%>)'

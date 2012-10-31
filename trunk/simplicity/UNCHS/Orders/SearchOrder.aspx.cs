@@ -21,7 +21,14 @@ public partial class Orders_SearchOrder : AuthenticatedPage
     SimplicityWebEstateAgentEntities db = new SimplicityWebEstateAgentEntities();
     protected override void Page_Load_Extended(object sender, EventArgs e)
     {
+        if (tbFromDate.Text == "" && tbToDate.Text == "")
+        {
+            DateTime temp = DateTime.Now.AddMonths(-1);
+            tbToDate.Text = System.DateTime.Now.Day + "/" + System.DateTime.Now.Month + "/" + System.DateTime.Now.Year;
+            tbFromDate.Text = temp.Day + "/" + temp.Month + "/" + temp.Year;
+        }
         SetWhereClause();
+        GridView1.Sort("DateCreated", SortDirection.Descending);
     }
     
 

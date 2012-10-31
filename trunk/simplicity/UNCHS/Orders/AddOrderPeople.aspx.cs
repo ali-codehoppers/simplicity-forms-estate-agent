@@ -24,7 +24,7 @@ public partial class Orders_AddOrderPeople : RoomDetailPage
             {
                 //Property property = entity.Properties1.SingleOrDefault(c => c.Sequence == propertyId);
                 //PropertyHeadingTextBox.Text = property.PropHeading;
-                RoomsList.DataSource = property.PropertyRooms;
+                RoomsList.DataSource = property.PropertyRooms.OrderBy(rooms => rooms.RoomNo) ;
                 RoomsList.DataBind();
             }
         }

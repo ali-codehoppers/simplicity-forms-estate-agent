@@ -8,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
     
-    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-1.8.0.min.js")%>"></script>
+    <%--<script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-1.8.0.min.js")%>"></script>
 	<script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-ui-1.8.23.custom.min.js")%>"></script>
-    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/css/ui-lightness/jquery-ui-1.8.23.custom.css")%>" />
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/css/ui-lightness/jquery-ui-1.8.23.custom.css")%>" />--%>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -39,6 +39,9 @@
                         $("#RoomWidthInInches").attr("value", $("#WidthInInchesTextBox").val());
                         $("#RoomWidthText").attr("value", $("#WidthTextTextBox").val());
 
+                        var tempText = Math.round($("#LengthInMTextBox").val()) + "m(" + Math.round($("#LengthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\") X " + Math.round($("#WidthInMTextBox").val()) + "m(" + Math.round($("#WidthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\")";
+                        $("#DimensionsTextBox").attr("value", tempText);
+                        
                         $(this).dialog('close');
                     }
                 }
@@ -152,29 +155,49 @@
 			display:inline-block;
 			width:50px;
 			float:left;
-			margin:0 5px
+			margin:0 5px;
+            height:150px;
 		}
 		.column2
 		{
 			display:inline-block;
 			float:left;
-			width:100px;
+			width:150px;
 			margin-left:5px;
+            height:150px;
 		}
 		.column3
 		{
 			display:inline-block;
 			float:left;
-			width:400px;
+			width:450px;
 			margin-left:10px;
+            height:150px;
 		}
 		.RoomPanel{
 			clear:both;
 			margin: 10px 0;
 		}
+        input[type="text"]
+        {
+            height:20px;
+        }
+        .sameHeight {
+            height:20px;
+        }
         #DimensionDialogId h3
         {
 	        display:inline;
+        }
+        #DimensionDialogId input[type="text"]
+        {
+            height:25px;
+        }
+        .ui-button-text {
+            width:100px;
+        }
+        button {
+            width:auto;
         }
     </style>
 
@@ -224,44 +247,46 @@
                 <input type="hidden" clientidmode="Static" id="RoomWidthText" runat="server" />
 
                 <div class="column1">
-				    <div>
+				    <div class="sameHeight">
 					    <span>No.</span>
 				    </div>
-				    <div>
+				    <div style="margin-bottom:5px;">
                         <asp:TextBox ID="RoomNoTextBox" style="width:100%;" runat="server" Enabled="false"></asp:TextBox>
 				    </div>
-				    <br/>
+				    <div class="sameHeight">
+					    <span>&nbsp;</span>
+				    </div>
 				    <div>
                         <asp:Button CssClass="DimensionButton" runat="server" ID="DimensionButton" OnClientClick="return showDimensionDialog();" />
 				    </div>
 			    </div>
 			
 			    <div class="column2">
-				    <div>
+				    <div class="sameHeight">
 					    <span>Heading</span>
 				    </div>
-				    <div>
+				    <div style="margin-bottom:5px;">
                         <asp:TextBox ID="HeadingTextBox" runat="server" style="width:100%;"></asp:TextBox>
 				    </div>
-				    <div>
+				    <div class="sameHeight">
 					    <span>Dimensions</span>
 				    </div>
-				    <div>
-                        <asp:TextBox ID="DimensionsTextBox" style="width:100%;" Enabled="false" runat="server"></asp:TextBox>
+				    <div style="margin-bottom:5px;">
+                        <asp:TextBox ID="DimensionsTextBox" clientidmode="Static" style="width:100%;" Enabled="false" runat="server"></asp:TextBox>
 				    </div>
-				    <div>
+				    <div class="sameHeight">
 					    <span>Aspect</span>
 				    </div>
-				    <div>
+				    <div style="margin-bottom:5px;">
                         <asp:TextBox style="width:100%;" ID="AspectTextBox" runat="server"></asp:TextBox>
 				    </div>
 			    </div>
 			    <div class="column3">
-				    <div>
+				    <div class="sameHeight">
 					    <span>Paragraph Text</span>
 				    </div>
 				    <div>
-                        <asp:TextBox ID="ParagraphTextBox" Rows="5" runat="server" style="width:100%; height:100px;" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="ParagraphTextBox" Rows="5" runat="server" style="width:100%; height:120px;" TextMode="MultiLine"></asp:TextBox>
 				    </div>
 			    </div>
             </div>
@@ -292,15 +317,15 @@
 
     <div id="DimensionDialogId" style="background-color:#D3E2FF">
         <center><h1>Room Dimensions</h1></center>
-        <div>
-            <h3>Length </h3><input type="text" id="LengthInMTextBox" style="width:50px;" />
+        <div style="height:40px;">
+            <div style="width:60px; display:inline-block;"><h3 style="width:40px;">Length </h3></div><input type="text" id="LengthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-            <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="LengthTextTextBox"  />
+            <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="LengthTextTextBox"  />
         </div>
-        <div>
-            <h3 style="margin-right:9px">Width </h3><input type="text" id="WidthInMTextBox" style="width:50px;" />
+        <div style="height:40px;">
+            <div style="width:60px; display:inline-block;"><h3 style="width:40px;">Width </h3></div><input type="text" id="WidthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-            <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="WidthTextTextBox"  />
+            <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px;margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="WidthTextTextBox"  />
         </div>
     </div>
 
