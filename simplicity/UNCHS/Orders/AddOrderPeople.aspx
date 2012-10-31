@@ -2,15 +2,13 @@
     CodeFile="AddOrderPeople.aspx.cs" Inherits="Orders_AddOrderPeople" Title="Simplicity4Business" %>
 
 <%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
+<%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 
-    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-1.8.0.min.js")%>"></script>
-    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-ui-1.8.23.custom.min.js")%>"></script>
-    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/css/ui-lightness/jquery-ui-1.8.23.custom.css")%>" />
 
     <script type="text/javascript">
         var buttonContentId = null;
@@ -39,6 +37,9 @@
                         $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthInFeet").attr("value", $("#WidthInFeetTextBox").val());
                         $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthInInches").attr("value", $("#WidthInInchesTextBox").val());
                         $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthText").attr("value", $("#WidthTextTextBox").val());
+
+                        var tempText = Math.round($("#LengthInMTextBox").val()) + "m(" + Math.round($("#LengthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\") X " + Math.round($("#WidthInMTextBox").val()) + "m(" + Math.round($("#WidthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\")";
+                        $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_DimensionsTextBox").attr("value", tempText);
 
                         $(this).dialog('close');
                     }
@@ -167,29 +168,49 @@
 			display:inline-block;
 			width:50px;
 			float:left;
-			margin:0 5px
+			margin:0 5px;
+            height:150px;
 		}
 		.column2
 		{
 			display:inline-block;
 			float:left;
-			width:100px;
+			width:150px;
 			margin-left:5px;
+            height:150px;
 		}
 		.column3
 		{
 			display:inline-block;
 			float:left;
-			width:400px;
+			width:450px;
 			margin-left:10px;
+            height:150px;
 		}
 		.RoomPanel{
 			clear:both;
 			margin: 10px 0;
 		}
+        input[type="text"]
+        {
+            height:20px;
+        }
+        .sameHeight {
+            height:20px;
+        }
         #DimensionDialogId h3
         {
 	        display:inline;
+        }
+        #DimensionDialogId input[type="text"]
+        {
+            height:25px;
+        }
+        .ui-button-text {
+            width:100px;
+        }
+        button {
+            width:auto;
         }
     </style>
 
@@ -224,6 +245,7 @@
     <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
+
     <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;
         float: left; width: 97.65%">
         <div class="grid">
@@ -243,64 +265,48 @@
                         <input type="hidden" id="RoomWidthText" runat="server" value='<%# Eval("RoomWidthText") %>' />
 
                         <div class="column1">
-				            <div>
+				            <div class="sameHeight">
 					            <span>No.</span>
 				            </div>
-				            <div>
+				            <div style="margin-bottom:5px;">
                                 <asp:TextBox ID="RoomNoTextBox" style="width:100%;" runat="server" Text='<%# Eval("RoomNo") %>' Enabled="false"></asp:TextBox>
 				            </div>
-				            <br/>
+				            <div class="sameHeight">
+					            <span>&nbsp;</span>
+				            </div>
 				            <div>
                                 <asp:Button CssClass="DimensionButton" runat="server" ID="DimensionButton" OnClientClick="return showDimensionDialog(this);" />
 				            </div>
 			            </div>
 			
 			            <div class="column2">
-				            <div>
+				            <div class="sameHeight">
 					            <span>Heading</span>
 				            </div>
-				            <div>
+				            <div style="margin-bottom:5px;">
                                 <asp:TextBox ID="HeadingTextBox" runat="server" Text='<%# Eval("RoomHeading") %>' style="width:100%;"></asp:TextBox>
 				            </div>
-				            <div>
+				            <div class="sameHeight">
 					            <span>Dimensions</span>
 				            </div>
-				            <div>
+				            <div style="margin-bottom:5px;">
                                 <asp:TextBox ID="DimensionsTextBox" style="width:100%;" Text='<%# Eval("RoomLengthM")+"m("+Eval("RoomLengthFt")+"&#39;"+Eval("RoomLengthIn")+"\") X " + Eval("RoomWidthM")+"m("+Eval("RoomWidthFt")+"&#39;"+Eval("RoomWidthIn")+"\")"  %>' Enabled="false" runat="server"></asp:TextBox>
 				            </div>
-				            <div>
+				            <div class="sameHeight">
 					            <span>Aspect</span>
 				            </div>
-				            <div>
+				            <div style="margin-bottom:5px;">
                                 <asp:TextBox style="width:100%;" ID="AspectTextBox" Text='<%# Eval("RoomAspect") %>' runat="server"></asp:TextBox>
 				            </div>
 			            </div>
 			            <div class="column3">
-				            <div>
+				            <div class="sameHeight">
 					            <span>Paragraph Text</span>
 				            </div>
 				            <div>
-                                <asp:TextBox ID="ParagraphTextBox" Text='<%# Eval("RoomText") %>' Rows="5" runat="server" style="width:100%; height:100px;" TextMode="MultiLine"></asp:TextBox>
+                                <asp:TextBox ID="ParagraphTextBox" Text='<%# Eval("RoomText") %>' Rows="5" runat="server" style="width:100%; height:120px;" TextMode="MultiLine"></asp:TextBox>
 				            </div>
 			            </div>
-
-                        <%--<asp:TextBox ID="RoomNoTextBox" runat="server" Text='<%# Eval("RoomNo") %>' CssClass="grid1" Enabled="false" ></asp:TextBox>
-                        <asp:TextBox ID="HeadingTextBox" runat="server" Text='<%# Eval("RoomHeading") %>' CssClass="grid2"></asp:TextBox>
-
-                        <asp:TextBox ID="ParagraphTextBox" runat="server" Text='<%# Eval("RoomText") %>' Height="110px" TextMode="MultiLine" CssClass="grid3"></asp:TextBox>
-
-                        <div class="DimensionAndAspectPositioning">
-                            
-                            <h3 style="margin-top:0;margin-bottom:0"><asp:Label ID="DimensionsLabel" runat="server" CssClass="grid2 MiddleGridAllign" Text="Dimensions"></asp:Label></h3>
-                            <asp:Button CssClass="DimensionButton grid1" runat="server" ID="DimensionButton" OnClientClick="return showDimensionDialog(this);" />
-                            
-                            <asp:TextBox ID="DimensionsTextBox" CssClass="grid2" Text='<%# Eval("RoomLengthInM")+"m("+Eval("RoomLengthInFt")+"&#39;"+Eval("RoomLengthInInch")+"\") X " + Eval("RoomWidthInM")+"m("+Eval("RoomWidthInFt")+"&#39;"+Eval("RoomWidthInInch")+"\")"  %>' Enabled="false" runat="server"></asp:TextBox>
-                            <br />
-                            
-                            <h3 style="margin-top:0.4%;margin-bottom:0"><asp:Label ID="AspectLabel" runat="server" CssClass="grid2 MiddleGridAllign" Text="Aspect"></asp:Label></h3>
-                            
-                            <asp:TextBox CssClass="grid2 MiddleGridAllign" style="float:none;" ID="AspectTextBox" Text='<%# Eval("RoomAspect") %>' runat="server"></asp:TextBox>
-                         </div>--%>
 
                      </div>
                     <div style="clear:both"><br /><hr /></div>
@@ -327,13 +333,6 @@
                 <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
         </div>
-       
-        <%--<div class="button_right" style="float: left; padding-left: 340px; padding-top: 20px">
-            <asp:ImageButton ID="btnBack" runat="server" OnClick="btnBack_Click" ImageUrl="~/Images/btn_pre.jpg" />
-        </div>
-        <div class="button_right" style="padding-top: 20px">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/btn_next.jpg" />
-        </div>--%>
     </div>
     <div style="float: left; width: 100%">
         <div style="float: left">
@@ -348,15 +347,15 @@
 
     <div id="DimensionDialogId" style="background-color:#D3E2FF">
         <center><h1>Room Dimensions</h1></center>
-        <div>
-            <h3>Length </h3><input type="text" id="LengthInMTextBox" style="width:50px;" />
+        <div style="height:40px;">
+            <div style="width:60px; display:inline-block;"><h3>Length </h3></div><input type="text" id="LengthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-            <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="LengthTextTextBox"  />
+            <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="LengthTextTextBox"  />
         </div>
-        <div>
-            <h3 style="margin-right:9px">Width </h3><input type="text" id="WidthInMTextBox" style="width:50px;" />
+        <div style="height:40px;">
+            <div style="width:60px; display:inline-block;"><h3 style="margin-right:9px">Width </h3></div><input type="text" id="WidthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-            <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px">Text</h3><input type="text" id="WidthTextTextBox"  />
+            <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="WidthTextTextBox"  />
         </div>
     </div>
 </asp:Content>
