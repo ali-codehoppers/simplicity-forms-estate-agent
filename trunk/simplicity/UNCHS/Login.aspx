@@ -89,7 +89,7 @@
                 <div style="clear: both;">
                 </div>
                 <div style="padding-left: 150px;">
-                    <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/Products/HS/HSPrice.aspx?productId=2"
+                    <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/Products/HS/HSPrice.aspx?productId=7"
                         class="txt_blue" style="color: #333">SIGN UP HERE</a>
                 </div>
             </div>

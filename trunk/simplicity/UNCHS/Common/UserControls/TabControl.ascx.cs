@@ -19,7 +19,7 @@ public partial class Common_TabControl : System.Web.UI.UserControl
     protected string LiList = "";
     protected void InitializeComponent()
     {
-        menuItems.Add("Main", "AddOrder.aspx");
+        //menuItems.Add("Main", "AddOrder.aspx");
         //menuItems.Add("Add Room", "AddOrderPeople.aspx");
             //menuItems.Add("Key Hazards", "AddOrderHazard.aspx");
             //menuItems.Add("Work", "AddOrderSeqOfWoks.aspx");

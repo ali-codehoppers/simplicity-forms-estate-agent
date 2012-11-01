@@ -19,7 +19,7 @@
             <div style="float: left">
                 <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
             <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
-                Upload E&amp;A Folder<br />
+                Upload E&amp;A Properties<br />
             </div>
             <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
         </div>
@@ -66,7 +66,7 @@
         </div>
         <div style="font-size: 3; font-weight: bold; color: Navy;">
             <br />
-            Format of CSV
+            <b style="font-size:larger;">Format of CSV</b>
             <table>
                 <tr>
                     <td>
@@ -77,12 +77,32 @@
             <table width="669" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>
+                        <b>Please name the header values of the CSV file as bellow.</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <b>address_line1,address_line2,address_line3,address_line4,address_line5,address_post_code</b>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>Address 1,Address 2,Address 3,Address 4,Address 5,AB00 0ZZ</b>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b style="font-size:larger;">Example CSV File.</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>address_line1,address_line2,address_line3,address_line4,address_line5,address_post_code</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Address line 1 of property,Address line 2,Address line 3,Address line 4,Address line 5,AB00 0ZZ</b>
                     </td>
                 </tr>
             </table>

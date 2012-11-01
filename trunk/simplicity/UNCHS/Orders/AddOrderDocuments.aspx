@@ -35,7 +35,7 @@
                 <div style="float: left">
                     <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
                 <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
-                    Add/Amend H&amp;S Folder
+                    Add/Amend E&amp;A Property
                 </div>
                 <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
             </div>
@@ -140,7 +140,7 @@
                     </div>
                     <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
                         <asp:LinkButton CssClass="txt_white" ID="btnCreate" runat="server" OnClick="btnCreate_Click"
-                            OnClientClick="showLoading();" Style="margin-right: 10px; margin-left: 5px">Create Folder</asp:LinkButton>
+                            OnClientClick="showLoading();" Style="margin-right: 10px; margin-left: 5px">Create Property</asp:LinkButton>
                     </div>
                     <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
                 </div>
