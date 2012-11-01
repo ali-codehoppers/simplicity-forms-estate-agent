@@ -108,7 +108,7 @@ public partial class Orders_UploadOrder : DepartmentPage
                 count++;
             }
 
-            SetInfoMessage(count + " folders added to the system.");
+            SetInfoMessage(count + " properties added to the system.");
         }
     }
 

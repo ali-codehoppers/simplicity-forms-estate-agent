@@ -11,7 +11,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
-    Add/Amend H&amp;S Folder - Assemble Points
+    Add/Amend E&amp;A Property - Assemble Points
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc2:TabControl ID="TabControl2" runat="server" Selected="Assem Pts" />

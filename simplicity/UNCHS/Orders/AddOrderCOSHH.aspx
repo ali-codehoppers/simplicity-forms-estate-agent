@@ -8,7 +8,7 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" Runat="Server">
-    Add/Amend H&amp;S Folder - COSHH Documents
+    Add/Amend E&amp;A Property - COSHH Documents
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="COSHH" />

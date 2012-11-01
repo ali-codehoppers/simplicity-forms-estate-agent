@@ -94,7 +94,7 @@
                 <div style="float: left">
                     <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
                 <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
-                    Add/Amend H&amp;S Folder
+                    Add/Amend E&amp;A Property
                 </div>
                 <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
             </div>
@@ -107,7 +107,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div id="copyDialog" style="display: none;">
         <div class="hd">
-            Enter the Address for new folder:</div>
+            Enter the Address for new property:</div>
         <div class="bd">
             <div class="text_field_dialog">
                 <asp:HiddenField ID="HiddenField1" runat="server" />
