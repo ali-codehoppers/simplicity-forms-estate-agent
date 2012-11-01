@@ -135,6 +135,7 @@ public partial class Orders_SearchOrder : AuthenticatedPage
                 parameter.DbType = System.Data.DbType.Date;
                 parameter.DefaultValue = tbToDate.Text;
                 edsProperties.WhereParameters.Add(parameter);
+                edsProperties.WhereParameters["ToDate"].DefaultValue = DateTime.Parse(tbToDate.Text).AddDays(1).ToShortDateString();
             }
         }
     }
