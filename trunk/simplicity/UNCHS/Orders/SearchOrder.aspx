@@ -311,7 +311,7 @@
                     <asp:TemplateField HeaderText="Print">
                         <ItemTemplate>
                             <center>
-                                <asp:HyperLink NavigateUrl='<%#"~/Orders/OrderLog.aspx?deptOrderId=" +  Eval("Sequence") %>'
+                                <asp:HyperLink NavigateUrl='<%#"~/Orders/Print.aspx?propertyId=" +  Eval("Sequence") %>'
                                     runat="server" Style="text-decoration: none">
                         <img alt="Print" src="../Images/icon_print.png" style="border:0px;" />
                                 </asp:HyperLink>
