@@ -82,4 +82,14 @@ public partial class nLogin : GenericPage
             SetErrorMessage(WebConstants.Messages.Error.CANNOT_LOGIN);
         }
     }
+
+    protected void btnForgot_Password_Click(object sender, EventArgs e)
+    { 
+        
+    }
+
+    protected void btnSign_Up_Click(object sender, EventArgs e)
+    {
+        Response.Redirect(ConfigurationManager.AppSettings["SCurl"] + "/Products/HS/HSPrice.aspx?productId=7");
+    }
 }

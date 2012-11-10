@@ -15,15 +15,15 @@ public partial class Common_subMain : System.Web.UI.MasterPage
     //protected string helpHTML;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session[WebConstants.Session.COMPANY_NAME] != null)
-        {
-            lblCompany.Text = Session[WebConstants.Session.COMPANY_NAME].ToString();
-        }
+        //if (Session[WebConstants.Session.COMPANY_NAME] != null)
+        //{
+        //    lblCompany.Text = Session[WebConstants.Session.COMPANY_NAME].ToString();
+        //}
         if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             //SetHelp((int)Session[WebConstants.Session.USER_CO_ID]);
         }
-        BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
+        //BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
         //FormsIdentity id = (FormsIdentity)(HttpContext.Current.User.Identity);
         //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(id.Ticket);
         //Simplicity.Data.SimplicityEntities db = new SimplicityEntities();
@@ -40,7 +40,7 @@ public partial class Common_subMain : System.Web.UI.MasterPage
         //        }
         //        else
         //        {
-            notproductTrial.Visible = true;
+            //notproductTrial.Visible = true;
         //        }
         }
         //}//commented code because there is no trial version in EA so far.
