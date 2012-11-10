@@ -16,13 +16,13 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
     {
         if (Session[WebConstants.Session.COMPANY_NAME] != null)
         {
-            lblCompany.Text = Session[WebConstants.Session.COMPANY_NAME].ToString();
+            //lblCompany.Text = Session[WebConstants.Session.COMPANY_NAME].ToString();
         }
         if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             //SetHelp((int)Session[WebConstants.Session.USER_CO_ID]);
         }
-        BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
+        //BackToSimplicityButton.PostBackUrl = ConfigurationManager.AppSettings["SCDefaulturl"];
         //int user_id = Int32.Parse(Session[WebConstants.Session.USER_ID].ToString());
         //      Simplicity.Data.SimplicityEntities db=new SimplicityEntities();
         //     Simplicity.Data.Session session=from c in db.Sessions where c.SessionID==user_id select c; 
@@ -37,7 +37,7 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
             //        productTrial.Visible = true;
             //    }
             //    else {
-                notproductTrial.Visible = true;
+                //notproductTrial.Visible = true;
             //    }  
             //}
         }
