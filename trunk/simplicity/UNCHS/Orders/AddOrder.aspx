@@ -6,6 +6,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <style type="text/css">
+        .text_area {
+            padding:0px;
+        }
         .text_field_dialog span
         {
             width: 300px;
@@ -146,7 +149,7 @@
                 <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton PostBackUrl="~/UserHome.aspx" ID="cancel" runat="server" CssClass="txt_white"
+                <asp:LinkButton PostBackUrl="~/Orders/SearchOrder.aspx" ID="cancel" runat="server" CssClass="txt_white"
                     Width="150px">Cancel</asp:LinkButton>
             </div>
             <div style="float: left">
@@ -157,38 +160,38 @@
         </div>
     </div>
     <div style="float: left; width: 97.65%; background-color: White; padding: 15px 10px 25px 10px;">
-        <div class="text_field">
+        <div class="text_field" style="height:27px;">
             <asp:HiddenField ID="hfSourceOrderId" runat="server" />
             <asp:Label ID="lblDepartment" runat="server" Text="Department:"></asp:Label><asp:DropDownList
                 CssClass="dropdown_txt" ID="ddlDepartment" runat="server"
                 DataTextField="DepartmentDesc" DataValueField="Sequence" OnDataBound="ddlDepartment_DataBound">
             </asp:DropDownList>
         </div>
-        <div class="text_field">
+        <div class="text_field" style="height:27px;">
             <%--<asp:HiddenField ID="HiddenField2" runat="server" />--%>
             <asp:Label ID="lblCategory" runat="server" Text="Category:"></asp:Label><asp:DropDownList
                 CssClass="dropdown_txt" ID="ddlCategory" runat="server"
                 DataTextField="CategoryDesc" DataValueField="Sequence" OnDataBound="ddlCategory_DataBound">
             </asp:DropDownList>
         </div>
-        <div class="text_field">
+        <div class="text_field" style="padding-bottom:5px;height:27px;">
             <span>House/Flat No:</span><asp:TextBox ID="tbAddressNo" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field">
+        <div class="text_field" style="padding-bottom:5px;height:27px">
             <span>Address:</span><asp:TextBox ID="tbAddress1" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
             <asp:TextBox ID="tbAddress2" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
             <asp:TextBox ID="tbAddress3" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
             <asp:TextBox ID="tbAddress4" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;">
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
             <asp:TextBox ID="tbAddress5" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field">
+        <div class="text_field" style="padding-bottom:5px;height:27px">
             <span>Post Code:</span><asp:TextBox ID="tbPostalCode" CssClass="field_txt" runat="server"></asp:TextBox></div>
         
-        <div class="text_field">
+        <div class="text_field" style="padding-bottom:5px;height:27px;" >
             <span>Valuation Code:</span><asp:TextBox ID="ValuationCodeTextBoxId" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding:5px;">
+        <div class="text_field" style="padding:0 0 7px 0;">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td style="vertical-align: middle;">
@@ -200,7 +203,7 @@
                 </tr>
             </table>
         </div>
-        <div class="text_field" style="padding:5px;">
+        <div class="text_field" style="padding:0 0 7px 0;">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td style="vertical-align: middle;">
@@ -212,7 +215,7 @@
                 </tr>
             </table>
         </div>
-        <div class="text_field" style="padding:5px;">
+        <div class="text_field" style="padding:0 0 7px 0;">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td style="vertical-align: middle;">
@@ -247,12 +250,36 @@
             <span style="font-weight: bold;font-size: 12px;"><asp:Label ID="BulletPoint8Label" runat="server" Text="8"></asp:Label></span>
             <asp:TextBox ID="BulletPoint8TextBox" runat="server" Width="20%" ></asp:TextBox>
         </div>
-        
-        <div class="buttton_bar">
-            <asp:Button ID="ShowDetailsOrAddRoomButton" OnClick="ShowRoomDetails" CssClass="PropertyDetailButtons" runat="server" Text="Room Details"/>
-            <asp:Button ID="SavePropertyDetailsButton" OnClick="SavePropertyDetails" CssClass="PropertyDetailButtons" runat="server" Text="Save"/>
+        <div style="clear:both"></div>
+        <div>
+            <div class="buttton_bar" style="display:inline;margin-top:5px;float:left;">
+                <div style="float: left; display: block">
+                    &nbsp;
+                </div>
+                <div style="float: left;">
+                    <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                </div>
+                <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                    <asp:LinkButton ID="ShowDetailsOrAddRoomButton" runat="server" OnClick="ShowRoomDetails" CssClass="txt_white">Room Details</asp:LinkButton>
+                </div>
+                <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+            </div>
+            <%--<div style="clear:both;display:inline;"></div>--%>
+            <div class="buttton_bar" style="display:inline;margin-top:5px;float:left;">
+                    <div style="float: left; display: block">
+                        &nbsp;
+                    </div>
+                    <div style="float: left;">
+                        <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
+                    </div>
+                    <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
+                        <asp:LinkButton ID="SavePropertyDetailsButton" runat="server" OnClick="SavePropertyDetails" CssClass="txt_white">Save</asp:LinkButton>
+                    </div>
+                    <asp:Image ID="Image10" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+                <%--<asp:Button ID="ShowDetailsOrAddRoomButton" OnClick="ShowRoomDetails" CssClass="PropertyDetailButtons" runat="server" Text="Room Details"/>
+                <asp:Button ID="SavePropertyDetailsButton" OnClick="SavePropertyDetails" CssClass="PropertyDetailButtons" runat="server" Text="Save"/>--%>
+            </div>
         </div>
-
         <div class="button_bar" style="display: none;">
             <asp:Button ID="btnSave" runat="server" Text="Save & Details" OnClick="btnSave_Click" /><asp:Button
                 ID="btnUpdate" runat="server" Text="Update & Continue" OnClick="btnUpdate_Click"

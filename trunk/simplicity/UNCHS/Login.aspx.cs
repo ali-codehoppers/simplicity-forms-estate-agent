@@ -78,8 +78,10 @@ public partial class nLogin : GenericPage
         }
         else
         {
-            errorPanel.Visible = true;
-            SetErrorMessage(WebConstants.Messages.Error.CANNOT_LOGIN);
+            //errorPanel.Visible = true;
+            //SetErrorMessage(WebConstants.Messages.Error.CANNOT_LOGIN);
+            errorBox.Visible = true;
+            errorBox.Text = WebConstants.Messages.Error.CANNOT_LOGIN;
         }
     }
 

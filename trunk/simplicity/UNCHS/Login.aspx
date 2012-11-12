@@ -50,7 +50,7 @@
 	    .fields-box{
 		    position:relative;
 		    left:20px;
-		    top:-300px;
+		    top:-320px;
 		    font-size:18px;
 	    }
         .txtbox
@@ -65,7 +65,6 @@
 		    padding:4px;
 		    line-height:22px;
 		    width:86%;
-		    margin-bottom:10px;
         }
 	    body{
 		    background-color:#DBE0E4;
@@ -131,12 +130,16 @@
                 <div class="get-in-touch-positioning">
                     <img src="Images_Estate/get_touch.png" width="124" height="18" alt="get in touch" />
                 </div>
+                <div style="clear:both;"></div>
                 <div class="fields-box">
-            	    <div style="display:inline-block;margin-bottom:5px;">
+                    <div>
+                        <asp:Label runat="server" ID="errorBox" Visible="false" style="color:red;font-size:16px;">Incorrect username or password</asp:Label>
+            	    </div>
+                    <div style="display:inline-block;margin-bottom:5px;">
 	            	    Username:
                     </div>
                     <div>
-                        <asp:TextBox ID="tbUserName" runat="server" CssClass="txtbox"></asp:TextBox>
+                        <asp:TextBox ID="tbUserName" runat="server" CssClass="txtbox" style="margin-bottom:10px;"></asp:TextBox>
                     </div>
                     <div style="display:inline-block;margin-bottom:5px;">
 	            	    password:
