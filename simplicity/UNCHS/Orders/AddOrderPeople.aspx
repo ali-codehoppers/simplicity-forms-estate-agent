@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="AddOrderPeople.aspx.cs" Inherits="Orders_AddOrderPeople" Title="Simplicity4Business" %>
 
-<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
+<%--<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>--%>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
@@ -149,8 +149,11 @@
         }
 
         $(document).ready(function () {
-            if (/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())) {
-                $("#ParagraphTextBox").height("110");
+            //if (/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())) {
+            //    $("#ParagraphTextBox").height("110");
+            //}
+            if ($.browser.msie) {
+                $("textarea").height("125");
             }
         });
     </script>
@@ -204,7 +207,7 @@
         }
         #DimensionDialogId input[type="text"]
         {
-            height:25px;
+            height:20px;
         }
         .ui-button-text {
             width:100px;
@@ -241,9 +244,9 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+<%--<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
-</asp:Content>
+</asp:Content>--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
 
     <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;
@@ -348,12 +351,12 @@
     <div id="DimensionDialogId" style="background-color:#D3E2FF">
         <center><h1>Room Dimensions</h1></center>
         <div style="height:40px;">
-            <div style="width:60px; display:inline-block;"><h3>Length </h3></div><input type="text" id="LengthInMTextBox" style="width:50px;" />
+            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.5em; height: 20px;">Length </span><%--</div>--%><input type="text" id="LengthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
             <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="LengthTextTextBox"  />
         </div>
         <div style="height:40px;">
-            <div style="width:60px; display:inline-block;"><h3 style="margin-right:9px">Width </h3></div><input type="text" id="WidthInMTextBox" style="width:50px;" />
+            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.5em; height: 20px;">Width </span><%--</div>--%><input type="text" id="WidthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
             <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="WidthTextTextBox"  />
         </div>
