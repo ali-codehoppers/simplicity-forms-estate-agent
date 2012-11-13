@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="AddOrder.aspx.cs" Inherits="Orders_AddOrder" Title="Simplicity4Business" %>
 
-<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
+<%--<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>--%>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
@@ -21,7 +21,7 @@
         .text_field span
         {
             width: 400px;
-            height: 100%;
+            /*height: 100%;*/
             display: inline-block;
             padding-bottom: 8px;
             font-weight: bold;
@@ -104,9 +104,9 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+<%--<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Main"></uc1:TabControl>
-</asp:Content>
+</asp:Content>--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div id="copyDialog" style="display: none;">
         <div class="hd">
@@ -230,7 +230,7 @@
         <div>
             <span style="font-weight: bold;font-size: 12px;"><asp:Label ID="BulletPointsLabel" runat="server" Text="Bullet Points"></asp:Label></span>
         </div>
-        <div>
+        <div style="margin-bottom:5px;">
             <span style="font-weight: bold;font-size: 12px;"><asp:Label ID="BulletPoint1Label" runat="server" Text="1"></asp:Label></span>
             <asp:TextBox ID="BulletPoint1TextBox" runat="server" Width="20%" ></asp:TextBox>
             <span style="font-weight: bold;font-size: 12px;"><asp:Label ID="BulletPoint2Label" runat="server" Text="2"></asp:Label></span>
@@ -240,7 +240,7 @@
             <span style="font-weight: bold;font-size: 12px;"><asp:Label ID="BulletPoint4Label" runat="server" Text="4"></asp:Label></span>
             <asp:TextBox ID="BulletPoint4TextBox" runat="server" Width="20%" ></asp:TextBox>
         </div>
-        <div>
+        <div style="margin-bottom:5px;">
             <span style="font-weight: bold;font-size: 12px;"><asp:Label ID="BulletPoint5Label" runat="server" Text="5"></asp:Label></span>
             <asp:TextBox ID="BulletPoint5TextBox" runat="server" Width="20%" ></asp:TextBox>
             <span style="font-weight: bold;font-size: 12px;"><asp:Label ID="BulletPoint6Label" runat="server" Text="6"></asp:Label></span>
