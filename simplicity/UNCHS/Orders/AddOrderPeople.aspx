@@ -215,6 +215,12 @@
         button {
             width:auto;
         }
+        /*.ui-dialog .ui-dialog-buttonpane {
+            background-color: #DBE0E4;
+        }
+        .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+            float: left;
+        }*/
     </style>
 
 </asp:Content>
@@ -318,7 +324,7 @@
             &nbsp;
         </div>
         <div class="button_bar">
-            <div class="button_right" style="padding-left: 340px;">
+            <div class="button_right">
                 <div style="float: left">
                     <asp:Image runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
@@ -348,15 +354,15 @@
     </div>
 
 
-    <div id="DimensionDialogId" style="background-color:#D3E2FF">
+    <div id="DimensionDialogId">
         <center><h1>Room Dimensions</h1></center>
         <div style="height:40px;">
-            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.5em; height: 20px;">Length </span><%--</div>--%><input type="text" id="LengthInMTextBox" style="width:50px;" />
+            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.2em; height: 20px;">Length </span><%--</div>--%><input type="text" id="LengthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
             <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="LengthTextTextBox"  />
         </div>
         <div style="height:40px;">
-            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.5em; height: 20px;">Width </span><%--</div>--%><input type="text" id="WidthInMTextBox" style="width:50px;" />
+            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.2em; height: 20px;">Width </span><%--</div>--%><input type="text" id="WidthInMTextBox" style="width:50px;" />
             <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
             <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="WidthTextTextBox"  />
         </div>
