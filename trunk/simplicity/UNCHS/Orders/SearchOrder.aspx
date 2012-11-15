@@ -211,10 +211,10 @@
 
         <div class="field" style="height:70px; width:98%;">
             <div style="width: 110px; height:50px; padding-bottom:5px; display:inline-block; float:left;">
-                <div style="height:25px; padding-bottom:5px;">
-                    <span class="label" style="height:24px; font-size:larger;"><strong>Valuation Code:</strong></span>
+                <div style="height:25px; padding-bottom:5px;padding-top:4px;">
+                    <span class="label" style="height:24px;">Valuation Code:</span>
                 </div>
-                <div style="height:25px;">
+                <div style="height:25px;padding-top:4px;">
                     <span class="label" style="height:24px;">Address:</span>
                 </div>
             </div>
@@ -228,11 +228,11 @@
             </div>
 
             <div style="width: 80px; height:50px; padding-bottom:5px; display:inline-block; float:left; padding-left:70px;">
-                <div style="height:25px; padding-bottom:5px;">
+                <div style="height:25px; padding-bottom:5px;padding-top:4px;">
                     <span class="label" style="width: 40px; padding-right: 10px; padding-top: 5px;">Date:</span>
                     <span class="label" style="width: 40px; padding-right: 10px; padding-top: 5px;">From:</span>
                 </div>
-                <div style="height:25px;">
+                <div style="height:25px;padding-top:4px;">
                     <span class="label" style="width: 110px;">Post Code:</span>
                 </div>
             </div>
@@ -247,7 +247,7 @@
             </div>
 
             <div style="width: 50px; height:50px; padding-bottom:5px; display:inline-block; float:left;">
-                <div style="height:25px; float:right;">
+                <div style="height:25px; float:right;padding-top:4px;">
                     <span class="label" style="width: 25px; padding-left: 10px;">To:</span>
                 </div>
             </div>
