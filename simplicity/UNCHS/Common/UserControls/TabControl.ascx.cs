@@ -10,6 +10,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using EstateAgentEntityModel;
 
 public partial class Common_TabControl : System.Web.UI.UserControl
 {
@@ -17,24 +19,29 @@ public partial class Common_TabControl : System.Web.UI.UserControl
     private Dictionary<string, string> menuItems = new Dictionary<string, string>();
     
     protected string LiList = "";
+
+    public void RefreshTabs()
+    {
+        //private SimplicityWebEstateAgentEntities estateAgentDB = null;
+        //this.menuItems.Add();
+        menuItems.Clear();
+        InitializeComponent();
+    }
+
     protected void InitializeComponent()
     {
-        //menuItems.Add("Main", "AddOrder.aspx");
-        //menuItems.Add("Add Room", "AddOrderPeople.aspx");
-            //menuItems.Add("Key Hazards", "AddOrderHazard.aspx");
-            //menuItems.Add("Work", "AddOrderSeqOfWoks.aspx");
-            //menuItems.Add("Plants & Tools", "AddOrderTool.aspx");
-            //menuItems.Add("PPE", "AddOrderPPE.aspx");
-            //menuItems.Add("Emergency", "AddOrderEmergencyExits.aspx");
-            //menuItems.Add("Requirements", "AddOrderRequirements.aspx");
-            //menuItems.Add("Aspects", "AddOrderKeyAspects.aspx");
-            //menuItems.Add("Risks", "AddOrderRiskAssessments.aspx");I need additonal tab content later.
-        //menuItems.Add("COSHH", "AddOrderCOSHH.aspx");
-        //menuItems.Add("Sig Hazards", "AddOrderSigHazard.aspx");
-        //menuItems.Add("Assem Pts", "AddOrderAssemPts.aspx");        
-        //menuItems.Add("Measures", "AddOrderCtrlMeasures.aspx");
-        //menuItems.Add("Docs", "AddOrderDocuments.aspx");
-        //menuItems.Add("Log", "OrderLog.aspx");
+        menuItems.Add("Main", "AddOrder.aspx");
+        if(Request[WebConstants.Request.PROPERTY_ORDER_ID] != null && Request[WebConstants.Request.PROPERTY_ORDER_ID].CompareTo("")!=0)
+        {
+            SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
+            int propertyId = int.Parse(Request[WebConstants.Request.PROPERTY_ORDER_ID]);
+            IEnumerable<EstateAgentEntityModel.PropertyRoom> propertyRooms = (from propRooms in estateAgentDB.PropertyRooms where propRooms.PropertySequence == propertyId select propRooms);
+            foreach(EstateAgentEntityModel.PropertyRoom room in propertyRooms)
+            {
+                menuItems.Add(room.RoomHeading+WebConstants.ToSplit.ROOM_TAB_SPLIT+room.Sequence, "AddRoom.aspx?"+WebConstants.Request.PROPERTY_ORDER_ID+"="+propertyId+"&"+WebConstants.Request.Room_ID+"="+room.Sequence);
+            }
+        }
+
 
         StringBuilder lis = new StringBuilder();
         lis.Append("<div style='width:100%'>");
@@ -54,7 +61,9 @@ public partial class Common_TabControl : System.Web.UI.UserControl
             {
                 lis.Append("?").Append(WebConstants.Request.DEPT_ORDER_ID).Append("=").Append(Request[WebConstants.Request.DEPT_ORDER_ID]);
             }
-            lis.Append("'>").Append(kvPair.Key).Append("</a></div>");
+
+            String keyToPrint = kvPair.Key.Split(new String[] { WebConstants.ToSplit.ROOM_TAB_SPLIT }, StringSplitOptions.None)[0];
+            lis.Append("'>").Append(keyToPrint).Append("</a></div>");
             if (kvPair.Key.Equals(Selected))
             {
                 lis.Append("<div class='floatLeft'><img style='margin-right:4px' src=" + ResolveClientUrl("~/images/btn_y_right.jpg") + " width='8' height='33' /></div>");
@@ -68,6 +77,15 @@ public partial class Common_TabControl : System.Web.UI.UserControl
         lis.Append("</div>");
         LiList = lis.ToString();
     }
+
+    //private String[] split(String toSplit, String splitPoint)
+    //{
+    //    int jump = splitPoint.Length;
+    //    int start = 0;
+    //    int end = toSplit.IndexOf(
+    //    return null;
+    //}
+
     protected void Page_Load(object sender, EventArgs e)
     {
         

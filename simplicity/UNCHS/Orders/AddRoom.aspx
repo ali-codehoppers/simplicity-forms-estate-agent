@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="AddRoom.aspx.cs" Inherits="Order_AddRoom" Title="Simplicity4Business" %>
 
-<%--<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>--%>
+<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
@@ -199,6 +199,9 @@
         button {
             width:auto;
         }
+        a.txt_blue:link, a.txt_blue:visited {
+            color:white;
+        }
         /*.ui-widget-header {
             background: #4075AB;
             border: 1px solid #4075AB;
@@ -248,9 +251,7 @@
         </div>
     </div>
 </asp:Content>
-<%--<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
-    <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
-</asp:Content>--%>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;
         float: left; width: 97.65%">
@@ -349,4 +350,7 @@
         </div>
     </div>
 
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+    <uc1:TabControl ID="TabControl1" runat="server" Selected="Main"/>
 </asp:Content>

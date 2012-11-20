@@ -14,9 +14,72 @@ using EstateAgentEntityModel;
 public partial class Order_AddRoom : RoomDetailPage
 {
     PropertyRoom propRoom = null;
+
+    protected override void OnLoad(EventArgs e)
+    {
+ 	     base.OnLoad(e);
+         Page_Load(null, e);
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (!IsPostBack)
+        {
+            if (Request[WebConstants.Request.PROPERTY_ORDER_ID] != null && Request[WebConstants.Request.Room_ID] != null)
+            {
+                int roomID = int.Parse(Request[WebConstants.Request.Room_ID]);
+                PropertyRoom propRoom = property.PropertyRooms.SingleOrDefault(room => room.Sequence == roomID);
+                if(propRoom.RoomHeading != null)
+                    HeadingTextBox.Text = propRoom.RoomHeading;
+                if(propRoom.RoomAspect != null)
+                    AspectTextBox.Text = propRoom.RoomAspect;
+                if(propRoom.RoomText != null)
+                    ParagraphTextBox.Text = propRoom.RoomText;
+                if(propRoom.RoomNo != null)
+                    RoomNoTextBox.Text = propRoom.RoomNo.ToString();
+                double roomLengthM = 0;
+                double roomLengthFeet = 0;
+                double roomLengthIn = 0;
+                double roomWidthM = 0;
+                double roomWidthFeet = 0;
+                double roomWidthIn = 0;
+                if (propRoom.RoomLengthM != null)
+                    roomLengthM = double.Parse(propRoom.RoomLengthM.ToString());
+                if (propRoom.RoomLengthFt != null)
+                    roomLengthFeet = double.Parse(propRoom.RoomLengthFt.ToString());
+                if (propRoom.RoomLengthIn != null)
+                    roomLengthIn = double.Parse(propRoom.RoomLengthIn.ToString());
+                if (propRoom.RoomWidthM != null)
+                    roomWidthM = double.Parse(propRoom.RoomWidthM.ToString());
+                if (propRoom.RoomWidthFt != null)
+                    roomWidthFeet = double.Parse(propRoom.RoomWidthFt.ToString());
+                if (propRoom.RoomWidthIn != null)
+                    roomWidthIn = double.Parse(propRoom.RoomWidthIn.ToString());
+                String tempText = roomLengthM + "m(" + roomLengthFeet + "'" + roomLengthIn + "\") X " + roomWidthM + "m(" + roomWidthFeet + "'" + roomWidthIn + "\")";
+                DimensionsTextBox.Text = tempText;
+
+                if (propRoom.RoomLengthM != null)
+                    RoomLengthInMeters.Value = propRoom.RoomLengthM.ToString();
+                if (propRoom.RoomLengthFt != null)
+                    RoomLengthInFeet.Value = propRoom.RoomLengthFt.ToString();
+                if (propRoom.RoomLengthIn != null)
+                    RoomLengthInInches.Value = propRoom.RoomLengthIn.ToString();
+                if (propRoom.RoomLengthText != null)
+                    RoomLengthText.Value = propRoom.RoomLengthText.ToString();
+
+                if (propRoom.RoomWidthM != null)
+                    RoomWidthInMeters.Value = propRoom.RoomWidthM.ToString();
+                if (propRoom.RoomWidthFt != null)
+                    RoomWidthInFeet.Value = propRoom.RoomWidthFt.ToString();
+                if (propRoom.RoomWidthIn != null)
+                    RoomWidthInInches.Value = propRoom.RoomWidthIn.ToString();
+                if (propRoom.RoomWidthText != null)
+                    RoomWidthText.Value = propRoom.RoomWidthText.ToString();
+                TabControl1.Selected = propRoom.RoomHeading.ToString() + WebConstants.ToSplit.ROOM_TAB_SPLIT + propRoom.Sequence;
+                TabControl1.RefreshTabs();
+            }
+            
+        }
     }
 
     public override void Order_Detail_Handling(object sender, EventArgs e, int deptId)
@@ -28,19 +91,26 @@ public partial class Order_AddRoom : RoomDetailPage
     {
         try
         {
-            propRoom = new PropertyRoom();
-            propRoom.CreatedBy = loggedInUserId;
-            propRoom.DateCreated = DateTime.Now;
-            propRoom.CompanySequence = loggedInUserCoId;
-            propRoom.DateLastAmended = DateTime.Now;
-            propRoom.LastAmendedBy = loggedInUserId;
-            propRoom.PropertySequence = property.Sequence;
+            if (Request[WebConstants.Request.Room_ID] == null || Request[WebConstants.Request.Room_ID] == "")
+            {
+                propRoom = new PropertyRoom();
+                propRoom.CreatedBy = loggedInUserId;
+                propRoom.DateCreated = DateTime.Now;
+                propRoom.CompanySequence = loggedInUserCoId;
+                propRoom.DateLastAmended = DateTime.Now;
+                propRoom.LastAmendedBy = loggedInUserId;
+                propRoom.PropertySequence = property.Sequence;
 
 
-            int totalRoomsInProperty = property.PropertyRooms.Count;
-            propRoom.RoomNo = totalRoomsInProperty + 1;
-            property.PropertyRooms.Add(propRoom);
-            estateAgentDB.SaveChanges();
+                int totalRoomsInProperty = property.PropertyRooms.Count;
+                propRoom.RoomNo = totalRoomsInProperty + 1;
+                property.PropertyRooms.Add(propRoom);
+                estateAgentDB.SaveChanges();
+            }
+            else {
+                int roomID = int.Parse(Request[WebConstants.Request.Room_ID]);
+                propRoom = property.PropertyRooms.SingleOrDefault(room => room.Sequence == roomID);
+            }
             //roomId = int.Parse(Request[WebConstants.Request.ROOM_ID]);
             // = entity.PropertyRooms1.SingleOrDefault(c => c.Sequence == roomId);
 

@@ -31,6 +31,12 @@ public static class WebConstants
         public static string SIMPLICITY_USER_ID = "SIMPLICITY_USER_ID";
         public static string RETURN_URL = "RETURN_URL";
     }
+
+    public static class ToSplit
+    {
+        public static string ROOM_TAB_SPLIT = "_@";
+    }
+
     public static class DocumentTypes
     {
         public static string RISK_ASSESSMENTS = "Risk Assessments";
@@ -116,6 +122,7 @@ public static class WebConstants
         public static string ERROR_MSG = "errorMsg";
         public static string INFO_MSG = "infoMsg";
         public static string PROPERTY_ORDER_ID = "propertyId";
+        public static string Room_ID = "roomId";
         public static string DEPT_ORDER_ID = "deptOrderId";
         public static string NO_DEPT = "noDept";
         public static string NO_CATEGORY = "noCategory";
