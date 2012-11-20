@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="AddOrderPeople.aspx.cs" Inherits="Orders_AddOrderPeople" Title="Simplicity4Business" %>
 
-<%--<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>--%>
+<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
@@ -215,6 +215,9 @@
         button {
             width:auto;
         }
+        a.txt_blue:link, a.txt_blue:visited {
+            color:white;
+        }
         /*.ui-dialog .ui-dialog-buttonpane {
             background-color: #DBE0E4;
         }
@@ -250,9 +253,9 @@
         </div>
     </div>
 </asp:Content>
-<%--<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
-    <uc1:TabControl ID="TabControl1" runat="server" Selected="People" />
-</asp:Content>--%>
+<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+    <uc1:TabControl ID="TabControl1" runat="server" Selected="Main" />
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
 
     <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;

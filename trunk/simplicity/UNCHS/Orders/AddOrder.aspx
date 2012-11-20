@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
     CodeFile="AddOrder.aspx.cs" Inherits="Orders_AddOrder" Title="Simplicity4Business" %>
 
-<%--<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>--%>
+<%@ Register Src="../Common/UserControls/TabControl.ascx" TagName="TabControl" TagPrefix="uc1" %>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/Tab.css")%>" />
@@ -50,6 +50,9 @@
             border-radius:5px;
             font-weight:bolder;
             margin-top:5px;
+        }
+        a.txt_blue:link, a.txt_blue:visited {
+            color:white;
         }
     </style>
     <script type="text/javascript">
@@ -104,9 +107,9 @@
         </div>
     </div>
 </asp:Content>
-<%--<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
+<asp:Content ID="Content4" ContentPlaceHolderID="TabPlaceHolder" runat="Server">
     <uc1:TabControl ID="TabControl1" runat="server" Selected="Main"></uc1:TabControl>
-</asp:Content>--%>
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
     <div id="copyDialog" style="display: none;">
         <div class="hd">

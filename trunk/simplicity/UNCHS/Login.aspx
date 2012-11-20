@@ -25,7 +25,7 @@
         .logo-positioning{
 		    position:absolute;
 		    left:120px;
-		    top:140px;
+		    top:130px;
 		    z-index:1;
 	    }
 	    .back_ground_gradient{

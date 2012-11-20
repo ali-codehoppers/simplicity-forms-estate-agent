@@ -32,7 +32,6 @@ public partial class Orders_AddOrderPeople : RoomDetailPage
         {
             Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + Request[WebConstants.Request.PROPERTY_ORDER_ID]);
         }
-        
     }
 
     protected void Page_Load(object sender, EventArgs e)
