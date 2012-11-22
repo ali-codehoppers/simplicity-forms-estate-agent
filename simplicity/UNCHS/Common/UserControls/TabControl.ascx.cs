@@ -30,18 +30,21 @@ public partial class Common_TabControl : System.Web.UI.UserControl
 
     protected void InitializeComponent()
     {
-        menuItems.Add("Main", "AddOrder.aspx");
-        if(Request[WebConstants.Request.PROPERTY_ORDER_ID] != null && Request[WebConstants.Request.PROPERTY_ORDER_ID].CompareTo("")!=0)
+        if (Request[WebConstants.Request.PROPERTY_ORDER_ID] != null && Request[WebConstants.Request.PROPERTY_ORDER_ID].CompareTo("") != 0)
         {
-            SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
             int propertyId = int.Parse(Request[WebConstants.Request.PROPERTY_ORDER_ID]);
+            menuItems.Add("Main", "AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyId);
+            SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
             IEnumerable<EstateAgentEntityModel.PropertyRoom> propertyRooms = (from propRooms in estateAgentDB.PropertyRooms where propRooms.PropertySequence == propertyId select propRooms);
-            foreach(EstateAgentEntityModel.PropertyRoom room in propertyRooms)
+            foreach (EstateAgentEntityModel.PropertyRoom room in propertyRooms)
             {
-                menuItems.Add(room.RoomHeading+WebConstants.ToSplit.ROOM_TAB_SPLIT+room.Sequence, "AddRoom.aspx?"+WebConstants.Request.PROPERTY_ORDER_ID+"="+propertyId+"&"+WebConstants.Request.Room_ID+"="+room.Sequence);
+                menuItems.Add(room.RoomHeading + WebConstants.ToSplit.ROOM_TAB_SPLIT + room.Sequence, "AddRoom.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyId + "&" + WebConstants.Request.Room_ID + "=" + room.Sequence);
             }
         }
-
+        else
+        {
+            menuItems.Add("Main", "AddOrder.aspx");
+        }
 
         StringBuilder lis = new StringBuilder();
         lis.Append("<div style='width:100%'>");

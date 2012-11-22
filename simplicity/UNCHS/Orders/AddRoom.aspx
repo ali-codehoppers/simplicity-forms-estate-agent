@@ -51,12 +51,13 @@
 
             meterToFeet = function () {
                 var meter = $("#LengthInMTextBox").val()
+                var feets = null;
                 var feet = null;
                 var inches = null;
                 if (meter != "") {
-                    feet = meter * 3.281;
-                    feet = parseInt(feet);
-                    inches = meter % 3.281;
+                    feets = meter * 3.281;
+                    feet = parseInt(feets);
+                    inches = (feets - feet) * 12;
                 }
                 $("#LengthInFeetTextBox").attr("value", Math.round(feet).toFixed(2));
                 $("#LengthInInchesTextBox").attr("value", Math.round(inches).toFixed(2));
@@ -81,12 +82,13 @@
 
             meterToFeetInWidth = function () {
                 var meter = $("#WidthInMTextBox").val()
+                var feets = null;
                 var feet = null;
                 var inches = null;
                 if (meter != "") {
-                    feet = meter * 3.281;
-                    feet = parseInt(feet);
-                    inches = meter % 3.281;
+                    feets = meter * 3.281;
+                    feet = parseInt(feets);
+                    inches = (feets - feet) * 12;
                 }
                 $("#WidthInFeetTextBox").attr("value", Math.round(feet).toFixed(2));
                 $("#WidthInInchesTextBox").attr("value", Math.round(inches).toFixed(2));
@@ -139,6 +141,9 @@
             if ($.browser.msie) {
                 $("textarea").height("125");
             }
+            $('.numbersOnly').keyup(function () {
+                this.value = this.value.replace(/[^0-9\.]/g, '');
+            });
         });
     </script>
 
@@ -253,7 +258,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 255px;
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 330px;
         float: left; width: 97.65%">
         <div class="RoomPanel">
 
@@ -339,14 +344,14 @@
     <div id="DimensionDialogId" >
         <center><h1>Room Dimensions</h1></center>
         <div style="height:40px;">
-            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.2em; height: 20px;">Length </span><%--</div>--%><input type="text" id="LengthInMTextBox" style="width:50px;" />
-            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-            <input type="text" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="LengthTextTextBox"  />
+            <span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.2em; height: 20px;">Length </span><input type="text" id="LengthInMTextBox" class="numbersOnly" style="width:50px;" />
+            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" class="numbersOnly" id="LengthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
+            <input type="text" class="numbersOnly" id="LengthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="LengthTextTextBox"  />
         </div>
         <div style="height:40px;">
-            <%--<div style="width:60px; display:inline-block;">--%><span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.2em; height: 20px;">Width </span><%--</div>--%><input type="text" id="WidthInMTextBox" style="width:50px;" />
-            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
-            <input type="text" id="WidthInInchesTextBox" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="WidthTextTextBox"  />
+            <span style="width:60px; display:inline-block;font-weight: bold; font-size: 1.2em; height: 20px;">Width </span><input type="text" class="numbersOnly" id="WidthInMTextBox" style="width:50px;" />
+            <h3>m</h3><h3 style="margin:0 40px">or</h3><input type="text" class="numbersOnly" id="WidthInFeetTextBox" style="width:50px;" /><h3 style="margin-right:10px">ft</h3>
+            <input type="text" id="WidthInInchesTextBox" class="numbersOnly" style="width:50px;" /><h3>in.</h3><h3 style="margin-left:40px; margin-right:5px;">Text</h3><input type="text" style="width:180px;" id="WidthTextTextBox"  />
         </div>
     </div>
 

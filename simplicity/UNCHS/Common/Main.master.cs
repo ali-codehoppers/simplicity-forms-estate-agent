@@ -26,7 +26,8 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
         //int user_id = Int32.Parse(Session[WebConstants.Session.USER_ID].ToString());
         //      Simplicity.Data.SimplicityEntities db=new SimplicityEntities();
         //     Simplicity.Data.Session session=from c in db.Sessions where c.SessionID==user_id select c; 
-        Logginuser.Text = Session["userName"].ToString();  
+        if (Session["userName"] != null)
+            Logginuser.Text = Session["userName"].ToString();  
         if (Session[WebConstants.Session.USER_CO_ID] != null)
         {
             //Company.un_co_detailsRow company = DatabaseUtility.GetCompany((int)Session[WebConstants.Session.USER_CO_ID]);
@@ -65,6 +66,7 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
 
     protected void btnLogout_Click(object sender, EventArgs e)
     {
+        FormsAuthentication.SignOut();
         if (Session[WebConstants.Session.USER_ID] != null)
         {
             Cache.Remove(Session[WebConstants.Session.USER_ID].ToString());

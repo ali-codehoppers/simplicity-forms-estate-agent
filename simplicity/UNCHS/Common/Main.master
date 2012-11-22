@@ -61,6 +61,9 @@
 		    padding: 0px 5px 0px 5px;
 		    margin: 0px 0px 0px 0px;
 	    }
+        /*#cover {
+            background: url("~/Images/Create_Folder.gif") no-repeat scroll center center #FFF;
+        }*/
     </style>
     <script type="text/javascript">
 
@@ -75,6 +78,15 @@
         }
         YAHOO.util.Event.onDOMReady(renderHelpDialog);
 
+
+        
+        $('#red').hide();
+        $('#cover').show();
+
+        $(document).ready(function () {
+            $('#cover').hide();
+            $('#red').show();
+        })
     </script>
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
