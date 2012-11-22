@@ -13,8 +13,7 @@ public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
 {
     private String urlString;
     private String[] order = { "AddOrder.aspx", "AddOrderPeople.aspx" };
-    //private String[] section = { "SectionList.aspx","SectionDetailList.aspx" };
-    //private String[] document = { "DocumentList.aspx", "DocumentItemList.aspx" };    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         urlString = Request.Url.ToString();

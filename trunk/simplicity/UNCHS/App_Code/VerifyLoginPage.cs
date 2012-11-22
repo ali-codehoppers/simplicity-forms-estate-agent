@@ -50,6 +50,7 @@ public abstract class VerifyLoginPage : GenericPage
                 Session[WebConstants.Session.SIMPLICITY_USER_ID] = session.User.UserID;
                 Session[WebConstants.Session.USER_ID] = session.User.UserID;
                 Session[WebConstants.Session.USER_ROLE] = WebConstants.Roles.User;
+                //Session["userName"] = session.User.Email;
                 loggedInUserRole = WebConstants.Roles.User;
                 loggedInUserId = session.User.UserID;
                 if (session.User.Company != null)

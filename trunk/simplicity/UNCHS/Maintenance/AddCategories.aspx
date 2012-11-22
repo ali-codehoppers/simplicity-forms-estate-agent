@@ -36,7 +36,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:350px;">
         <div class="ddl_field" style="padding-bottom:5px;">
             <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
             <asp:DropDownList ID="ddlCompany" runat="server" DataTextField="Name"  CssClass="dropdown_txt"
