@@ -57,10 +57,14 @@
                 if (meter != "") {
                     feets = meter * 3.281;
                     feet = parseInt(feets);
-                    inches = (feets - feet) * 12;
+                    inches = (feets - feet) * 12.0;
+                    $("#LengthInFeetTextBox").attr("value", (feet).toFixed(2));
+                    $("#LengthInInchesTextBox").attr("value", (inches).toFixed(2));
                 }
-                $("#LengthInFeetTextBox").attr("value", Math.round(feet).toFixed(2));
-                $("#LengthInInchesTextBox").attr("value", Math.round(inches).toFixed(2));
+                else {
+                    $("#LengthInFeetTextBox").attr("value", "");
+                    $("#LengthInInchesTextBox").attr("value", "");
+                }
             }
 
             feetToMeter = function () {
@@ -69,15 +73,16 @@
                     var feet = parseInt($("#LengthInFeetTextBox").val());
                     var inches = parseInt($("#LengthInInchesTextBox").val());
 
-                    if (feet != "") {
-                        if (inches != "")
-                            feet = feet + (inches / 12);
+                    if (isNaN(feet) != true) {
+                        if (isNaN(inches) != true)
+                            feet = feet + (inches / 12.0);
                         meter = feet / 3.281;
-                        $("#LengthInMTextBox").attr("value", Math.round(meter).toFixed(2));
+                        $("#LengthInMTextBox").attr("value", (meter).toFixed(2));
                     }
-                    else if (inches != "" && feet == "")
-                        $("#LengthInMTextBox").attr("value", Math.round(inches / 12).toFixed(2));
+                    else if (isNaN(inches) != true && isNaN(feet) == true)
+                        $("#LengthInMTextBox").attr("value", (inches / 12.0).toFixed(2));
                 }
+                else { $("#LengthInMTextBox").attr("value", ""); }
             }
 
             meterToFeetInWidth = function () {
@@ -88,10 +93,14 @@
                 if (meter != "") {
                     feets = meter * 3.281;
                     feet = parseInt(feets);
-                    inches = (feets - feet) * 12;
+                    inches = (feets - feet) * 12.0;
+                    $("#WidthInFeetTextBox").attr("value", (feet).toFixed(2));
+                    $("#WidthInInchesTextBox").attr("value", (inches).toFixed(2));
                 }
-                $("#WidthInFeetTextBox").attr("value", Math.round(feet).toFixed(2));
-                $("#WidthInInchesTextBox").attr("value", Math.round(inches).toFixed(2));
+                else {
+                    $("#WidthInFeetTextBox").attr("value", "");
+                    $("#WidthInInchesTextBox").attr("value", "");
+                }
             }
 
             feetToMeterInWidth = function () {
@@ -100,15 +109,16 @@
                     var feet = parseInt($("#WidthInFeetTextBox").val());
                     var inches = parseInt($("#WidthInInchesTextBox").val());
 
-                    if (feet != "") {
-                        if (inches != "")
-                            feet = feet + (inches / 12);
+                    if (isNaN(feet) != true) {
+                        if (isNaN(inches) != true)
+                            feet = feet + (inches / 12.0);
                         meter = feet / 3.281;
-                        $("#WidthInMTextBox").attr("value", Math.round(meter).toFixed(2));
+                        $("#WidthInMTextBox").attr("value", (meter).toFixed(2));
                     }
-                    else if (inches != "" && feet == "")
-                        $("#WidthInMTextBox").attr("value", Math.round(inches / 12).toFixed(2));
+                    else if (isNaN(inches) != true && isNaN(feet) == true)
+                        $("#WidthInMTextBox").attr("value", (inches / 12.0).toFixed(2));
                 }
+                else { $("#WidthInMTextBox").attr("value", ""); }
             }
 
             $("#LengthInMTextBox").focusout(meterToFeet

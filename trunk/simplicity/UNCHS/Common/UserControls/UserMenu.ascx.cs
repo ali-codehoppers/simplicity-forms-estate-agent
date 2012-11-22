@@ -12,7 +12,7 @@ using System.Web.UI.HtmlControls;
 public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
 {
     private String urlString;
-    private String[] order = { "AddOrder.aspx", "AddOrderPeople.aspx" };
+    private String[] order = { "AddOrder.aspx", "AddOrderPeople.aspx", "AddRoom.aspx" };
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -37,6 +37,7 @@ public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
         CreateDeptListNode.CssClass = SelectClass("DepartmentList.aspx",CreateDeptListNodeImage);
         CreateCategoryNode.CssClass = SelectClass("AddCategories.aspx", CreateCategoryNodeImage);
         CreateCategoryListNode.CssClass = SelectClass("CategoriesList.aspx", CreateCategoryListNodeImage);
+        SearchNode.CssClass = SelectClass("SearchOrder.aspx", PropertiesListNodeImage);
         //DefaultListNode.CssClass = SelectClass("DepartmentPersonList.aspx",DefaultListNodeImage);
         //PPENode.CssClass=SelectClass("DepartmentPPECategoryList.aspx",PPENodeImage);
         //PPEListNode.CssClass = SelectClass("DepartmentPPEList.aspx",PPEListNodeImage);
