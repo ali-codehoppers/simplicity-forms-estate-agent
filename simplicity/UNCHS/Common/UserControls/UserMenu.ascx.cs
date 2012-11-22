@@ -31,7 +31,7 @@ public partial class Common_UserControls_UserMenu : System.Web.UI.UserControl
         }
         
         //SearchNode.CssClass = SelectClass("SearchOrder.aspx", SearchNodeImage);
-        //UploadNode.CssClass = SelectClass("UploadOrder.aspx", UploadNodeImage);
+        UploadNode.CssClass = SelectClass("UploadOrder.aspx", UploadNodeImage);
         //SignageNode.CssClass = SelectClass("GenerateSignage.aspx", SignageNodeImage);
         CreateDeptNode.CssClass = SelectClass("AddDepartment.aspx",CreateDeptNodeImage);
         CreateDeptListNode.CssClass = SelectClass("DepartmentList.aspx",CreateDeptListNodeImage);
