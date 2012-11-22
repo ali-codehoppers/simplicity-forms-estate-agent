@@ -11,6 +11,7 @@
             <asp:HyperLink runat="server" CssClass="txt_black" ID="HomeNode" NavigateUrl="~/UserHome.aspx">Home</asp:HyperLink>
         </span></li>
         <li id="red-folder"><span class="txt_black_collapse">
+                    <asp:Image runat="server" ID="PropertiesListNodeImage" Visible="false" ImageUrl="~/Images/arrow_left.jpg" />
                     <asp:HyperLink runat="server" CssClass="txt_black" ID="SearchNode" NavigateUrl="~/Orders/SearchOrder.aspx">Properties List</asp:HyperLink></span>
             <ul>
                 <li id="red-createfolder"><span class="txt_black">

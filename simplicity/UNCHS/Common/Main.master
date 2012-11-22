@@ -257,7 +257,7 @@
                 //$("#red-folder").find("ul").attr("style", "display:none");
             } 
 
-                if ((url.indexOf("AddOrder.aspx") == -1) && (url.indexOf("SearchOrder.aspx") == -1) && (url.indexOf("UploadOrder.aspx") == -1) && (url.indexOf("AddOrderPeople.aspx") == -1)) {
+            if ((url.indexOf("AddOrder.aspx") == -1) && (url.indexOf("SearchOrder.aspx") == -1) && (url.indexOf("AddRoom.aspx") == -1) && (url.indexOf("UploadOrder.aspx") == -1) && (url.indexOf("AddOrderPeople.aspx") == -1)) {
                     //document.getElementById("red-folder").setAttribute("class", "expandable");
                     //document.getElementById("red-folder").firstChild.setAttribute("class", "hitarea expandable-hitarea");
                     //document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
