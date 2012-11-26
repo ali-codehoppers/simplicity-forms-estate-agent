@@ -32,6 +32,7 @@
         body{
 		    background-color:#DBE0E4;
 			margin:0;
+            min-width:1224px;
 	    }
 	    .logo-positioning{
 		    position:absolute;

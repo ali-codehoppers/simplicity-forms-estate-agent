@@ -38,7 +38,7 @@
                         $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthInInches").attr("value", $("#WidthInInchesTextBox").val());
                         $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_RoomWidthText").attr("value", $("#WidthTextTextBox").val());
 
-                        var tempText = Math.round($("#LengthInMTextBox").val()) + "m(" + Math.round($("#LengthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\") X " + Math.round($("#WidthInMTextBox").val()) + "m(" + Math.round($("#WidthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\")";
+                        var tempText = $("#LengthInMTextBox").val() + "m(" + $("#LengthInFeetTextBox").val() + "'" + $("#LengthInInchesTextBox").val() + "\") X " + $("#WidthInMTextBox").val() + "m(" + $("#WidthInFeetTextBox").val() + "'" + $("#WidthInInchesTextBox").val() + "\")";
                         $("#" + buttonContentId + "_ContentPlaceHolder_RoomsList_" + buttonListId + "_DimensionsTextBox").attr("value", tempText);
 
                         $(this).dialog('close');
@@ -170,6 +170,11 @@
             $('.numbersOnly').keyup(function () {
                 this.value = this.value.replace(/[^0-9\.]/g, '');
             });
+            var isiPad = navigator.userAgent.match(/iPad/i) != null;
+            if (isiPad == true) {
+                $(".column1 input[type='text']").css("width", "82%");
+                $(".column2 input[type='text']").css("width", "95%");
+            }
         });
     </script>
 
@@ -193,7 +198,7 @@
 		{
 			display:inline-block;
 			float:left;
-			width:150px;
+			width:170px;
 			margin-left:5px;
             height:150px;
 		}
