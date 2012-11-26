@@ -70,6 +70,8 @@
 		    background-color:#DBE0E4;
 		    font-family:Arial, Helvetica, sans-serif;
             margin:0;
+            width:100%;
+            min-width:1224px;
 	    }
     </style>
 </head>

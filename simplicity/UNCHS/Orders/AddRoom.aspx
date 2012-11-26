@@ -39,7 +39,7 @@
                         $("#RoomWidthInInches").attr("value", $("#WidthInInchesTextBox").val());
                         $("#RoomWidthText").attr("value", $("#WidthTextTextBox").val());
 
-                        var tempText = Math.round($("#LengthInMTextBox").val()) + "m(" + Math.round($("#LengthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\") X " + Math.round($("#WidthInMTextBox").val()) + "m(" + Math.round($("#WidthInFeetTextBox").val()) + "'" + Math.round($("#LengthInInchesTextBox").val()) + "\")";
+                        var tempText = $("#LengthInMTextBox").val() + "m(" + $("#LengthInFeetTextBox").val() + "'" + $("#LengthInInchesTextBox").val() + "\") X " + $("#WidthInMTextBox").val() + "m(" + $("#WidthInFeetTextBox").val() + "'" + $("#WidthInInchesTextBox").val() + "\")";
                         $("#DimensionsTextBox").attr("value", tempText);
                         
                         $(this).dialog('close');
@@ -154,7 +154,13 @@
             $('.numbersOnly').keyup(function () {
                 this.value = this.value.replace(/[^0-9\.]/g, '');
             });
+            var isiPad = navigator.userAgent.match(/iPad/i) != null;
+            if (isiPad == true) {
+                $("#RoomNoTextBox").css("width", "82%");
+                $(".column2 input[type='text']").css("width", "95%");
+            }
         });
+        
     </script>
 
     <style type="text/css">
@@ -177,7 +183,7 @@
 		{
 			display:inline-block;
 			float:left;
-			width:150px;
+			width:170px;
 			margin-left:5px;
             height:150px;
 		}
@@ -287,7 +293,7 @@
 					    <span>No.</span>
 				    </div>
 				    <div style="margin-bottom:5px;">
-                        <asp:TextBox ID="RoomNoTextBox" style="width:100%;" runat="server" Enabled="false"></asp:TextBox>
+                        <asp:TextBox ID="RoomNoTextBox" clientidmode="Static" style="width:100%;" runat="server" Enabled="false"></asp:TextBox>
 				    </div>
 				    <div class="sameHeight">
 					    <span>&nbsp;</span>
@@ -302,7 +308,7 @@
 					    <span>Heading</span>
 				    </div>
 				    <div style="margin-bottom:5px;">
-                        <asp:TextBox ID="HeadingTextBox" runat="server" style="width:100%;"></asp:TextBox>
+                        <asp:TextBox ID="HeadingTextBox" runat="server" clientidmode="Static" style="width:100%;"></asp:TextBox>
 				    </div>
 				    <div class="sameHeight">
 					    <span>Dimensions</span>
@@ -314,7 +320,7 @@
 					    <span>Aspect</span>
 				    </div>
 				    <div style="margin-bottom:5px;">
-                        <asp:TextBox style="width:100%;" ID="AspectTextBox" runat="server"></asp:TextBox>
+                        <asp:TextBox style="width:100%;" clientidmode="Static" ID="AspectTextBox" runat="server"></asp:TextBox>
 				    </div>
 			    </div>
 			    <div class="column3">
