@@ -72,7 +72,7 @@
             <div style="float: left">
                 <img src="<%=this.ResolveClientUrl("~/images/bc_left.jpg")%>" alt="" width="8" height="31" /></div>
             <div class="breadcrum_mid" style="height: 23px; padding-top: 8px; float: left; width: 96%">
-                Search E&amp;A Property
+                Estate Agent Property List
             </div>
             <img src="<%=this.ResolveClientUrl("~/images/bc_right.jpg")%>" alt="" width="8" height="31" />
         </div>

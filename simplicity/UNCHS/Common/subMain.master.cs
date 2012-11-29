@@ -45,29 +45,8 @@ public partial class Common_subMain : System.Web.UI.MasterPage
             //notproductTrial.Visible = true;
         //        }
         }
-        //}//commented code because there is no trial version in EA so far.
     }
 
-
-    //private void SetHelp(int loggedInUserCoId)
-    //{
-    //    char[] seperator = new char[1];
-    //    seperator[0] = '/';
-    //    string[] paths = Request.Path.Split(seperator);
-    //    string path = paths[paths.Length - 1];
-    //    ScreensTableAdapters.ScreenTableAdapter screenTA = new ScreensTableAdapters.ScreenTableAdapter();
-    //    IEnumerator ieScreen = screenTA.GetScreenByURL(loggedInUserCoId, path).GetEnumerator();
-    //    if (ieScreen.MoveNext())
-    //    {
-    //        Screens.ScreenEntityRow screenDR = (Screens.ScreenEntityRow)ieScreen.Current;
-    //        //imgHelp.Visible = true;
-    //        helpHTML = screenDR.help_html;
-    //    }
-    //    else
-    //    {
-    //        //imgHelp.Visible = false;
-    //    }
-    //}
 
     protected void btnLogout_Click(object sender, EventArgs e)
     {
@@ -78,30 +57,10 @@ public partial class Common_subMain : System.Web.UI.MasterPage
         }
         Session.Clear();
         Response.Redirect(ConfigurationSettings.AppSettings["LogoutURL"]);
-        //Response.Redirect("~/Login.aspx");
 
     }
     protected void btnAccount_Click(object sender, EventArgs e)
     {
         Response.Redirect(ConfigurationSettings.AppSettings["SCurl"] + "/SignUp.aspx");
     }
-
-    //protected string GetTrialHTML()
-    //{
-    //    string html = "";
-    //    if (Session[WebConstants.Session.USER_CO_ID] != null)
-    //    {
-    //        Company.un_co_detailsRow company = DatabaseUtility.GetCompany((int)Session[WebConstants.Session.USER_CO_ID]);
-    //        if (company != null)
-    //        {
-    //            if (company.Isflg_trialNull() == false && company.flg_trial)
-    //            {
-    //                string url = ConfigurationManager.AppSettings["SCurl"] + "/Products/HS/HSPrice.aspx?productId=2";
-    //                html = "<div class='trial_txt'>Your trial ends in " + company.trial_end_date.Subtract(DateTime.Now).Days + " days on " + company.trial_end_date.ToShortDateString() + "</div>";
-    //                html += "<div style='float:right'><a href='" + url + "'><img style='border:none' src='" + this.ResolveClientUrl("~/Images/Buy_Now.jpg") + "'\"/></a></div><div style='clear:both'></div>";
-    //            }
-    //        }
-    //    }
-    //    return html;
-    //}
 }

@@ -23,7 +23,7 @@
                   </table>
         <div style="margin: 20px; width: 700px;display:inline-block;float:left;">
             
-            <div class="terms" style="margin-top:10px">
+            <%--<div class="terms" style="margin-top:10px">
                 Simplicity for Business H&S Live is a unique document management application that
                 assists you in easily and quickly creating and maintaining your health and safety
                 documents, that are required as part of your Company’s health and safety policy
@@ -46,7 +46,7 @@
                 assessment, it is important to put your results into practice. If you need to make
                 a number of improvements, you should produce an action plan to deal with and implement
                 those improvements, starting with the most important actions first.
-            </div>
+            </div>--%>
             
         </div>
         <div style="display:inline-block;float:right;width:350px;">
