@@ -240,33 +240,8 @@ public partial class Orders_SearchOrder : AuthenticatedPage
 
     protected void DeleteDepartmentOrder(int deptOrderId)
     {
-        /*
-        DataTable department = getDepartmentOrder(deptOrderId);
-        if (department == null)
-        {
-            SetErrorMessage(WebConstants.Messages.Error.INVALID_ID);
-        }
-        else
-        {
-            try
-            {
-                DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter tableAdapter = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
-                tableAdapter.Delete(deptOrderId);
-                SetInfoMessage(WebConstants.Messages.Information.RECORD_DELETED);
-                GridView1.DataBind();
-            }
-            catch
-            {
-                SetErrorMessage(WebConstants.Messages.Error.CONNECTION_ERROR);
-            }
-        }*/
     }
-    private DataTable getDepartmentOrder(int DepartmentOrderId)
-    {
-        DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter tableAdaptor = new DepartmentOrderTableAdapters.DepartmentOrderRowTableAdapter();
-        DataTable dt = tableAdaptor.GetDepartmentOrderById(DepartmentOrderId);
-        return dt;
-    }
+    
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         e.Cancel = true;

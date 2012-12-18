@@ -40,8 +40,6 @@ public partial class Orders_Print : VerifyLoginPage
 
         if (!IsPostBack)
         {
-            //Property property = entity.Properties1.SingleOrDefault(c => c.Sequence == propertyId);
-            //PropertyHeadingTextBox.Text = property.PropHeading;
             RoomsListPrint.DataSource = property.PropertyRooms.OrderBy(rooms => rooms.RoomNo);
             RoomsListPrint.DataBind();
         }

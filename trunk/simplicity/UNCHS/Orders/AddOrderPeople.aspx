@@ -143,7 +143,6 @@
         function showDimensionDialog(element) {
             var id = element.id;
             var elementIdSplit = id.split('_');
-            //var idNum = id.split('_')[2];
             buttonContentId = elementIdSplit[0];
             buttonListId = elementIdSplit[3];
             $("#LengthInMTextBox").attr("value", $("#"+elementIdSplit[0]+"_ContentPlaceHolder_RoomsList_"+elementIdSplit[3]+"_RoomLengthInMeters").val());
@@ -161,9 +160,6 @@
         }
 
         $(document).ready(function () {
-            //if (/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())) {
-            //    $("#ParagraphTextBox").height("110");
-            //}
             if ($.browser.msie) {
                 $("textarea").height("125");
             }
@@ -238,12 +234,6 @@
         a.txt_blue:link, a.txt_blue:visited {
             color:white;
         }
-        /*.ui-dialog .ui-dialog-buttonpane {
-            background-color: #DBE0E4;
-        }
-        .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
-            float: left;
-        }*/
     </style>
 
 </asp:Content>

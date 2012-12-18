@@ -14,8 +14,9 @@ using System.Linq;
 
 public partial class nLogin : GenericPage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnLoad(EventArgs e)
     {
+        base.OnLoad(e);
         if ((LoggedIsUser != null) || (User.Identity.IsAuthenticated))
         {
             Response.Redirect("TermsConditions.aspx");
@@ -61,7 +62,6 @@ public partial class nLogin : GenericPage
             Session[WebConstants.Session.USER_ID] = user.UserID;
             Session["userName"] = user.Email;
             Session["userFullName"]=user.FullName;
-            //Session["isTrial"] = user.UserProducts.FirstOrDefault().IsTrial;
             Session["sessionID"] = session.SessionUID;
             if (Session[WebConstants.Session.RETURN_URL] != null)
             {
@@ -78,8 +78,6 @@ public partial class nLogin : GenericPage
         }
         else
         {
-            //errorPanel.Visible = true;
-            //SetErrorMessage(WebConstants.Messages.Error.CANNOT_LOGIN);
             errorBox.Visible = true;
             errorBox.Text = WebConstants.Messages.Error.CANNOT_LOGIN;
         }

@@ -7,15 +7,11 @@
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/button/assets/skins/sam/button.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/container/assets/skins/sam/container.css")%>" />
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/yui/build/container/container-min.js")%>"></script>
-    
-    <%--<script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-1.8.0.min.js")%>"></script>
-	<script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/jquery-ui-1.8.23.custom.min.js")%>"></script>
-    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/jquery-1.8.23-custom/css/ui-lightness/jquery-ui-1.8.23.custom.css")%>" />--%>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
 
-            //define config object
             var dialogOpts = {
                 title: "Room Dimensions",
                 autoOpen: false,
@@ -223,26 +219,6 @@
         a.txt_blue:link, a.txt_blue:visited {
             color:white;
         }
-        /*.ui-widget-header {
-            background: #4075AB;
-            border: 1px solid #4075AB;
-            color: #FFFFFF;
-            font-weight: bold;
-        }
-
-        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-            background: #4075AB;
-            border: 1px solid #4075AB;
-            color: #FFFFFF;
-            font-weight: bold;
-        }*/
-
-        /*.ui-dialog .ui-dialog-buttonpane {
-            background-color: #DBE0E4;
-        }
-        .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
-            float: left;
-        }*/
     </style>
 
 </asp:Content>

@@ -43,24 +43,15 @@ public abstract class VerifyLoginPage : GenericPage
             Simplicity.Data.Session session = (from ses in databaseContext.Sessions where ses.SessionUID == User.Identity.Name select ses).FirstOrDefault();
             int EAProductId = int.Parse(AppSettings["EAProductIDInSimplicity"]);
 
-            //UserTableAdapters.un_co_user_detailsTableAdapter userTa = new UserTableAdapters.un_co_user_detailsTableAdapter();
-            //IEnumerator<User.un_co_user_detailsRow> users = userTa.GetBySimplicityID(session.User.UserID).GetEnumerator();
-            //if (users.MoveNext())
-            //{
                 Session[WebConstants.Session.SIMPLICITY_USER_ID] = session.User.UserID;
                 Session[WebConstants.Session.USER_ID] = session.User.UserID;
                 Session[WebConstants.Session.USER_ROLE] = WebConstants.Roles.User;
-                //Session["userName"] = session.User.Email;
                 loggedInUserRole = WebConstants.Roles.User;
                 loggedInUserId = session.User.UserID;
                 if (session.User.Company != null)
                 {
 
                     Session[WebConstants.Session.SIMPLICITY_COMPANY_ID] = session.User.Company.CompanyID;
-                    //CompanyTableAdapters.un_co_detailsTableAdapter ta = new CompanyTableAdapters.un_co_detailsTableAdapter();
-                    //IEnumerator<Company.un_co_detailsRow> companies = ta.GetBySimplicityID(session.User.Company.CompanyID).GetEnumerator();
-                    //if (companies.MoveNext())
-                    //{
                         Session[WebConstants.Session.USER_CO_ID] = session.User.Company.CompanyID;
                         Session[WebConstants.Session.COMPANY_NAME] = session.User.Company.Name;
                         loggedInUserCoId = session.User.Company.CompanyID;
@@ -86,7 +77,6 @@ public abstract class VerifyLoginPage : GenericPage
                             }
                             if (numOfLicenses - numOfUsedLicenses > 0)
                             {
-
                                 //GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current);
                             }
                             else
@@ -116,21 +106,11 @@ public abstract class VerifyLoginPage : GenericPage
                                 //GoToPage(companies.Current.flg_show_wizard, companies.Current.co_id, users.Current);
                             }
                         }
-                    //}
-                    //else
-                    //{
-                    //    Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You have no company assigned. Please contact administrator");
-                    //}
                 }
                 else
                 {
                     Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You have no company assigned. Please contact administrator");
                 }
-            //}
-            //else
-            //{
-            //    Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=No user found in Health and Safety for Simplicity user. Please contact administrator");
-            //}
         }
         else
         {
@@ -148,23 +128,5 @@ public abstract class VerifyLoginPage : GenericPage
         }
         return company;
     }
-
-    //private void GoToPage(bool isShowWizard, int companyId, User.un_co_user_detailsRow user)
-    //{
-    //    if (isShowWizard)
-    //    {
-    //        Session[WebConstants.Session.REG_CO_ID] = companyId;
-    //        Session[WebConstants.Session.REG_USER_ID] = user.user_id;
-    //        DepartmentTableAdapters.DepartmentSelectCommandTableAdapter deptTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-    //        IEnumerator ieDept = deptTA.GetDepartmentsByCoId(companyId).GetEnumerator();
-    //        if (ieDept.MoveNext())
-    //        {
-    //            Department.DepartmentSelectCommandRow department = (Department.DepartmentSelectCommandRow)ieDept.Current;
-    //            Session[WebConstants.Session.REG_DEPT_ID] = department.dept_id;
-    //        }
-    //        Response.Redirect("~/Register/AddCompany.aspx");
-    //    }
-        
-    //}
 
 }

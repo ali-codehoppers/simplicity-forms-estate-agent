@@ -14,7 +14,7 @@ using System.Web.UI.HtmlControls;
 public abstract class AuthenticatedPage : VerifyLoginPage
 {
     protected abstract void Page_Load_Extended(object sender, EventArgs e);
-    //private Company.un_co_detailsRow company = null;
+
 	public AuthenticatedPage():base()
 	{
 		//

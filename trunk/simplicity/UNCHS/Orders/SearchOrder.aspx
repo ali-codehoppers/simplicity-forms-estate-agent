@@ -153,61 +153,6 @@
                 </div>
             </div>
         </div>
-        <%--<div class="field">
-            <div style="width: 200px; float: left">
-                <span class="label" style="width: 110px;"><strong>Valuation Code:</strong></span>
-            </div>
-            <div style="padding-bottom: 5px;">
-                <asp:TextBox ID="tbValuationCode" runat="server" CssClass="field_txt"></asp:TextBox>
-            </div>            
-        </div>
-        <div class="field">
-            <div style="width: 200px; float: left">
-                <span class="label" style="width: 110px;"><strong>Post Code:</strong></span>
-            </div>
-            <div style="padding-bottom: 5px;">
-                <asp:TextBox ID="tbPostCode" runat="server" CssClass="field_txt"></asp:TextBox></div>
-        </div>
-        <div class="field">
-            <div style="width: 200px; float: left">
-                <span class="label" style="width: 110px;"><strong>Address:</strong></span>
-            </div>
-            <div style="padding-bottom: 5px;">
-                <asp:TextBox ID="tbAddress" runat="server" CssClass="field_txt"></asp:TextBox></div>
-        </div>
-        <div>
-            <div style="width: 200px; float: left">
-                <span style="width: 100px;"><strong>Date:</strong></span>
-            </div>
-            <div style="float: left;">
-                <span class="label" style="width: 40px; padding-right: 10px; padding-top: 5px; float: left">
-                    From:</span>
-                <asp:TextBox runat="server" ID="tbFromDate" CssClass="field_txt_small"></asp:TextBox>
-            </div>
-            <div>
-                <span class="label" style="width: 25px; padding-right: 10px; padding-left: 10px;
-                    padding-top: 5px; float: left">To:</span>
-                <asp:TextBox runat="server" ID="tbToDate" CssClass="field_txt_small"></asp:TextBox>
-            </div>
-        </div>
-        <div class="field" style="display: none;">
-            <div style="width: 200px; float: left">
-                <span class="label">Client Reference:</span>
-            </div>
-            <asp:TextBox ID="tbClientRef" runat="server"></asp:TextBox>
-        </div>
-        <div class="button_bar">
-            <div style="float: left; width: 200px; display: block">
-                &nbsp;
-            </div>
-            <div style="float: left;">
-                <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
-            </div>
-            <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="txt_white">Search</asp:LinkButton>
-            </div>
-            <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-        </div>--%>
 
         <div class="field" style="height:70px; width:98%;">
             <div style="width: 110px; height:50px; padding-bottom:5px; display:inline-block; float:left;">

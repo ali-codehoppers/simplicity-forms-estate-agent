@@ -14,7 +14,6 @@
     </div>
     <div style="width: 100%; background-color: White; min-height: 365px;">
         <div style="margin: auto; width: 80%">
-            <%--<asp:Image ID="homeimage" runat="server" ImageUrl="~/Images/home_yellow.jpg" />--%>
         </div>
     </div>
     <div style="float: left; width: 100%">

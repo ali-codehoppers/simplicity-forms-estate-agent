@@ -18,10 +18,10 @@ public partial class Order_AddRoom : RoomDetailPage
     protected override void OnLoad(EventArgs e)
     {
  	     base.OnLoad(e);
-         Page_Load(null, e);
+         Load_Page();
     }
 
-    protected void Page_Load(object sender, EventArgs e)
+    private void Load_Page()
     {
         if (!IsPostBack)
         {
@@ -111,11 +111,7 @@ public partial class Order_AddRoom : RoomDetailPage
                 int roomID = int.Parse(Request[WebConstants.Request.Room_ID]);
                 propRoom = property.PropertyRooms.SingleOrDefault(room => room.Sequence == roomID);
             }
-            //roomId = int.Parse(Request[WebConstants.Request.ROOM_ID]);
-            // = entity.PropertyRooms1.SingleOrDefault(c => c.Sequence == roomId);
-
-            //if (RoomNoTextBox.Text != null && RoomNoTextBox.Text.CompareTo("") != 0)
-            //    propRoom.RoomNo = int.Parse(RoomNoTextBox.Text);
+            
             if (HeadingTextBox.Text != null && HeadingTextBox.Text.CompareTo("") != 0)
                 propRoom.RoomHeading = HeadingTextBox.Text;
             if (AspectTextBox.Text != null && AspectTextBox.Text.CompareTo("") != 0)
@@ -151,16 +147,4 @@ public partial class Order_AddRoom : RoomDetailPage
         }
     }
 
-
-    //protected void btnBack_Click(object sender, EventArgs e)
-    //{
-    //    Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + Request[WebConstants.Request.PROPERTY_ORDER_ID]);
-    //}
-    //protected void btnNext_Click(object sender, EventArgs e)
-    //{
-    //    //if (Save())
-    //    {
-    //        Response.Redirect("~/Orders/AddOrderHazard.aspx?" + WebConstants.Request.DEPT_ORDER_ID + "=" + Request[WebConstants.Request.DEPT_ORDER_ID]);
-    //    }
-    //}
 }

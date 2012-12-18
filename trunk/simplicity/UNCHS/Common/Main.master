@@ -12,7 +12,6 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/icon" />
     <link rel="icon" href="/favicon.ico" type="image/ico"/>
     <!--YUI -->
-    <!--<link rel="stylesheet" type="text/css" href="/Includes/yui/build/reset-fonts-grids/reset-fonts-grids.css">-->
     
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/fonts/fonts-min.css")%>" />
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Includes/yui/build/menu/assets/skins/sam/menu.css")%>" />
@@ -62,25 +61,17 @@
 		    padding: 0px 5px 0px 5px;
 		    margin: 0px 0px 0px 0px;
 	    }
-        /*#cover {
-            background: url("~/Images/Create_Folder.gif") no-repeat scroll center center #FFF;
-        }*/
     </style>
     <script type="text/javascript">
-
-    
         function renderHelpDialog() {
 
             if (!NiftyCheck()) {
                 return;
             }
             Rounded("div#help", "#FFFFFF", "#21A8E2", 30, 30);
-
         }
         YAHOO.util.Event.onDOMReady(renderHelpDialog);
 
-
-        
         $('#red').hide();
         $('#cover').show();
 
@@ -102,9 +93,6 @@
                             <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="txt_blue">Logout</asp:LinkButton>
 						    |<asp:LinkButton ID="btnAccount" OnClick="btnAccount_Click" runat="server" class="txt_blue">My Account</asp:LinkButton>|
                             <a href="#help" class="txt_blue">Help</a>
-                            <%--<a id="A1" class="txt_blue" >Logout</a>
-						    | <a id="A2" class="txt_blue">My Account</a>|
-						    <a class="txt_blue">Help</a>--%>
 					    </div>
 				    </div>
 			    </div>
@@ -115,74 +103,12 @@
 			    </div>
 			    <div style="width: 1100px; margin:auto;">
 				    <div style="width:200px;float:right;">
-					    <%--<span style="float:left;margin-top:8px;color:white;" class="txt_blue">test.simplicity@hotmail.com</span>--%>
                         <strong style="float:left;margin-top:8px;color:white;font: normal 13px Trebuchet MS,Arial, Verdana, Helvetica, sans-serif;"><asp:Label ID="Logginuser" runat="server"></asp:Label></strong>
 				    </div>
 			    </div>
 		    </div>
 	    </div>
     <div style="width: 1100px; margin: auto">
-        <%--<div style="background-color: #FFFFFF; width: 100%;">
-            <div style="float: left;  width: 100%">
-                <div style="float: left; padding-top: 15px; padding-left: 10px; width: 40%">
-                    <img src="<%=this.ResolveClientUrl("~/Images/newlogo.jpg")%>" alt="" width="271"
-                        height="87" />
-                </div>
-                <div style="float: left; padding-right: 10px; width: 58%">
-                    <div style="float:right;">
-                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_right.jpg")%>" alt="" width="7"
-                            height="27" />
-                    </div>
-                    <div style="float:right; height: 27px; background-color: #4FA2C2" class="txt_white">
-                        <div style="padding-top: 3px;">
-                            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" CssClass="txt_white">Logout</asp:LinkButton>
-                            |<asp:LinkButton ID="btnAccount" OnClick="btnAccount_Click" runat="server" class="txt_white">My Account</asp:LinkButton>|
-                            <a href="#help" class="txt_white">Help</a></div>
-                    </div>
-                    <div style="float:right;">
-                        <img src="<%=this.ResolveClientUrl("~/images/top_blue_left.jpg")%>" alt="" width="7"
-                            height="27" />
-                    </div>
-                    <div style="float:right; height: 27px; background-color: #FEC828" class="txt_white">
-                        <div style="padding-top: 3px;">
-                            <strong>
-                                <asp:Label ID="Logginuser" runat="server"></asp:Label>
-                                Logged In</strong></div>
-                    </div>
-                    <div style="float:right;">
-                        <img src="<%=this.ResolveClientUrl("~/Images/top_yellow_left.jpg")%>" alt="" width="7"
-                            height="27" />
-                    </div>
-                    <div style="float:right;padding-right: 10px;">
-                        <asp:ImageButton ID="BackToSimplicityButton" alt="backtosimplicity" runat="server"
-                            ImageUrl="~/Images/back_home.jpg" Height="27" />
-                    </div>
-                    <div style="float:right;padding-top: 10px;width:280px;">--%>
-                        <%--<div>
-                            <div class="trialArea">
-                                <%=GetTrialHTML()%></div>
-                        </div>--%>
-                        <%--<div style="text-align: right">
-                            <asp:Label ID="lblFor" runat="server" Text="For" ForeColor="#FEC828" Font-Size="14"></asp:Label>
-                            <asp:Label ID="lblCompany" runat="server" Text="[Company Name]" ForeColor="#FEC828"
-                                Font-Size="14"></asp:Label>
-                        </div>
-                        <div style="text-align: right">--%>
-                            <%--<asp:Label runat="server" ID="productTrial" Visible="false" Style="font-size: 24px;
-                                color: #1FA8DF">Health &amp; Safety Demo</asp:Label>--%>
-                            <%--<asp:Label runat="server" ID="notproductTrial" Visible="false" Style="font-size: 24px;
-                                color: #1FA8DF">Estate Agent</asp:Label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="clear: both">
-            </div>
-        </div>--%>
-        <%--<div class="topLeftCurve">
-        </div>
-        <div class="topRightCurve">
-        </div>--%>
         <div style="clear: both">
         </div>  
         <div id="leftnav" style="padding-top: 50px;">
@@ -216,9 +142,6 @@
                 </div>
                 <div style="clear:both;">
                 </div>
-                <%--<div class="footer_sub_pages" style="padding-top: 10px; width: 250px; margin: auto">
-                    Copyright (c) Ultranova Coding Securities Ltd
-                </div>--%>
                 <%if (helpHTML != null && helpHTML.Length > 0)
                   { %>
                 <div class="help" id="help">
@@ -253,15 +176,9 @@
 
             var url = '<%=Request.Url.ToString()%>';
             if (url.indexOf("UserHome.aspx") != -1 || url.indexOf("GenerateSignage.aspx") != -1) {
-                //$("#red-folder").attr("class","expandable");
-                //$("#red-folder").children(":first").attr("class","hitarea expandable-hitarea");
-                //$("#red-folder").find("ul").attr("style", "display:none");
             } 
 
             if ((url.indexOf("AddOrder.aspx") == -1) && (url.indexOf("SearchOrder.aspx") == -1) && (url.indexOf("AddRoom.aspx") == -1) && (url.indexOf("UploadOrder.aspx") == -1) && (url.indexOf("AddOrderPeople.aspx") == -1)) {
-                    //document.getElementById("red-folder").setAttribute("class", "expandable");
-                    //document.getElementById("red-folder").firstChild.setAttribute("class", "hitarea expandable-hitarea");
-                    //document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
                     $("#red-folder").attr("class", "expandable");
                     $("#red-folder").children(":first").attr("class", "hitarea expandable-hitarea");
                     $("#red-folder").find("ul").attr("style", "display:none");
@@ -270,14 +187,8 @@
                     $("#red-folder").attr("class", "collapsable");
                     $("#red-folder").children(":first").attr("class", "hitarea collapsable-hitarea");
                     $("#red-folder").find("ul").attr("style", "display:block");
-                    //document.getElementById("red-folder").setAttribute("class", "collapsable");
-                    //document.getElementById("red-folder").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
-                    //document.getElementById("red-folder").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
                 }
                 if ((url.indexOf("AddDepartment.aspx") == -1) && (url.indexOf("DepartmentList.aspx") == -1) && (url.indexOf("AddCategories.aspx") == -1) && (url.indexOf("CategoriesList.aspx") == -1)) {
-                    //document.getElementById("red-settings").setAttribute("class", "expandable");
-                    //document.getElementById("red-settings").firstChild.setAttribute("class", "hitarea expandable-hitarea");
-                    //document.getElementById("red-settings").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
                     $("#red-settings").attr("class", "expandable");
                     $("#red-settings").children(":first").attr("class", "hitarea expandable-hitarea");
                     $("#red-settings").find("ul").attr("style", "display:none");
@@ -285,17 +196,11 @@
                         $("#red-departments").attr("class", "expandable");
                         $("#red-departments").children(":first").attr("class", "hitarea expandable-hitarea");
                         $("#red-departments").find("ul").attr("style", "display:none");
-                        //document.getElementById("red-departments").setAttribute("class", "expandable");
-                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea expandable-hitarea");
-                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
                     }
                     if ((url.indexOf("AddCategories.aspx") == -1) && (url.indexOf("CategoriesList.aspx") == -1)) {
                         $("#red-categories").attr("class", "expandable");
                         $("#red-categories").children(":first").attr("class", "hitarea expandable-hitarea");
                         $("#red-categories").find("ul").attr("style", "display:none");
-                        //document.getElementById("red-departments").setAttribute("class", "expandable");
-                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea expandable-hitarea");
-                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
                     }
                     
                 }
@@ -303,25 +208,16 @@
                     $("#red-settings").attr("class", "collapsable");
                     $("#red-settings").children(":first").attr("class", "hitarea collapsable-hitarea");
                     $("#red-settings").find("ul").attr("style", "display:block");
-                    //document.getElementById("red-settings").setAttribute("class", "collapsable");
-                    //document.getElementById("red-settings").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
-                    //document.getElementById("red-settings").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
 
                     if ((url.indexOf("AddDepartment.aspx") == -1) && (url.indexOf("DepartmentList.aspx") == -1)) {
                         $("#red-departments").attr("class", "expandable");
                         $("#red-departments").children(":first").attr("class", "hitarea expandable-hitarea");
                         $("#red-departments").find("ul").attr("style", "display:none");
-                        //document.getElementById("red-departments").setAttribute("class", "expandable");
-                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea expandable-hitarea");
-                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
                     }
                     else {
                         $("#red-departments").attr("class", "collapsable");
                         $("#red-departments").children(":first").attr("class", "hitarea collapsable-hitarea");
                         $("#red-departments").find("ul").attr("style", "display:block");
-                        //document.getElementById("red-departments").setAttribute("class", "collapsable");
-                        //document.getElementById("red-departments").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
-                        //document.getElementById("red-departments").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
                     }
 
                     if ((url.indexOf("AddCategories.aspx") == -1) && (url.indexOf("CategoriesList.aspx") == -1)) {
@@ -339,18 +235,11 @@
                         $("#red-template").attr("class", "expandable");
                         $("#red-template").children(":first").attr("class", "hitarea expandable-hitarea");
                         $("#red-template").find("ul").attr("style", "display:none");
-                        //document.getElementById("red-template").setAttribute("class", "expandable");
-                        //document.getElementById("red-template").firstChild.setAttribute("class", "hitarea expandable-hitarea");
-                        //document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:none";
-
                     }
                     else {
                         $("#red-template").attr("class", "collapsable");
                         $("#red-template").children(":first").attr("class", "hitarea collapsable-hitarea");
                         $("#red-template").find("ul").attr("style", "display:block");
-                        //document.getElementById("red-template").setAttribute("class", "collapsable");
-                        //document.getElementById("red-template").firstChild.setAttribute("class", "hitarea collapsable-hitarea");
-                        //document.getElementById("red-template").getElementsByTagName("ul").item(0).attributes.item(0).nodeValue = "display:block";
                     }
                 }
                 $("#mainContent").ready(function () {

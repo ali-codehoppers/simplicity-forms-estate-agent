@@ -66,7 +66,6 @@ public partial class Orders_UploadOrder : DepartmentPage
                 string fullAddress = csv["address_line1"] + " " + csv["address_line2"] + csv["address_line3"] + csv["address_line4"] + csv["address_line5"] + csv["address_post_code"];
 
                 PropertyDetail property = new PropertyDetail();
-                //property.AddressNo = tbPopupFlat.Text;
                 property.AddressLine1 = csv["address_line1"];
                 property.AddressLine2 = csv["address_line2"];
                 property.AddressLine3 = csv["address_line3"];
@@ -111,14 +110,4 @@ public partial class Orders_UploadOrder : DepartmentPage
             SetInfoMessage(count + " properties added to the system.");
         }
     }
-
-    //private string getOrderSMS(string orderSMS)
-    //{
-    //    string smsOrder = orderSMS.ToString();
-    //    while (smsOrder.Length < 6)
-    //    {
-    //        smsOrder = smsOrder.Insert(0, "0");
-    //    }
-    //    return smsOrder;
-    //}
 }

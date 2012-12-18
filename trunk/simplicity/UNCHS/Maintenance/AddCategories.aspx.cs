@@ -106,26 +106,6 @@ public partial class Maintenance_AddCategories : AuthenticatedPage
             estateAgentDB.RefCategories.AddObject(category);
             estateAgentDB.SaveChanges();
             Response.Redirect("CategoriesList.aspx");
-
-            //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter dep_Adapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-            //DataTable dt = dep_Adapter.GetDepartmentByShortName(txtCompanyShortName.Text, loggedInUserCoId);
-            //if (dt.Rows.Count == 0)
-            //{
-            //    int coId = 0;
-            //    if (loggedInUserRole == WebConstants.Roles.Admin)
-            //    {
-            //        coId = int.Parse(ddlCompany.SelectedValue);
-            //    }
-            //    else
-            //    {
-            //        coId = loggedInUserCoId;
-            //    }
-
-            //}
-            //else
-            //{
-            //    SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
-            //}
         }
         catch (Exception exc)
         {

@@ -21,7 +21,6 @@
         .text_field span
         {
             width: 400px;
-            /*height: 100%;*/
             display: inline-block;
             padding-bottom: 8px;
             font-weight: bold;
@@ -171,7 +170,6 @@
             </asp:DropDownList>
         </div>
         <div class="text_field" style="height:27px;">
-            <%--<asp:HiddenField ID="HiddenField2" runat="server" />--%>
             <asp:Label ID="lblCategory" runat="server" Text="Category:"></asp:Label><asp:DropDownList
                 CssClass="dropdown_txt" ID="ddlCategory" runat="server"
                 DataTextField="CategoryDesc" DataValueField="Sequence" OnDataBound="ddlCategory_DataBound">
@@ -267,7 +265,6 @@
                 </div>
                 <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
-            <%--<div style="clear:both;display:inline;"></div>--%>
             <div class="buttton_bar" style="display:inline;margin-top:5px;float:left;">
                     <div style="float: left; display: block">
                         &nbsp;
@@ -279,8 +276,6 @@
                         <asp:LinkButton ID="SavePropertyDetailsButton" runat="server" OnClick="SavePropertyDetails" CssClass="txt_white">Save</asp:LinkButton>
                     </div>
                     <asp:Image ID="Image10" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-                <%--<asp:Button ID="ShowDetailsOrAddRoomButton" OnClick="ShowRoomDetails" CssClass="PropertyDetailButtons" runat="server" Text="Room Details"/>
-                <asp:Button ID="SavePropertyDetailsButton" OnClick="SavePropertyDetails" CssClass="PropertyDetailButtons" runat="server" Text="Save"/>--%>
             </div>
         </div>
         <div class="button_bar" style="display: none;">
@@ -291,37 +286,8 @@
                 Visible="False" />
             <asp:Button ID="btnUncancel" runat="server" OnClick="btnUncancel_Click" Text="Uncancel Order"
                 Visible="False" />
-            <%--<asp:ObjectDataSource ID="odsDepartment" runat="server" OldValuesParameterFormatString="original_{0}"
-                SelectMethod="CreateRefDepartment" 
-                TypeName="EstateAgentEntityModel.RefDepartment"
-                DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
-                <SelectParameters>
-                    <asp:SessionParameter Name="CompanySequence" SessionField="USER_CO_ID" Type="Int32" DefaultValue="0" />
-                </SelectParameters>
-                <DeleteParameters>
-                    <asp:Parameter Name="Sequence" Type="Int32" />
-                </DeleteParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="RowIndex" Type="Int32" />
-                    <asp:Parameter Name="DepartmentDesc" Type="String" />
-                    <asp:Parameter Name="LastAmendedBy" Type="Int32" />
-                    <asp:Parameter Name="DateLastAmended" Type="DateTime" />
-                </UpdateParameters>
-                <InsertParameters>
-                    <asp:SessionParameter Name="CompanySequence" SessionField="USER_CO_ID" Type="Int32" DefaultValue="0" />
-                    <asp:Parameter Name="RowIndex" Type="Int32" />
-                    <asp:Parameter Name="DepartmentDesc" Type="String" />
-                    <asp:Parameter Name="LastAmendedBy" Type="Int32" />
-                    <asp:Parameter Name="DateLastAmended" Type="DateTime" />
-                    <asp:Parameter Name="CreatedBy" Type="Int32" />
-                    <asp:Parameter Name="DateCreated" Type="DateTime" />
-                </InsertParameters>
-            </asp:ObjectDataSource>--%>
             &nbsp;
         </div>
-        <%--<div class="button_right" style="padding-left: 340px; padding-top: 20px">
-            <asp:ImageButton ID="btnNext" runat="server" OnClick="btnNext_Click" ImageUrl="~/Images/btn_next.jpg" />
-        </div>--%>
     </div>
     <div style="float: left; width: 100%;">
         <div style="float: left">
@@ -335,8 +301,6 @@
     <script type="text/javascript">
         
         $(function () {
-            //$('#<%//=tbReviewDate.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
-            //$('#<%//=dtCreated.ClientID%>').datepicker({ dateFormat: 'dd/mm/yy' });
         });
     </script>
 </asp:Content>

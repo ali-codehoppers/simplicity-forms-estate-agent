@@ -63,9 +63,6 @@
             
          </div>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-        <%--<asp:ObjectDataSource ID="odsCompanies" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetAllCompanies" TypeName="CompanyTableAdapters.un_co_detailsTableAdapter">
-        </asp:ObjectDataSource>--%>
     </div>
     <div style="float: left; width: 100%">
         <div class="floatLeft">

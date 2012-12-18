@@ -22,7 +22,7 @@ public partial class Register_CSVHelp : System.Web.UI.Page
             else if (Request["return"].Equals("2"))
             {
                 hlBack.NavigateUrl = "~/Register/UploadPeople.aspx";
-            }            
+            }
         }
     }
 }

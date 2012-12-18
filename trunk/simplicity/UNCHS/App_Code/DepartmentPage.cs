@@ -44,17 +44,5 @@ public abstract class DepartmentPage : AuthenticatedPage
             }
             break;
         }
-        //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter tableAdapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-        //IEnumerator iEnum = tableAdapter.GetDepartmentsByCoId(loggedInUserCoId).GetEnumerator();
-        //if (iEnum.MoveNext())
-        //{
-        //    Department.DepartmentSelectCommandRow dataRow = (Department.DepartmentSelectCommandRow)iEnum.Current;
-        //    firstDepartmentId = dataRow.dept_id;
-        //    Department_Page_Handling(sender, e);
-        //}
-        //else
-        //{
-        //    Response.Redirect("~/Maintenance/AddDepartment.aspx?" + WebConstants.Request.NO_DEPT + "=true");
-        //}
     }
 }
