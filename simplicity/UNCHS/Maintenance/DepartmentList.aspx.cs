@@ -48,9 +48,7 @@ public partial class Maintenance_DepartmentList : AuthenticatedPage
     }
 
     protected void DeleteDepartment(int dept_id)
-    {
-        //int dept_id = int.Parse(e.CommandArgument.ToString());
-        
+    {   
         department = getDepartment(dept_id);
         if (department == null)
         {
@@ -60,10 +58,7 @@ public partial class Maintenance_DepartmentList : AuthenticatedPage
         {
             try
             {
-                //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter tableAdapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-                //tableAdapter.DeleteDepartment(int.Parse(department.Rows[0]["dept_id"].ToString()));
                 department.FlgDeleted = true;
-                //estateAgentDB.RefDepartments.DeleteObject(department);
                 estateAgentDB.SaveChanges();
                 SetInfoMessage(WebConstants.Messages.Information.RECORD_DELETED);
                 GridView1.DataBind();
@@ -78,8 +73,6 @@ public partial class Maintenance_DepartmentList : AuthenticatedPage
     {
         
         RefDepartment dt = estateAgentDB.RefDepartments.SingleOrDefault(dept => dept.Sequence == departmentId);
-        //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter tableAdapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-        //DataTable dt = tableAdapter.GetDepartmentByDeptId(departmentId);
         return dt;
     }
     protected void ddlCompanies_SelectedIndexChanged(object sender, EventArgs e)

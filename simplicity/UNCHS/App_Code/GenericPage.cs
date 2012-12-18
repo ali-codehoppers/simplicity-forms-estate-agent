@@ -78,7 +78,7 @@ public abstract class GenericPage : System.Web.UI.Page
             }
         }
 
-        base.OnLoad(e);
+        
     }
     private Simplicity.Data.User loggedInUser;
     protected Simplicity.Data.User LoggedIsUser

@@ -64,12 +64,7 @@ public partial class Maintenance_AddDepartment : AuthenticatedPage
     protected void btnSave_Update_Click(object sender, EventArgs e)
     {
     }
-    //private DataTable getDepartment(int departmentId)
-    //{
-    //    DepartmentTableAdapters.DepartmentSelectCommandTableAdapter tableAdapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-    //    DataTable dt = tableAdapter.GetDepartmentByDeptId(departmentId);
-    //    return dt;
-    //}
+    
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         try
@@ -111,26 +106,6 @@ public partial class Maintenance_AddDepartment : AuthenticatedPage
             estateAgentDB.RefDepartments.AddObject(department);
             estateAgentDB.SaveChanges();
             Response.Redirect("DepartmentList.aspx");
-
-            //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter dep_Adapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-            //DataTable dt = dep_Adapter.GetDepartmentByShortName(txtCompanyShortName.Text, loggedInUserCoId);
-            //if (dt.Rows.Count == 0)
-            //{
-            //    int coId = 0;
-            //    if (loggedInUserRole == WebConstants.Roles.Admin)
-            //    {
-            //        coId = int.Parse(ddlCompany.SelectedValue);
-            //    }
-            //    else
-            //    {
-            //        coId = loggedInUserCoId;
-            //    }
-                
-            //}
-            //else
-            //{
-            //    SetErrorMessage(WebConstants.Messages.Error.ALREAD_EXISTS);
-            //}
         }
         catch(Exception exc)
         {

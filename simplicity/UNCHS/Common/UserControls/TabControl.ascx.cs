@@ -22,8 +22,6 @@ public partial class Common_TabControl : System.Web.UI.UserControl
 
     public void RefreshTabs()
     {
-        //private SimplicityWebEstateAgentEntities estateAgentDB = null;
-        //this.menuItems.Add();
         menuItems.Clear();
         InitializeComponent();
     }
@@ -81,13 +79,6 @@ public partial class Common_TabControl : System.Web.UI.UserControl
         LiList = lis.ToString();
     }
 
-    //private String[] split(String toSplit, String splitPoint)
-    //{
-    //    int jump = splitPoint.Length;
-    //    int start = 0;
-    //    int end = toSplit.IndexOf(
-    //    return null;
-    //}
 
     protected void Page_Load(object sender, EventArgs e)
     {

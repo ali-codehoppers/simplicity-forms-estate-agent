@@ -107,12 +107,6 @@
                 </tr>
             </table>
         </div>
-        <%--<asp:ObjectDataSource ID="odsDepartments" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetDepartmentsByCoId" TypeName="DepartmentTableAdapters.DepartmentSelectCommandTableAdapter">
-            <SelectParameters>
-                <asp:SessionParameter DefaultValue="0" Name="co_id" SessionField="USER_CO_ID" Type="Int32" />
-            </SelectParameters>
-        </asp:ObjectDataSource>--%>
     </div>
     <div style="float: left; width: 100%">
         <div style="float: left">

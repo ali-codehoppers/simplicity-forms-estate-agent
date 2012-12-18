@@ -68,12 +68,12 @@ public partial class Orders_AddOrder : DepartmentPage
         {
           ClientScript.RegisterStartupScript(this.GetType(), "showCopyDialog", "YAHOO.util.Event.onDOMReady(showCopyDialog);", true);
 
-          IEnumerable<EstateAgentEntityModel.RefDepartment> departments = (from dept in estateAgentDB.RefDepartments where dept.CompanySequence == loggedInUserCoId select dept);
+          IEnumerable<EstateAgentEntityModel.RefDepartment> departments = (from dept in estateAgentDB.RefDepartments where dept.CompanySequence == loggedInUserCoId && dept.FlgDeleted != true select dept);
           ddlDepartment.DataSource = departments;
           ddlDepartment.DataBind();
           ddlDepartment.SelectedValue = departments.FirstOrDefault().Sequence.ToString();
 
-          IEnumerable<EstateAgentEntityModel.RefCategory> categories = (from categ in estateAgentDB.RefCategories where categ.CompanySequence == loggedInUserCoId select categ);
+          IEnumerable<EstateAgentEntityModel.RefCategory> categories = (from categ in estateAgentDB.RefCategories where categ.CompanySequence == loggedInUserCoId && categ.FlgDeleted != true select categ);
           ddlCategory.DataSource = categories;
           ddlCategory.DataBind();
           ddlCategory.SelectedValue = categories.FirstOrDefault().Sequence.ToString();

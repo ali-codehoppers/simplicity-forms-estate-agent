@@ -6,7 +6,6 @@
     <title>Login</title>
     <link id="Link1" runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico" />
-    <%--<link rel="stylesheet" type="text/css" href="~/Common/StyleSheets/newstylesheet.css" />--%>
     <link rel="stylesheet" type="text/css" href="Includes/yui/build/fonts/fonts-min.css" />
     <link rel="stylesheet" type="text/css" href="Includes/yui/build/container/assets/skins/sam/container.css" />
     <script type="text/javascript" src="Includes/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
@@ -78,10 +77,6 @@
 <body style="height:100%;">
     <form id="form1" runat="server">
     <div id="maindiv">
-        <%--<div id="leftdiv">
-            <div class="logodiv">
-                <img src="Images/newlogo.jpg" alt="" />
-            </div>--%>
             <asp:Panel runat="server" ID="errorPanel" Visible="false">
                 <div class="login_error">
                     <div class="msg">
@@ -122,11 +117,9 @@
                     <img src="Images_Estate/panel.png" width="354" height="294" alt="username and password" />
                     <div style="display:inline-block;width:175px; float:left;">
                         <asp:ImageButton runat="server" Width="175" Height="58" ImageUrl="Images_Estate/forgot_psswdd.png" ID="ForgotPasswordButton" OnClick="btnForgot_Password_Click" AlternateText="Forgot Password" />
-                        <%--<img src="Images_Estate/forgot_psswdd.png" width="175" height="58" alt="forgot password" />--%>
                     </div>
                     <div style="display:inline-block;width:175px; float:left;">
                         <asp:ImageButton runat="server" Width="175" Height="58" ImageUrl="Images_Estate/sign_up.png" ID="SignUpButton" OnClick="btnSign_Up_Click" AlternateText="Sign Up Here" />
-                        <%--<img src="Images_Estate/sign_up.png" width="175" height="58" alt="Sign Up" style="display:inline;" />--%>
                     </div>
                 </div>
                 <div class="get-in-touch-positioning">
@@ -156,30 +149,6 @@
     	    </div>
         </div>
 
-                    <%--<div class="row" style="height: 62px; padding-top: 29px;">
-                        <div class="login_btn">
-                            <div class="linkdiv">
-                                <asp:LinkButton CssClass="btnText" runat="server" ID="btnLogin" OnClick="btnLogin_Click"
-                                    NavigateUrl="index.html">LOGIN</asp:LinkButton>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="clear: both;">
-                </div>
-                <div style="padding-left: 150px;">
-                    <a href="<%= ConfigurationManager.AppSettings["SCurl"]%>/Products/HS/HSPrice.aspx?productId=7"
-                        class="txt_blue" style="color: #333">SIGN UP HERE</a>
-                </div>
-            </div>
-            <div style="clear: both;">
-            </div>
-            <div class="footer_sub">
-                Copyright (c) Ultranova Coding Securities Ltd
-            </div>
-        </div>
-    </div>--%>
     <script type="text/javascript">
         // Instantiate the Dialog
         confirmationDialog = new YAHOO.widget.Dialog("confirmationDialog",

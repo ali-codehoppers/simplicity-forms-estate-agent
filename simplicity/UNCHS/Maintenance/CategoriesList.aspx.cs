@@ -55,8 +55,6 @@ public partial class Maintenance_CategoriesList : AuthenticatedPage
         {
             try
             {
-                //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter tableAdapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-                //tableAdapter.DeleteDepartment(int.Parse(department.Rows[0]["dept_id"].ToString()));
                 category.FlgDeleted = true;
                 estateAgentDB.SaveChanges();
                 SetInfoMessage(WebConstants.Messages.Information.RECORD_DELETED);
@@ -71,8 +69,6 @@ public partial class Maintenance_CategoriesList : AuthenticatedPage
     private RefCategory getCategory(int categoryId)
     {
         RefCategory ct = estateAgentDB.RefCategories.SingleOrDefault(categ => categ.Sequence == categoryId);
-        //DepartmentTableAdapters.DepartmentSelectCommandTableAdapter tableAdapter = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-        //DataTable dt = tableAdapter.GetDepartmentByDeptId(departmentId);
         return ct;
     }
     protected void ddlCompanies_SelectedIndexChanged(object sender, EventArgs e)
