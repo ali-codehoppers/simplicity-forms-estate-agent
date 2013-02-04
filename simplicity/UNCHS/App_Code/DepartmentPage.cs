@@ -30,19 +30,30 @@ public abstract class DepartmentPage : AuthenticatedPage
     protected override void Page_Load_Extended(object sender, EventArgs e)
     {
         SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
-        IEnumerable<EstateAgentEntityModel.RefDepartment> departments = (from dept in estateAgentDB.RefDepartments where dept.CompanySequence == loggedInUserCoId select dept);
-        foreach (var department in departments)
+        IEnumerable<EstateAgentEntityModel.RefDepartment> departments = (from dept in estateAgentDB.RefDepartments where dept.CompanySequence == loggedInUserCoId && dept.FlgDeleted != true select dept);
+        if (departments.Count() > 0)
         {
-            if (department != null)
+            IEnumerable<EstateAgentEntityModel.RefCategory> categories = (from categ in estateAgentDB.RefCategories where categ.CompanySequence == loggedInUserCoId && categ.FlgDeleted != true select categ);
+            if (categories.Count() <= 0)
             {
-                firstDepartmentId = department.Sequence;
-                Department_Page_Handling(sender, e);
+                Response.Redirect("~/Maintenance/AddCategories.aspx?" + WebConstants.Request.NO_CATEGORY + "=true");
             }
-            else
+            foreach (var department in departments)
             {
-                Response.Redirect("~/Maintenance/AddDepartment.aspx?" + WebConstants.Request.NO_DEPT + "=true");
+                if (department != null)
+                {
+                    firstDepartmentId = department.Sequence;
+                    Department_Page_Handling(sender, e);
+                }
+                else
+                {
+                    Response.Redirect("~/Maintenance/AddDepartment.aspx?" + WebConstants.Request.NO_DEPT + "=true");
+                }
+                break;
             }
-            break;
+        }
+        else {
+            Response.Redirect("~/Maintenance/AddDepartment.aspx?" + WebConstants.Request.NO_DEPT + "=true");
         }
     }
 }
