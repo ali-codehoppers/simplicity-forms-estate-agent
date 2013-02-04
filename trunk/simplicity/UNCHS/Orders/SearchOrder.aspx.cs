@@ -34,10 +34,27 @@ public partial class Orders_SearchOrder : AuthenticatedPage
 
     private void SetWhereClause()
     {
-        edsProperties.Where = "";
+        String compId = null;
+        edsProperties.Where = "it.FlgDeleted != True AND ";
+        if (Session[WebConstants.Session.USER_CO_ID] != null && Session[WebConstants.Session.USER_CO_ID] != "") {
+            compId = Session[WebConstants.Session.USER_CO_ID].ToString();
+            edsProperties.Where += "it.CompanySequence==@CompanySeq";
+        }
+        if (edsProperties.WhereParameters["CompanySeq"] != null)
+        {
+            edsProperties.WhereParameters["CompanySeq"].DefaultValue = compId;
+        }
+        else
+        {
+            Parameter parameter = new Parameter();
+            parameter.Name = "CompanySeq";
+            parameter.DbType = System.Data.DbType.Int32;
+            parameter.DefaultValue = compId;
+            edsProperties.WhereParameters.Add(parameter);
+        }
         if (tbValuationCode.Text.Length > 0)
         {
-            edsProperties.Where += "it.ValuationCode LIKE @ValuationCode";
+            edsProperties.Where += " AND it.ValuationCode LIKE @ValuationCode";
             if (edsProperties.WhereParameters["ValuationCode"] != null)
             {
                 edsProperties.WhereParameters["ValuationCode"].DefaultValue = "%" + tbValuationCode.Text + "%";

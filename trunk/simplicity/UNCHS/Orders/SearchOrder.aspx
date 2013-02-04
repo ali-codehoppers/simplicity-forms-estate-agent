@@ -215,7 +215,7 @@
         </div>
 
         <div class="grid" style="margin-right: 15px;">
-            <asp:EntityDataSource ID="edsProperties" runat="server" ConnectionString="name=SimplicityWebEstateAgentEntities" DefaultContainerName="SimplicityWebEstateAgentEntities" EnableFlattening="False" EntitySetName="PropertyDetails" EntityTypeFilter="PropertyDetail">
+            <asp:EntityDataSource ID="edsProperties" runat="server" ConnectionString="name=SimplicityWebEstateAgentEntities" DefaultContainerName="SimplicityWebEstateAgentEntities" EnableFlattening="False" EntitySetName="PropertyDetails" EntityTypeFilter="PropertyDetail" >
             </asp:EntityDataSource>
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                 CssClass="table_header_result" Style="width: 100%;" AutoGenerateColumns="False"

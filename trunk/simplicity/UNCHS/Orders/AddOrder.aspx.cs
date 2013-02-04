@@ -71,11 +71,15 @@ public partial class Orders_AddOrder : DepartmentPage
           IEnumerable<EstateAgentEntityModel.RefDepartment> departments = (from dept in estateAgentDB.RefDepartments where dept.CompanySequence == loggedInUserCoId && dept.FlgDeleted != true select dept);
           ddlDepartment.DataSource = departments;
           ddlDepartment.DataBind();
+          ddlDepartment.Visible = true;
+          lblDepartment.Visible = true;
           ddlDepartment.SelectedValue = departments.FirstOrDefault().Sequence.ToString();
 
           IEnumerable<EstateAgentEntityModel.RefCategory> categories = (from categ in estateAgentDB.RefCategories where categ.CompanySequence == loggedInUserCoId && categ.FlgDeleted != true select categ);
           ddlCategory.DataSource = categories;
           ddlCategory.DataBind();
+          ddlCategory.Visible = true;
+          lblCategory.Visible = true;
           ddlCategory.SelectedValue = categories.FirstOrDefault().Sequence.ToString();
         }
     }
