@@ -72,6 +72,14 @@
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="LastAmendedBy" Type="int" />
           <Property Name="DateLastAmended" Type="datetime" />
+          <Property Name="dateVisit" Type="datetime" />
+          <Property Name="visitDetails" Type="ntext" />
+          <Property Name="contactName" Type="nvarchar" MaxLength="128" />
+          <Property Name="contactTelHome" Type="nvarchar" MaxLength="128" />
+          <Property Name="contactTelWork" Type="nvarchar" MaxLength="128" />
+          <Property Name="contactTelWorkExt" Type="nvarchar" MaxLength="128" />
+          <Property Name="contactDetails" Type="ntext" />
+          <Property Name="upsizeTs" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PropertyFieldCategories">
           <Key>
@@ -238,345 +246,393 @@
           <EntitySet Name="PropertyRooms" EntityType="SimplicityWebEstateAgentModel.PropertyRoom" />
           <EntitySet Name="RefCategories" EntityType="SimplicityWebEstateAgentModel.RefCategory" />
           <EntitySet Name="RefDepartments" EntityType="SimplicityWebEstateAgentModel.RefDepartment" />
-          <EntitySet Name="TmpImpPropDesc__Design_TBC_" EntityType="SimplicityWebEstateAgentModel.TmpImpPropDesc__Design_TBC_" />
-          <EntitySet Name="TmpImpPropRooms__Design_TBC_" EntityType="SimplicityWebEstateAgentModel.TmpImpPropRooms__Design_TBC_" />
           <AssociationSet Name="FK_PropertyFieldCategories_PropertyDetails" Association="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails">
-            <End Role="PropertyDetails" EntitySet="PropertyDetails" />
-            <End Role="PropertyFieldCategories" EntitySet="PropertyFieldCategories" />
+            <End Role="PropertyDetail" EntitySet="PropertyDetails" />
+            <End Role="PropertyFieldCategory" EntitySet="PropertyFieldCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_PropertyFieldDepartments_PropertyDetails" Association="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails">
-            <End Role="PropertyDetails" EntitySet="PropertyDetails" />
-            <End Role="PropertyFieldDepartments" EntitySet="PropertyFieldDepartments" />
+            <End Role="PropertyDetail" EntitySet="PropertyDetails" />
+            <End Role="PropertyFieldDepartment" EntitySet="PropertyFieldDepartments" />
           </AssociationSet>
           <AssociationSet Name="FK_PropertyRooms_PropertyDetails" Association="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails">
-            <End Role="PropertyDetails" EntitySet="PropertyDetails" />
-            <End Role="PropertyRooms" EntitySet="PropertyRooms" />
+            <End Role="PropertyDetail" EntitySet="PropertyDetails" />
+            <End Role="PropertyRoom" EntitySet="PropertyRooms" />
           </AssociationSet>
           <AssociationSet Name="FK_PropertyFieldCategories_RefCategories" Association="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories">
-            <End Role="RefCategories" EntitySet="RefCategories" />
-            <End Role="PropertyFieldCategories" EntitySet="PropertyFieldCategories" />
+            <End Role="RefCategory" EntitySet="RefCategories" />
+            <End Role="PropertyFieldCategory" EntitySet="PropertyFieldCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_PropertyFieldDepartments_RefDepartments" Association="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments">
-            <End Role="RefDepartments" EntitySet="RefDepartments" />
-            <End Role="PropertyFieldDepartments" EntitySet="PropertyFieldDepartments" />
+            <End Role="RefDepartment" EntitySet="RefDepartments" />
+            <End Role="PropertyFieldDepartment" EntitySet="PropertyFieldDepartments" />
           </AssociationSet>
+          <EntitySet Name="TmpImpPropDesc__Design_TBC_" EntityType="SimplicityWebEstateAgentModel.TmpImpPropDesc__Design_TBC_" />
+          <EntitySet Name="TmpImpPropRooms__Design_TBC_" EntityType="SimplicityWebEstateAgentModel.TmpImpPropRooms__Design_TBC_" />
         </EntityContainer>
         <EntityType Name="PropertyDetail">
           <Key>
             <PropertyRef Name="Sequence" />
           </Key>
-          <Property Name="CompanySequence" Type="Int32" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FlgDeleted" Type="Boolean" />
-          <Property Name="ValuationCode" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
-          <Property Name="AddressNo" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="AddressLine1" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="AddressLine2" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="AddressLine3" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="AddressLine4" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="AddressLine5" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="AddressPostCode" Type="String" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="AddressFull" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="FlgPropertyCodeSet" Type="Boolean" />
-          <Property Name="DatePropertyCodeSet" Type="DateTime" Precision="3" />
-          <Property Name="PropertyCode" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
-          <Property Name="DateImported" Type="DateTime" Precision="3" />
-          <Property Name="FlgExported" Type="Boolean" />
-          <Property Name="DateExported" Type="DateTime" Precision="3" />
-          <Property Name="PropHeading" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="PropDetailed" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="PropSummary" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint01" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint02" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint03" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint04" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint05" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint06" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint07" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PropBulletPoint08" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PropertyFieldCategories" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" FromRole="PropertyDetails" ToRole="PropertyFieldCategories" />
-          <NavigationProperty Name="PropertyFieldDepartments" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" FromRole="PropertyDetails" ToRole="PropertyFieldDepartments" />
-          <NavigationProperty Name="PropertyRooms" Relationship="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" FromRole="PropertyDetails" ToRole="PropertyRooms" />
+          <Property Type="Int32" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="FlgDeleted" />
+          <Property Type="String" Name="ValuationCode" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressNo" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine1" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine2" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine3" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine4" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine5" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressPostCode" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressFull" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="FlgPropertyCodeSet" />
+          <Property Type="DateTime" Name="DatePropertyCodeSet" />
+          <Property Type="String" Name="PropertyCode" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateImported" />
+          <Property Type="Boolean" Name="FlgExported" />
+          <Property Type="DateTime" Name="DateExported" />
+          <Property Type="String" Name="PropHeading" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropDetailed" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropSummary" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint01" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint02" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint03" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint04" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint05" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint06" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint07" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PropBulletPoint08" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="LastAmendedBy" />
+          <Property Type="DateTime" Name="DateLastAmended" />
+          <Property Type="DateTime" Name="dateVisit" />
+          <Property Type="String" Name="visitDetails" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactName" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactTelHome" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactTelWork" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactTelWorkExt" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactDetails" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="upsizeTs" Nullable="false" />
+          <NavigationProperty Name="PropertyFieldCategories" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" FromRole="PropertyDetail" ToRole="PropertyFieldCategory" />
+          <NavigationProperty Name="PropertyFieldDepartments" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" FromRole="PropertyDetail" ToRole="PropertyFieldDepartment" />
+          <NavigationProperty Name="PropertyRooms" Relationship="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" FromRole="PropertyDetail" ToRole="PropertyRoom" />
         </EntityType>
         <EntityType Name="PropertyFieldCategory">
           <Key>
             <PropertyRef Name="Sequence" />
           </Key>
-          <Property Name="CompanySequence" Type="Int32" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PropertySequence" Type="Int32" />
-          <Property Name="CategorySequence" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" FromRole="PropertyFieldCategories" ToRole="PropertyDetails" />
-          <NavigationProperty Name="RefCategory" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" FromRole="PropertyFieldCategories" ToRole="RefCategories" />
+          <Property Type="Int32" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PropertySequence" />
+          <Property Type="Int32" Name="CategorySequence" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="LastAmendedBy" />
+          <Property Type="DateTime" Name="DateLastAmended" />
+          <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" FromRole="PropertyFieldCategory" ToRole="PropertyDetail" />
+          <NavigationProperty Name="RefCategory" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" FromRole="PropertyFieldCategory" ToRole="RefCategory" />
         </EntityType>
         <EntityType Name="PropertyFieldDepartment">
           <Key>
             <PropertyRef Name="Sequence" />
           </Key>
-          <Property Name="CompanySequence" Type="Int32" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PropertySequence" Type="Int32" />
-          <Property Name="DepartmentSequence" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" FromRole="PropertyFieldDepartments" ToRole="PropertyDetails" />
-          <NavigationProperty Name="RefDepartment" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" FromRole="PropertyFieldDepartments" ToRole="RefDepartments" />
+          <Property Type="Int32" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PropertySequence" />
+          <Property Type="Int32" Name="DepartmentSequence" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="LastAmendedBy" />
+          <Property Type="DateTime" Name="DateLastAmended" />
+          <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" FromRole="PropertyFieldDepartment" ToRole="PropertyDetail" />
+          <NavigationProperty Name="RefDepartment" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" FromRole="PropertyFieldDepartment" ToRole="RefDepartment" />
         </EntityType>
         <EntityType Name="PropertyRoom">
           <Key>
             <PropertyRef Name="Sequence" />
           </Key>
-          <Property Name="CompanySequence" Type="Int32" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PropertySequence" Type="Int32" />
-          <Property Name="RoomNo" Type="Double" />
-          <Property Name="RoomHeading" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="RoomLengthM" Type="Double" />
-          <Property Name="RoomLengthFt" Type="Double" />
-          <Property Name="RoomLengthIn" Type="Double" />
-          <Property Name="RoomLengthText" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="RoomWidthM" Type="Double" />
-          <Property Name="RoomWidthFt" Type="Double" />
-          <Property Name="RoomWidthIn" Type="Double" />
-          <Property Name="RoomWidthText" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="RoomAspect" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="RoomText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" FromRole="PropertyRooms" ToRole="PropertyDetails" />
+          <Property Type="Int32" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PropertySequence" />
+          <Property Type="Double" Name="RoomNo" />
+          <Property Type="String" Name="RoomHeading" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="RoomLengthM" />
+          <Property Type="Double" Name="RoomLengthFt" />
+          <Property Type="Double" Name="RoomLengthIn" />
+          <Property Type="String" Name="RoomLengthText" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="RoomWidthM" />
+          <Property Type="Double" Name="RoomWidthFt" />
+          <Property Type="Double" Name="RoomWidthIn" />
+          <Property Type="String" Name="RoomWidthText" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoomAspect" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoomText" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="LastAmendedBy" />
+          <Property Type="DateTime" Name="DateLastAmended" />
+          <NavigationProperty Name="PropertyDetail" Relationship="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" FromRole="PropertyRoom" ToRole="PropertyDetail" />
         </EntityType>
         <EntityType Name="RefCategory">
           <Key>
             <PropertyRef Name="Sequence" />
           </Key>
-          <Property Name="CompanySequence" Type="Int32" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" />
-          <Property Name="FlgDeleted" Type="Boolean" />
-          <Property Name="RowIndex" Type="Int32" />
-          <Property Name="CategoryDesc" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PropertyFieldCategories" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" FromRole="RefCategories" ToRole="PropertyFieldCategories" />
+          <Property Type="Int32" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="FlgDeleted" />
+          <Property Type="Int32" Name="RowIndex" />
+          <Property Type="String" Name="CategoryDesc" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="LastAmendedBy" />
+          <Property Type="DateTime" Name="DateLastAmended" />
+          <NavigationProperty Name="PropertyFieldCategories" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" FromRole="RefCategory" ToRole="PropertyFieldCategory" />
         </EntityType>
         <EntityType Name="RefDepartment">
           <Key>
             <PropertyRef Name="Sequence" />
           </Key>
-          <Property Name="CompanySequence" Type="Int32" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" />
-          <Property Name="FlgDeleted" Type="Boolean" />
-          <Property Name="RowIndex" Type="Int32" />
-          <Property Name="DepartmentDesc" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="LastAmendedBy" Type="Int32" />
-          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PropertyFieldDepartments" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" FromRole="RefDepartments" ToRole="PropertyFieldDepartments" />
-        </EntityType>
-        <EntityType Name="TmpImpPropDesc__Design_TBC_">
-          <Key>
-            <PropertyRef Name="Sequence" />
-          </Key>
-          <Property Name="CompanySequence" Type="Int16" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ImpCode" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="TmpImpPropRooms__Design_TBC_">
-          <Key>
-            <PropertyRef Name="Sequence" />
-          </Key>
-          <Property Name="CompanySequence" Type="Int16" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ImpCode" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="FlgDeleted" />
+          <Property Type="Int32" Name="RowIndex" />
+          <Property Type="String" Name="DepartmentDesc" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="LastAmendedBy" />
+          <Property Type="DateTime" Name="DateLastAmended" />
+          <NavigationProperty Name="PropertyFieldDepartments" Relationship="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" FromRole="RefDepartment" ToRole="PropertyFieldDepartment" />
         </EntityType>
         <Association Name="FK_PropertyFieldCategories_PropertyDetails">
-          <End Role="PropertyDetails" Type="SimplicityWebEstateAgentModel.PropertyDetail" Multiplicity="0..1" />
-          <End Role="PropertyFieldCategories" Type="SimplicityWebEstateAgentModel.PropertyFieldCategory" Multiplicity="*" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyDetail" Role="PropertyDetail" Multiplicity="0..1" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyFieldCategory" Role="PropertyFieldCategory" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PropertyDetails">
+            <Principal Role="PropertyDetail">
               <PropertyRef Name="Sequence" />
             </Principal>
-            <Dependent Role="PropertyFieldCategories">
+            <Dependent Role="PropertyFieldCategory">
               <PropertyRef Name="PropertySequence" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropertyFieldDepartments_PropertyDetails">
-          <End Role="PropertyDetails" Type="SimplicityWebEstateAgentModel.PropertyDetail" Multiplicity="0..1" />
-          <End Role="PropertyFieldDepartments" Type="SimplicityWebEstateAgentModel.PropertyFieldDepartment" Multiplicity="*" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyDetail" Role="PropertyDetail" Multiplicity="0..1" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyFieldDepartment" Role="PropertyFieldDepartment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PropertyDetails">
+            <Principal Role="PropertyDetail">
               <PropertyRef Name="Sequence" />
             </Principal>
-            <Dependent Role="PropertyFieldDepartments">
+            <Dependent Role="PropertyFieldDepartment">
               <PropertyRef Name="PropertySequence" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropertyRooms_PropertyDetails">
-          <End Role="PropertyDetails" Type="SimplicityWebEstateAgentModel.PropertyDetail" Multiplicity="0..1" />
-          <End Role="PropertyRooms" Type="SimplicityWebEstateAgentModel.PropertyRoom" Multiplicity="*" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyDetail" Role="PropertyDetail" Multiplicity="0..1" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyRoom" Role="PropertyRoom" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PropertyDetails">
+            <Principal Role="PropertyDetail">
               <PropertyRef Name="Sequence" />
             </Principal>
-            <Dependent Role="PropertyRooms">
+            <Dependent Role="PropertyRoom">
               <PropertyRef Name="PropertySequence" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropertyFieldCategories_RefCategories">
-          <End Role="RefCategories" Type="SimplicityWebEstateAgentModel.RefCategory" Multiplicity="0..1" />
-          <End Role="PropertyFieldCategories" Type="SimplicityWebEstateAgentModel.PropertyFieldCategory" Multiplicity="*" />
+          <End Type="SimplicityWebEstateAgentModel.RefCategory" Role="RefCategory" Multiplicity="0..1" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyFieldCategory" Role="PropertyFieldCategory" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RefCategories">
+            <Principal Role="RefCategory">
               <PropertyRef Name="Sequence" />
             </Principal>
-            <Dependent Role="PropertyFieldCategories">
+            <Dependent Role="PropertyFieldCategory">
               <PropertyRef Name="CategorySequence" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropertyFieldDepartments_RefDepartments">
-          <End Role="RefDepartments" Type="SimplicityWebEstateAgentModel.RefDepartment" Multiplicity="0..1" />
-          <End Role="PropertyFieldDepartments" Type="SimplicityWebEstateAgentModel.PropertyFieldDepartment" Multiplicity="*" />
+          <End Type="SimplicityWebEstateAgentModel.RefDepartment" Role="RefDepartment" Multiplicity="0..1" />
+          <End Type="SimplicityWebEstateAgentModel.PropertyFieldDepartment" Role="PropertyFieldDepartment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RefDepartments">
+            <Principal Role="RefDepartment">
               <PropertyRef Name="Sequence" />
             </Principal>
-            <Dependent Role="PropertyFieldDepartments">
+            <Dependent Role="PropertyFieldDepartment">
               <PropertyRef Name="DepartmentSequence" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="TmpImpPropDesc__Design_TBC_">
+          <Key>
+            <PropertyRef Name="Sequence" />
+          </Key>
+          <Property Type="Int16" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ImpCode" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TmpImpPropRooms__Design_TBC_">
+          <Key>
+            <PropertyRef Name="Sequence" />
+          </Key>
+          <Property Type="Int16" Name="CompanySequence" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ImpCode" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SimplicityWebEstateAgentModelStoreContainer" CdmEntityContainer="SimplicityWebEstateAgentEntities">
-          <EntitySetMapping Name="PropertyDetails"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyDetail"><MappingFragment StoreEntitySet="PropertyDetails">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
-            <ScalarProperty Name="ValuationCode" ColumnName="ValuationCode" />
-            <ScalarProperty Name="AddressNo" ColumnName="AddressNo" />
-            <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
-            <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
-            <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
-            <ScalarProperty Name="AddressLine4" ColumnName="AddressLine4" />
-            <ScalarProperty Name="AddressLine5" ColumnName="AddressLine5" />
-            <ScalarProperty Name="AddressPostCode" ColumnName="AddressPostCode" />
-            <ScalarProperty Name="AddressFull" ColumnName="AddressFull" />
-            <ScalarProperty Name="FlgPropertyCodeSet" ColumnName="FlgPropertyCodeSet" />
-            <ScalarProperty Name="DatePropertyCodeSet" ColumnName="DatePropertyCodeSet" />
-            <ScalarProperty Name="PropertyCode" ColumnName="PropertyCode" />
-            <ScalarProperty Name="DateImported" ColumnName="DateImported" />
-            <ScalarProperty Name="FlgExported" ColumnName="FlgExported" />
-            <ScalarProperty Name="DateExported" ColumnName="DateExported" />
-            <ScalarProperty Name="PropHeading" ColumnName="PropHeading" />
-            <ScalarProperty Name="PropDetailed" ColumnName="PropDetailed" />
-            <ScalarProperty Name="PropSummary" ColumnName="PropSummary" />
-            <ScalarProperty Name="PropBulletPoint01" ColumnName="PropBulletPoint01" />
-            <ScalarProperty Name="PropBulletPoint02" ColumnName="PropBulletPoint02" />
-            <ScalarProperty Name="PropBulletPoint03" ColumnName="PropBulletPoint03" />
-            <ScalarProperty Name="PropBulletPoint04" ColumnName="PropBulletPoint04" />
-            <ScalarProperty Name="PropBulletPoint05" ColumnName="PropBulletPoint05" />
-            <ScalarProperty Name="PropBulletPoint06" ColumnName="PropBulletPoint06" />
-            <ScalarProperty Name="PropBulletPoint07" ColumnName="PropBulletPoint07" />
-            <ScalarProperty Name="PropBulletPoint08" ColumnName="PropBulletPoint08" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-            <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
-            <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="PropertyFieldCategories"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyFieldCategory"><MappingFragment StoreEntitySet="PropertyFieldCategories">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
-            <ScalarProperty Name="CategorySequence" ColumnName="CategorySequence" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-            <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
-            <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="PropertyFieldDepartments"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyFieldDepartment"><MappingFragment StoreEntitySet="PropertyFieldDepartments">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
-            <ScalarProperty Name="DepartmentSequence" ColumnName="DepartmentSequence" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-            <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
-            <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="PropertyRooms"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyRoom"><MappingFragment StoreEntitySet="PropertyRooms">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
-            <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
-            <ScalarProperty Name="RoomHeading" ColumnName="RoomHeading" />
-            <ScalarProperty Name="RoomLengthM" ColumnName="RoomLengthM" />
-            <ScalarProperty Name="RoomLengthFt" ColumnName="RoomLengthFt" />
-            <ScalarProperty Name="RoomLengthIn" ColumnName="RoomLengthIn" />
-            <ScalarProperty Name="RoomLengthText" ColumnName="RoomLengthText" />
-            <ScalarProperty Name="RoomWidthM" ColumnName="RoomWidthM" />
-            <ScalarProperty Name="RoomWidthFt" ColumnName="RoomWidthFt" />
-            <ScalarProperty Name="RoomWidthIn" ColumnName="RoomWidthIn" />
-            <ScalarProperty Name="RoomWidthText" ColumnName="RoomWidthText" />
-            <ScalarProperty Name="RoomAspect" ColumnName="RoomAspect" />
-            <ScalarProperty Name="RoomText" ColumnName="RoomText" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-            <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
-            <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="RefCategories"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.RefCategory"><MappingFragment StoreEntitySet="RefCategories">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
-            <ScalarProperty Name="RowIndex" ColumnName="RowIndex" />
-            <ScalarProperty Name="CategoryDesc" ColumnName="CategoryDesc" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-            <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
-            <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="RefDepartments"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.RefDepartment"><MappingFragment StoreEntitySet="RefDepartments">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
-            <ScalarProperty Name="RowIndex" ColumnName="RowIndex" />
-            <ScalarProperty Name="DepartmentDesc" ColumnName="DepartmentDesc" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-            <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
-            <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TmpImpPropDesc__Design_TBC_"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.TmpImpPropDesc__Design_TBC_"><MappingFragment StoreEntitySet="TmpImpPropDesc (Design TBC)">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="ImpCode" ColumnName="ImpCode" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TmpImpPropRooms__Design_TBC_"><EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.TmpImpPropRooms__Design_TBC_"><MappingFragment StoreEntitySet="TmpImpPropRooms (Design TBC)">
-            <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
-            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-            <ScalarProperty Name="ImpCode" ColumnName="ImpCode" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PropertyDetails">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyDetail">
+              <MappingFragment StoreEntitySet="PropertyDetails">
+                <ScalarProperty Name="upsizeTs" ColumnName="upsizeTs" />
+                <ScalarProperty Name="contactDetails" ColumnName="contactDetails" />
+                <ScalarProperty Name="contactTelWorkExt" ColumnName="contactTelWorkExt" />
+                <ScalarProperty Name="contactTelWork" ColumnName="contactTelWork" />
+                <ScalarProperty Name="contactTelHome" ColumnName="contactTelHome" />
+                <ScalarProperty Name="contactName" ColumnName="contactName" />
+                <ScalarProperty Name="visitDetails" ColumnName="visitDetails" />
+                <ScalarProperty Name="dateVisit" ColumnName="dateVisit" />
+                <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+                <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PropBulletPoint08" ColumnName="PropBulletPoint08" />
+                <ScalarProperty Name="PropBulletPoint07" ColumnName="PropBulletPoint07" />
+                <ScalarProperty Name="PropBulletPoint06" ColumnName="PropBulletPoint06" />
+                <ScalarProperty Name="PropBulletPoint05" ColumnName="PropBulletPoint05" />
+                <ScalarProperty Name="PropBulletPoint04" ColumnName="PropBulletPoint04" />
+                <ScalarProperty Name="PropBulletPoint03" ColumnName="PropBulletPoint03" />
+                <ScalarProperty Name="PropBulletPoint02" ColumnName="PropBulletPoint02" />
+                <ScalarProperty Name="PropBulletPoint01" ColumnName="PropBulletPoint01" />
+                <ScalarProperty Name="PropSummary" ColumnName="PropSummary" />
+                <ScalarProperty Name="PropDetailed" ColumnName="PropDetailed" />
+                <ScalarProperty Name="PropHeading" ColumnName="PropHeading" />
+                <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+                <ScalarProperty Name="FlgExported" ColumnName="FlgExported" />
+                <ScalarProperty Name="DateImported" ColumnName="DateImported" />
+                <ScalarProperty Name="PropertyCode" ColumnName="PropertyCode" />
+                <ScalarProperty Name="DatePropertyCodeSet" ColumnName="DatePropertyCodeSet" />
+                <ScalarProperty Name="FlgPropertyCodeSet" ColumnName="FlgPropertyCodeSet" />
+                <ScalarProperty Name="AddressFull" ColumnName="AddressFull" />
+                <ScalarProperty Name="AddressPostCode" ColumnName="AddressPostCode" />
+                <ScalarProperty Name="AddressLine5" ColumnName="AddressLine5" />
+                <ScalarProperty Name="AddressLine4" ColumnName="AddressLine4" />
+                <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressNo" ColumnName="AddressNo" />
+                <ScalarProperty Name="ValuationCode" ColumnName="ValuationCode" />
+                <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyFieldCategories">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyFieldCategory">
+              <MappingFragment StoreEntitySet="PropertyFieldCategories">
+                <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+                <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CategorySequence" ColumnName="CategorySequence" />
+                <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyFieldDepartments">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyFieldDepartment">
+              <MappingFragment StoreEntitySet="PropertyFieldDepartments">
+                <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+                <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DepartmentSequence" ColumnName="DepartmentSequence" />
+                <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyRooms">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.PropertyRoom">
+              <MappingFragment StoreEntitySet="PropertyRooms">
+                <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+                <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RoomText" ColumnName="RoomText" />
+                <ScalarProperty Name="RoomAspect" ColumnName="RoomAspect" />
+                <ScalarProperty Name="RoomWidthText" ColumnName="RoomWidthText" />
+                <ScalarProperty Name="RoomWidthIn" ColumnName="RoomWidthIn" />
+                <ScalarProperty Name="RoomWidthFt" ColumnName="RoomWidthFt" />
+                <ScalarProperty Name="RoomWidthM" ColumnName="RoomWidthM" />
+                <ScalarProperty Name="RoomLengthText" ColumnName="RoomLengthText" />
+                <ScalarProperty Name="RoomLengthIn" ColumnName="RoomLengthIn" />
+                <ScalarProperty Name="RoomLengthFt" ColumnName="RoomLengthFt" />
+                <ScalarProperty Name="RoomLengthM" ColumnName="RoomLengthM" />
+                <ScalarProperty Name="RoomHeading" ColumnName="RoomHeading" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="PropertySequence" ColumnName="PropertySequence" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefCategories">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.RefCategory">
+              <MappingFragment StoreEntitySet="RefCategories">
+                <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+                <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CategoryDesc" ColumnName="CategoryDesc" />
+                <ScalarProperty Name="RowIndex" ColumnName="RowIndex" />
+                <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefDepartments">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.RefDepartment">
+              <MappingFragment StoreEntitySet="RefDepartments">
+                <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+                <ScalarProperty Name="LastAmendedBy" ColumnName="LastAmendedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DepartmentDesc" ColumnName="DepartmentDesc" />
+                <ScalarProperty Name="RowIndex" ColumnName="RowIndex" />
+                <ScalarProperty Name="FlgDeleted" ColumnName="FlgDeleted" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TmpImpPropDesc__Design_TBC_">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.TmpImpPropDesc__Design_TBC_">
+              <MappingFragment StoreEntitySet="TmpImpPropDesc (Design TBC)">
+                <ScalarProperty Name="ImpCode" ColumnName="ImpCode" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TmpImpPropRooms__Design_TBC_">
+            <EntityTypeMapping TypeName="SimplicityWebEstateAgentModel.TmpImpPropRooms__Design_TBC_">
+              <MappingFragment StoreEntitySet="TmpImpPropRooms (Design TBC)">
+                <ScalarProperty Name="ImpCode" ColumnName="ImpCode" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="CompanySequence" ColumnName="CompanySequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -598,38 +654,38 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="EstateAgentEntityDataModel">
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyDetail" Width="1.5" PointX="0.75" PointY="5.25" Height="7.9416308593749987" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyFieldCategory" Width="1.5" PointX="3" PointY="7.75" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyFieldDepartment" Width="1.5" PointX="6" PointY="7.75" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyRoom" Width="1.5" PointX="3" PointY="14.125" Height="4.8648079427083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.RefCategory" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.RefDepartment" Width="1.5" PointX="3.75" PointY="3.75" Height="2.941793619791667" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.TmpImpPropDesc__Design_TBC_" Width="1.5" PointX="5.75" PointY="2.375" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.TmpImpPropRooms__Design_TBC_" Width="1.5" PointX="7.75" PointY="2.375" Height="1.5956835937499996" IsExpanded="true" />
-        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" ManuallyRouted="false">
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyDetail" Width="1.5" PointX="0.75" PointY="4.5" Height="9.4800423177083317" />
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyFieldCategory" Width="1.5" PointX="3" PointY="7.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyFieldDepartment" Width="1.5" PointX="6" PointY="7.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.PropertyRoom" Width="1.5" PointX="3" PointY="14.125" Height="4.8648079427083317" />
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.RefCategory" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.RefDepartment" Width="1.5" PointX="3.75" PointY="3.75" Height="2.9417936197916674" />
+        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails" >
           <ConnectorPoint PointX="2.25" PointY="9.2208968098958337" />
           <ConnectorPoint PointX="3" PointY="9.2208968098958337" />
         </AssociationConnector>
-        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="11.941712739583334" />
-          <ConnectorPoint PointX="6.75" PointY="11.941712739583334" />
+        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails" >
+          <ConnectorPoint PointX="2.25" PointY="12.335918468749998" />
+          <ConnectorPoint PointX="6.75" PointY="12.335918468749998" />
           <ConnectorPoint PointX="6.75" PointY="10.691793619791667" />
         </AssociationConnector>
-        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="13.191630859375" />
+        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails" >
+          <ConnectorPoint PointX="1.5" PointY="13.980042317708332" />
           <ConnectorPoint PointX="1.5" PointY="16.557403971354166" />
           <ConnectorPoint PointX="3" PointY="16.557403971354166" />
         </AssociationConnector>
-        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.2208968098958328" />
-          <ConnectorPoint PointX="3.34375" PointY="2.2208968098958328" />
-          <ConnectorPoint PointX="3.34375" PointY="7.75" />
+        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories" >
+          <ConnectorPoint PointX="2.25" PointY="3.0499886067708353" />
+          <ConnectorPoint PointX="3.15625" PointY="3.0499886067708353" />
+          <ConnectorPoint PointX="3.15625" PointY="7.75" />
         </AssociationConnector>
-        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="5.3624886067708335" />
-          <ConnectorPoint PointX="7.40625" PointY="5.3624886067708335" />
-          <ConnectorPoint PointX="7.40625" PointY="7.75" />
+        <AssociationConnector Association="SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments" >
+          <ConnectorPoint PointX="5.25" PointY="5.2208968098958337" />
+          <ConnectorPoint PointX="6.75" PointY="5.2208968098958337" />
+          <ConnectorPoint PointX="6.75" PointY="7.75" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.TmpImpPropDesc__Design_TBC_" Width="1.5" PointX="3.375" PointY="0.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SimplicityWebEstateAgentModel.TmpImpPropRooms__Design_TBC_" Width="1.5" PointX="5.375" PointY="0.75" Height="1.5956835937500031" />
       </Diagram>
     </Diagrams>
   </Designer>

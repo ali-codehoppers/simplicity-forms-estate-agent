@@ -79,6 +79,17 @@
         }
         YAHOO.util.Event.onDOMReady(renderDialog);
     </script>
+    <script type="text/javascript">
+        function popupCalendar() {
+            var dateField = document.getElementById('dateField');
+
+            // toggle the div
+            if (dateField.style.display == 'none')
+                dateField.style.display = 'block';
+            else
+                dateField.style.display = 'none';
+        }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadingPlaceHolder" runat="Server">
     <div style="float: left; width: 100%;">
@@ -177,6 +188,90 @@
         </div>
         <div class="text_field" style="padding-bottom:5px;height:27px;">
             <span>House/Flat No:</span><asp:TextBox ID="tbAddressNo" CssClass="field_txt" runat="server"></asp:TextBox></div>
+
+            <!---->
+            
+            <div class="text_field" style="padding-bottom:5px;height:27px;">
+                <span>Date Visit</span><asp:TextBox ID="TextBoxDateVisit" CssClass="field_txt" runat="server"></asp:TextBox></div>
+            
+            
+            <div class="text_field" style="padding:0 0 7px 0;">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <span>Visit Details:</span>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="TextBoxVisitDetails" runat="server" Rows="5" TextMode="MultiLine" CssClass="text_area"></asp:TextBox>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+            <%--
+            
+            <div class="text_field" style="padding-bottom:5px;height:27px;">
+                <span>Date Visit</span><!--<asp:TextBox ID="TextBoxDateVisit" CssClass="field_txt" runat="server"></asp:TextBox></div>-->
+                <div id="dateField" style="display:none;">
+                    <asp:Calendar id="calDate" OnSelectionChanged="calDate_SelectionChanged" Runat="server" />
+                </div>
+                <asp:TextBox id="txtDate" Runat="server" /> <img id="Img1" src="../Images/abc.jpg" onclick="popupCalendar()" runat="server" />
+            </div>
+
+            $( "#datepicker" ).datepicker();
+                        
+            <div class="text_field" style="padding:0 0 7px 0;">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <div id="dateField" style="display:none;">
+            <asp:Calendar id="calDate"
+            OnSelectionChanged="calDate_SelectionChanged"
+            Runat="server" />
+            </div>
+                    
+                        <asp:TextBox id="txtDate" Runat="server" /> <img id="Img1" src="../Images/abc.jpg" onclick="popupCalendar()" runat="server" />
+                    </td>
+                </tr>
+            </table>
+            
+          
+        </div>
+        --%>
+            <div class="text_field" style="padding-bottom:5px;height:27px;">
+            <span>Contact Name</span><asp:TextBox ID="TextBoxContactName" CssClass="field_txt" runat="server"></asp:TextBox></div>
+
+            <div class="text_field" style="padding-bottom:5px;height:27px;">
+            <span>Contact Telepone(home)</span><asp:TextBox ID="TextBoxContactTeleponeHome" CssClass="field_txt" runat="server"></asp:TextBox></div>
+
+            <div class="text_field" style="padding-bottom:5px;height:27px;">
+            <span>Contact Telepone(work)</span><asp:TextBox ID="TextBoxContactTeleponeWork" CssClass="field_txt" runat="server"></asp:TextBox></div>
+
+            <div class="text_field" style="padding-bottom:5px;height:27px;">
+            <span>Contact Telepone(work) Extension</span><asp:TextBox ID="TextBoxContactTeleponeWorkExtension" CssClass="field_txt" runat="server"></asp:TextBox></div>
+
+            
+             <div class="text_field" style="padding:0 0 7px 0;">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <span>Contact Details:</span>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="TextBoxContactDetails" runat="server" Rows="5" TextMode="MultiLine" CssClass="text_area"></asp:TextBox>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+            <div class="text_field" style="padding-bottom:5px;height:27px;">
+            <span>Upsize Ts</span>
+            <asp:CheckBox ID="CheckBoxUpsizeTs" runat="server"></asp:CheckBox>
+            </div>
+            
+            <!---->
+
         <div class="text_field" style="padding-bottom:5px;height:27px">
             <span>Address:</span><asp:TextBox ID="tbAddress1" CssClass="field_txt" runat="server"></asp:TextBox></div>
         <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
@@ -299,8 +394,13 @@
             Width="15" Height="14" />
     </div>
     <script type="text/javascript">
-        
+
         $(function () {
+
+            $("#<%=TextBoxDateVisit.ClientID%>").datepicker({ dateFormat: 'yy-mm-dd' });
+
         });
     </script>
+    </div>
+    </div>
 </asp:Content>

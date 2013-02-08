@@ -10,3 +10,9 @@ E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\bin\Debug\Es
 E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.csprojResolveAssemblyReference.cache
 E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.dll
 E:\CodeHopperProjects\webProjects\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.pdb
+C:\Users\AmierHaider\Desktop\StateAgent\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.dll.config
+C:\Users\AmierHaider\Desktop\StateAgent\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.dll
+C:\Users\AmierHaider\Desktop\StateAgent\simplicity\EstateAgentEntityModel\bin\Debug\EstateAgentEntityModel.pdb
+C:\Users\AmierHaider\Desktop\StateAgent\simplicity\EstateAgentEntityModel\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\AmierHaider\Desktop\StateAgent\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.dll
+C:\Users\AmierHaider\Desktop\StateAgent\simplicity\EstateAgentEntityModel\obj\Debug\EstateAgentEntityModel.pdb
