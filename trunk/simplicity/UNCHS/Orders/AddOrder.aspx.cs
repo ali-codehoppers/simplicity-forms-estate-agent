@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public partial class Orders_AddOrder : DepartmentPage
 {
-    protected EstateAgentEntityModel.PropertyDetail property = null;
+    protected PropertyDetail propertyDetail = null;
     private SimplicityWebEstateAgentEntities estateAgentDB = null;
     protected override void  Department_Page_Handling(object sender, EventArgs e)
     {
@@ -15,7 +15,7 @@ public partial class Orders_AddOrder : DepartmentPage
         if (Request[WebConstants.Request.PROPERTY_ORDER_ID] != null)
         {
             int propertyID = int.Parse(Request[WebConstants.Request.PROPERTY_ORDER_ID]);
-            property = estateAgentDB.PropertyDetails.SingleOrDefault(prop => prop.Sequence == propertyID);
+            propertyDetail = estateAgentDB.PropertyDetails.SingleOrDefault(prop => prop.Sequence == propertyID);
             if (IsPostBack == false)
             {
                 IEnumerable<EstateAgentEntityModel.RefDepartment> departments = (from dept in estateAgentDB.RefDepartments where dept.CompanySequence == loggedInUserCoId && dept.FlgDeleted != true select dept);
@@ -26,40 +26,72 @@ public partial class Orders_AddOrder : DepartmentPage
                 ddlCategory.DataSource = categories;
                 ddlCategory.DataBind();
 
-                if (property != null)
+                if (propertyDetail != null)
                 {
-                    tbAddressNo.Text = property.AddressNo;
-                    tbAddress1.Text = property.AddressLine1;
-                    tbAddress2.Text = property.AddressLine2;
-                    tbAddress3.Text = property.AddressLine3;
-                    tbAddress4.Text = property.AddressLine4;
-                    tbAddress5.Text = property.AddressLine5;
-                    tbPostalCode.Text = property.AddressPostCode;
+                    tbAddressNo.Text = propertyDetail.AddressNo;
+                    tbAddress1.Text = propertyDetail.AddressLine1;
+                    tbAddress2.Text = propertyDetail.AddressLine2;
+                    tbAddress3.Text = propertyDetail.AddressLine3;
+                    tbAddress4.Text = propertyDetail.AddressLine4;
+                    tbAddress5.Text = propertyDetail.AddressLine5;
+                    tbPostalCode.Text = propertyDetail.AddressPostCode;
 
+                    
+                    //zain
+
+
+                    if (propertyDetail.upsizeTs == true)
+                    {
+                        CheckBoxUpsizeTs.Checked=true;
+                    }
+                    else
+                    {
+                        CheckBoxUpsizeTs.Checked = false;
+                    }
+                    TextBoxContactName.Text = propertyDetail.contactName;
+                    TextBoxContactDetails.Text = propertyDetail.contactDetails;
+                    TextBoxContactTeleponeHome.Text = propertyDetail.contactTelHome;
+                    TextBoxContactTeleponeWork.Text = propertyDetail.contactTelWork;
+                    TextBoxContactTeleponeWorkExtension.Text = propertyDetail.contactTelWorkExt;
+                    TextBoxVisitDetails.Text = propertyDetail.visitDetails;
+                    if (propertyDetail.dateVisit != null)
+                    {
+                        TextBoxDateVisit.Text = propertyDetail.dateVisit.Value.ToShortDateString();
+                    }
+                    else
+                    {
+                        TextBoxDateVisit.Text = "";
+                    }
+                    
+                    //zain
+
+
+
+                    //add
                     PropertyFieldDepartment propFieldDepartment = null;
                     PropertyFieldCategory propFieldCategory = null;
                     try
                     {
-                        propFieldDepartment = property.PropertyFieldDepartments.SingleOrDefault(proFieDept => proFieDept.PropertySequence == property.Sequence && proFieDept.CompanySequence == property.CompanySequence);
-                        propFieldCategory = property.PropertyFieldCategories.SingleOrDefault(proFieCategory => proFieCategory.PropertySequence == property.Sequence && proFieCategory.CompanySequence == property.CompanySequence);
+                        propFieldDepartment = propertyDetail.PropertyFieldDepartments.SingleOrDefault(proFieDept => proFieDept.PropertySequence == propertyDetail.Sequence && proFieDept.CompanySequence == propertyDetail.CompanySequence);
+                        propFieldCategory = propertyDetail.PropertyFieldCategories.SingleOrDefault(proFieCategory => proFieCategory.PropertySequence == propertyDetail.Sequence && proFieCategory.CompanySequence == propertyDetail.CompanySequence);
                     }
                     catch { }
                     if (propFieldCategory != null)
                         ddlCategory.SelectedValue = propFieldCategory.CategorySequence.ToString();
                     if(propFieldDepartment != null)
                         ddlDepartment.SelectedValue = propFieldDepartment.DepartmentSequence.ToString();
-                    ValuationCodeTextBoxId.Text = property.ValuationCode;
-                    PropertyHeadingTextBox.Text = property.PropHeading;
-                    PropertyDetailTextBox.Text = property.PropDetailed;
-                    PropertySummaryTextBox.Text = property.PropSummary;
-                    BulletPoint1TextBox.Text = property.PropBulletPoint01;
-                    BulletPoint2TextBox.Text = property.PropBulletPoint02;
-                    BulletPoint3TextBox.Text = property.PropBulletPoint03;
-                    BulletPoint4TextBox.Text = property.PropBulletPoint04;
-                    BulletPoint5TextBox.Text = property.PropBulletPoint05;
-                    BulletPoint6TextBox.Text = property.PropBulletPoint06;
-                    BulletPoint7TextBox.Text = property.PropBulletPoint07;
-                    BulletPoint8TextBox.Text = property.PropBulletPoint08;
+                    ValuationCodeTextBoxId.Text = propertyDetail.ValuationCode;
+                    PropertyHeadingTextBox.Text = propertyDetail.PropHeading;
+                    PropertyDetailTextBox.Text = propertyDetail.PropDetailed;
+                    PropertySummaryTextBox.Text = propertyDetail.PropSummary;
+                    BulletPoint1TextBox.Text = propertyDetail.PropBulletPoint01;
+                    BulletPoint2TextBox.Text = propertyDetail.PropBulletPoint02;
+                    BulletPoint3TextBox.Text = propertyDetail.PropBulletPoint03;
+                    BulletPoint4TextBox.Text = propertyDetail.PropBulletPoint04;
+                    BulletPoint5TextBox.Text = propertyDetail.PropBulletPoint05;
+                    BulletPoint6TextBox.Text = propertyDetail.PropBulletPoint06;
+                    BulletPoint7TextBox.Text = propertyDetail.PropBulletPoint07;
+                    BulletPoint8TextBox.Text = propertyDetail.PropBulletPoint08;
                 }
             }
 
@@ -87,48 +119,76 @@ public partial class Orders_AddOrder : DepartmentPage
 
     private void preSaveProperty()
     {
-        if (property == null)
+        if (propertyDetail == null)
         {
-            property = new PropertyDetail();
-            property.AddressNo = tbPopupFlat.Text;
-            property.AddressLine1 = tbPopupAddress1.Text;
-            property.AddressLine2 = tbPopupAddress2.Text;
-            property.AddressLine3 = tbPopupAddress3.Text;
-            property.AddressLine4 = tbPopupAddress4.Text;
-            property.AddressLine5 = tbPopupAddress5.Text;
-            property.AddressPostCode = tbPopupPostCode.Text;
-            property.AddressFull = getPopupFullAddress();
-            property.CompanySequence = loggedInUserCoId;
-            property.CreatedBy = loggedInUserId;
-            property.LastAmendedBy = loggedInUserId;
-            property.DateCreated = System.DateTime.Now;
-            property.DateLastAmended = System.DateTime.Now;
-            property.FlgDeleted = false;
-            estateAgentDB.PropertyDetails.AddObject(property);
+            propertyDetail = new PropertyDetail();
+            propertyDetail.AddressNo = tbPopupFlat.Text;
+            propertyDetail.AddressLine1 = tbPopupAddress1.Text;
+            propertyDetail.AddressLine2 = tbPopupAddress2.Text;
+            propertyDetail.AddressLine3 = tbPopupAddress3.Text;
+            propertyDetail.AddressLine4 = tbPopupAddress4.Text;
+            propertyDetail.AddressLine5 = tbPopupAddress5.Text;
+            propertyDetail.AddressPostCode = tbPopupPostCode.Text;
+            propertyDetail.AddressFull = getPopupFullAddress();
+            propertyDetail.CompanySequence = loggedInUserCoId;
+
+            //zain
+            propertyDetail.contactName = TextBoxContactName.Text;
+            propertyDetail.contactDetails = TextBoxContactDetails.Text;
+            propertyDetail.contactTelHome = TextBoxContactTeleponeHome.Text;
+            propertyDetail.contactTelWork = TextBoxContactTeleponeWork.Text;
+            propertyDetail.contactTelWorkExt = TextBoxContactTeleponeWorkExtension.Text;
+            propertyDetail.visitDetails = TextBoxVisitDetails.Text;
+            if (TextBoxDateVisit.Text != null && TextBoxDateVisit.Text != "")
+            {
+                propertyDetail.dateVisit = Convert.ToDateTime(TextBoxDateVisit.Text);
+            }
+
+            
+            if (CheckBoxUpsizeTs.Checked)
+            {
+                propertyDetail.upsizeTs = true;
+            }
+            else
+            {
+                propertyDetail.upsizeTs = false;
+            }
+
+            
+
+            
+            //zain
+
+            propertyDetail.CreatedBy = loggedInUserId;
+            propertyDetail.LastAmendedBy = loggedInUserId;
+            propertyDetail.DateCreated = System.DateTime.Now;
+            propertyDetail.DateLastAmended = System.DateTime.Now;
+            propertyDetail.FlgDeleted = false;
+            estateAgentDB.PropertyDetails.AddObject(propertyDetail);
             estateAgentDB.SaveChanges();
 
             PropertyFieldDepartment propFieldDepartment = new PropertyFieldDepartment();
             propFieldDepartment.CompanySequence = loggedInUserCoId;
-            propFieldDepartment.PropertySequence = property.Sequence;
+            propFieldDepartment.PropertySequence = propertyDetail.Sequence;
             propFieldDepartment.DepartmentSequence = int.Parse(ddlDepartment.SelectedValue);
             propFieldDepartment.CreatedBy = loggedInUserId;
             propFieldDepartment.LastAmendedBy = loggedInUserId;
             propFieldDepartment.DateCreated = System.DateTime.Now;
             propFieldDepartment.DateLastAmended = System.DateTime.Now;
-            property.PropertyFieldDepartments.Add(propFieldDepartment);
+            propertyDetail.PropertyFieldDepartments.Add(propFieldDepartment);
 
             PropertyFieldCategory propFieldCategory = new PropertyFieldCategory();
             propFieldCategory.CompanySequence = loggedInUserCoId;
-            propFieldCategory.PropertySequence = property.Sequence;
+            propFieldCategory.PropertySequence = propertyDetail.Sequence;
             propFieldCategory.CategorySequence = int.Parse(ddlCategory.SelectedValue);
             propFieldCategory.CreatedBy = loggedInUserId;
             propFieldCategory.LastAmendedBy = loggedInUserId;
             propFieldCategory.DateCreated = System.DateTime.Now;
             propFieldCategory.DateLastAmended = System.DateTime.Now;
-            property.PropertyFieldCategories.Add(propFieldCategory);
+            propertyDetail.PropertyFieldCategories.Add(propFieldCategory);
 
             estateAgentDB.SaveChanges();
-            Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + property.Sequence);
+            Response.Redirect("~/Orders/AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyDetail.Sequence);
         }
     }
 
@@ -228,40 +288,71 @@ public partial class Orders_AddOrder : DepartmentPage
     protected void ShowRoomDetails(object sender, EventArgs e)
     {
         saveProperty();
-        Response.Redirect("~/Orders/AddOrderPeople.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + property.Sequence);
+        Response.Redirect("~/Orders/AddOrderPeople.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyDetail.Sequence);
     }
 
     private void saveProperty()
     {
         PropertyFieldDepartment propFieldDepartment = null;
         PropertyFieldCategory propFieldCategory = null;
-        if (property == null)
+        if (propertyDetail == null)
         {
-            property = new PropertyDetail();
-            property.CompanySequence = loggedInUserCoId;
-            property.CreatedBy = loggedInUserId;
-            property.DateCreated = System.DateTime.Now;
-            property.FlgDeleted = false;
-            estateAgentDB.PropertyDetails.AddObject(property);
+            propertyDetail = new PropertyDetail();
+            propertyDetail.CompanySequence = loggedInUserCoId;
+            propertyDetail.CreatedBy = loggedInUserId;
+            propertyDetail.DateCreated = System.DateTime.Now;
+            propertyDetail.FlgDeleted = false;
+
+
+            //zain
+            if (CheckBoxUpsizeTs.Checked)
+            {
+                propertyDetail.upsizeTs = true;
+            }
+            else
+            {
+                propertyDetail.upsizeTs = false;
+            }
+            propertyDetail.contactName = TextBoxContactName.Text;
+            propertyDetail.contactDetails = TextBoxContactDetails.Text;
+            propertyDetail.contactTelHome = TextBoxContactTeleponeHome.Text;
+            propertyDetail.contactTelWork = TextBoxContactTeleponeWork.Text;
+            propertyDetail.contactTelWorkExt = TextBoxContactTeleponeWorkExtension.Text;
+            propertyDetail.visitDetails = TextBoxVisitDetails.Text;
+            if (TextBoxDateVisit.Text != null && TextBoxDateVisit.Text != "")
+            {
+                propertyDetail.dateVisit = Convert.ToDateTime(TextBoxDateVisit.Text);
+            }
+                //property.upsizeTs = TextBoxUpsizeTs.;
+            
+            //property.visitDetails =text
+            //zain
+
+
+
+
+            estateAgentDB.PropertyDetails.AddObject(propertyDetail);
             estateAgentDB.SaveChanges();
 
             propFieldDepartment = new PropertyFieldDepartment();
             propFieldDepartment.CompanySequence = loggedInUserCoId;
-            propFieldDepartment.PropertySequence = property.Sequence;
+            propFieldDepartment.PropertySequence = propertyDetail.Sequence;
             propFieldDepartment.CreatedBy = loggedInUserId;
             propFieldDepartment.DateCreated = System.DateTime.Now;
-            property.PropertyFieldDepartments.Add(propFieldDepartment);
+            propertyDetail.PropertyFieldDepartments.Add(propFieldDepartment);
 
             propFieldCategory = new PropertyFieldCategory();
             propFieldCategory.CompanySequence = loggedInUserCoId;
-            propFieldCategory.PropertySequence = property.Sequence;
+            propFieldCategory.PropertySequence = propertyDetail.Sequence;
             propFieldCategory.CreatedBy = loggedInUserId;
             propFieldCategory.DateCreated = System.DateTime.Now;
-            property.PropertyFieldCategories.Add(propFieldCategory);
+            propertyDetail.PropertyFieldCategories.Add(propFieldCategory);
+            //add
+
         }
 
         if (propFieldDepartment == null)
-            propFieldDepartment = property.PropertyFieldDepartments.SingleOrDefault(proFieDept => proFieDept.PropertySequence == property.Sequence && proFieDept.CompanySequence == property.CompanySequence);
+            propFieldDepartment = propertyDetail.PropertyFieldDepartments.SingleOrDefault(proFieDept => proFieDept.PropertySequence == propertyDetail.Sequence && proFieDept.CompanySequence == propertyDetail.CompanySequence);
         if (propFieldDepartment != null)
         {
             propFieldDepartment.DepartmentSequence = int.Parse(ddlDepartment.SelectedValue);
@@ -270,7 +361,7 @@ public partial class Orders_AddOrder : DepartmentPage
         }
 
         if (propFieldCategory == null)
-            propFieldCategory = property.PropertyFieldCategories.SingleOrDefault(proFieCategory => proFieCategory.PropertySequence == property.Sequence && proFieCategory.CompanySequence == property.CompanySequence);
+            propFieldCategory = propertyDetail.PropertyFieldCategories.SingleOrDefault(proFieCategory => proFieCategory.PropertySequence == propertyDetail.Sequence && proFieCategory.CompanySequence == propertyDetail.CompanySequence);
         if (propFieldCategory != null)
         {
             propFieldCategory.CategorySequence = int.Parse(ddlCategory.SelectedValue);
@@ -278,29 +369,50 @@ public partial class Orders_AddOrder : DepartmentPage
             propFieldCategory.DateLastAmended = System.DateTime.Now;
         }
 
-        property.AddressNo = tbAddressNo.Text;
-        property.AddressLine1 = tbAddress1.Text;
-        property.AddressLine2 = tbAddress2.Text;
-        property.AddressLine3 = tbAddress3.Text;
-        property.AddressLine4 = tbAddress4.Text;
-        property.AddressLine5 = tbAddress5.Text;
-        property.AddressPostCode = tbPostalCode.Text;
-        property.AddressFull = getFullAddress();
+        propertyDetail.AddressNo = tbAddressNo.Text;
+        propertyDetail.AddressLine1 = tbAddress1.Text;
+        propertyDetail.AddressLine2 = tbAddress2.Text;
+        propertyDetail.AddressLine3 = tbAddress3.Text;
+        propertyDetail.AddressLine4 = tbAddress4.Text;
+        propertyDetail.AddressLine5 = tbAddress5.Text;
+        propertyDetail.AddressPostCode = tbPostalCode.Text;
+        propertyDetail.AddressFull = getFullAddress();
 
-        property.LastAmendedBy = loggedInUserId;
-        property.DateLastAmended = System.DateTime.Now;
-        property.ValuationCode = ValuationCodeTextBoxId.Text;
-        property.PropHeading = PropertyHeadingTextBox.Text;
-        property.PropDetailed = PropertyDetailTextBox.Text;
-        property.PropSummary = PropertySummaryTextBox.Text;
-        property.PropBulletPoint01 = BulletPoint1TextBox.Text;
-        property.PropBulletPoint02 = BulletPoint2TextBox.Text;
-        property.PropBulletPoint03 = BulletPoint3TextBox.Text;
-        property.PropBulletPoint04 = BulletPoint4TextBox.Text;
-        property.PropBulletPoint05 = BulletPoint5TextBox.Text;
-        property.PropBulletPoint06 = BulletPoint6TextBox.Text;
-        property.PropBulletPoint07 = BulletPoint7TextBox.Text;
-        property.PropBulletPoint08 = BulletPoint8TextBox.Text;
+        propertyDetail.LastAmendedBy = loggedInUserId;
+        propertyDetail.DateLastAmended = System.DateTime.Now;
+        propertyDetail.ValuationCode = ValuationCodeTextBoxId.Text;
+        propertyDetail.PropHeading = PropertyHeadingTextBox.Text;
+        propertyDetail.PropDetailed = PropertyDetailTextBox.Text;
+        propertyDetail.PropSummary = PropertySummaryTextBox.Text;
+        propertyDetail.PropBulletPoint01 = BulletPoint1TextBox.Text;
+        propertyDetail.PropBulletPoint02 = BulletPoint2TextBox.Text;
+        propertyDetail.PropBulletPoint03 = BulletPoint3TextBox.Text;
+        propertyDetail.PropBulletPoint04 = BulletPoint4TextBox.Text;
+        propertyDetail.PropBulletPoint05 = BulletPoint5TextBox.Text;
+        propertyDetail.PropBulletPoint06 = BulletPoint6TextBox.Text;
+        propertyDetail.PropBulletPoint07 = BulletPoint7TextBox.Text;
+        propertyDetail.PropBulletPoint08 = BulletPoint8TextBox.Text;
+        //zain
+
+        if (CheckBoxUpsizeTs.Checked)
+        {
+            propertyDetail.upsizeTs = true;
+        }
+        else
+        {
+            propertyDetail.upsizeTs = false;
+        }
+        propertyDetail.contactName = TextBoxContactName.Text;
+        propertyDetail.contactDetails = TextBoxContactDetails.Text;
+        propertyDetail.contactTelHome = TextBoxContactTeleponeHome.Text;
+        propertyDetail.contactTelWork = TextBoxContactTeleponeWork.Text;
+        propertyDetail.contactTelWorkExt = TextBoxContactTeleponeWorkExtension.Text;
+        propertyDetail.visitDetails = TextBoxVisitDetails.Text;
+        if (TextBoxDateVisit.Text != null && TextBoxDateVisit.Text != "")
+        {
+            propertyDetail.dateVisit = Convert.ToDateTime(TextBoxDateVisit.Text);
+        }
+        //zain
 
         estateAgentDB.SaveChanges();
     }
@@ -315,4 +427,6 @@ public partial class Orders_AddOrder : DepartmentPage
     {
         preSaveProperty();
     }
+
+
 }

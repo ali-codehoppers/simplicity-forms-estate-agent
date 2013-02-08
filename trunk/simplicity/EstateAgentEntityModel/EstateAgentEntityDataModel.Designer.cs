@@ -8,22 +8,21 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_PropertyDetails", "PropertyDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.PropertyDetail), "PropertyFieldCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldCategory), true)]
-[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.PropertyDetail), "PropertyFieldDepartments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldDepartment), true)]
-[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyRooms_PropertyDetails", "PropertyDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.PropertyDetail), "PropertyRooms", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyRoom), true)]
-[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_RefCategories", "RefCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.RefCategory), "PropertyFieldCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldCategory), true)]
-[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_RefDepartments", "RefDepartments", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.RefDepartment), "PropertyFieldDepartments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldDepartment), true)]
+[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_PropertyDetails", "PropertyDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.PropertyDetail), "PropertyFieldCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldCategory), true)]
+[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.PropertyDetail), "PropertyFieldDepartment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldDepartment), true)]
+[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyRooms_PropertyDetails", "PropertyDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.PropertyDetail), "PropertyRoom", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyRoom), true)]
+[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_RefCategories", "RefCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.RefCategory), "PropertyFieldCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldCategory), true)]
+[assembly: EdmRelationshipAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_RefDepartments", "RefDepartment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EstateAgentEntityModel.RefDepartment), "PropertyFieldDepartment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EstateAgentEntityModel.PropertyFieldDepartment), true)]
 
 #endregion
 
@@ -204,7 +203,6 @@ namespace EstateAgentEntityModel
         private ObjectSet<TmpImpPropRooms__Design_TBC_> _TmpImpPropRooms__Design_TBC_;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -272,11 +270,11 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -293,15 +291,16 @@ namespace EstateAgentEntityModel
         /// Create a new PropertyDetail object.
         /// </summary>
         /// <param name="sequence">Initial value of the Sequence property.</param>
-        public static PropertyDetail CreatePropertyDetail(global::System.Int32 sequence)
+        /// <param name="upsizeTs">Initial value of the upsizeTs property.</param>
+        public static PropertyDetail CreatePropertyDetail(global::System.Int32 sequence, global::System.Boolean upsizeTs)
         {
             PropertyDetail propertyDetail = new PropertyDetail();
             propertyDetail.Sequence = sequence;
+            propertyDetail.upsizeTs = upsizeTs;
             return propertyDetail;
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1098,9 +1097,200 @@ namespace EstateAgentEntityModel
         private Nullable<global::System.DateTime> _DateLastAmended;
         partial void OnDateLastAmendedChanging(Nullable<global::System.DateTime> value);
         partial void OnDateLastAmendedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dateVisit
+        {
+            get
+            {
+                return _dateVisit;
+            }
+            set
+            {
+                OndateVisitChanging(value);
+                ReportPropertyChanging("dateVisit");
+                _dateVisit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dateVisit");
+                OndateVisitChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dateVisit;
+        partial void OndateVisitChanging(Nullable<global::System.DateTime> value);
+        partial void OndateVisitChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String visitDetails
+        {
+            get
+            {
+                return _visitDetails;
+            }
+            set
+            {
+                OnvisitDetailsChanging(value);
+                ReportPropertyChanging("visitDetails");
+                _visitDetails = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("visitDetails");
+                OnvisitDetailsChanged();
+            }
+        }
+        private global::System.String _visitDetails;
+        partial void OnvisitDetailsChanging(global::System.String value);
+        partial void OnvisitDetailsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String contactName
+        {
+            get
+            {
+                return _contactName;
+            }
+            set
+            {
+                OncontactNameChanging(value);
+                ReportPropertyChanging("contactName");
+                _contactName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("contactName");
+                OncontactNameChanged();
+            }
+        }
+        private global::System.String _contactName;
+        partial void OncontactNameChanging(global::System.String value);
+        partial void OncontactNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String contactTelHome
+        {
+            get
+            {
+                return _contactTelHome;
+            }
+            set
+            {
+                OncontactTelHomeChanging(value);
+                ReportPropertyChanging("contactTelHome");
+                _contactTelHome = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("contactTelHome");
+                OncontactTelHomeChanged();
+            }
+        }
+        private global::System.String _contactTelHome;
+        partial void OncontactTelHomeChanging(global::System.String value);
+        partial void OncontactTelHomeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String contactTelWork
+        {
+            get
+            {
+                return _contactTelWork;
+            }
+            set
+            {
+                OncontactTelWorkChanging(value);
+                ReportPropertyChanging("contactTelWork");
+                _contactTelWork = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("contactTelWork");
+                OncontactTelWorkChanged();
+            }
+        }
+        private global::System.String _contactTelWork;
+        partial void OncontactTelWorkChanging(global::System.String value);
+        partial void OncontactTelWorkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String contactTelWorkExt
+        {
+            get
+            {
+                return _contactTelWorkExt;
+            }
+            set
+            {
+                OncontactTelWorkExtChanging(value);
+                ReportPropertyChanging("contactTelWorkExt");
+                _contactTelWorkExt = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("contactTelWorkExt");
+                OncontactTelWorkExtChanged();
+            }
+        }
+        private global::System.String _contactTelWorkExt;
+        partial void OncontactTelWorkExtChanging(global::System.String value);
+        partial void OncontactTelWorkExtChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String contactDetails
+        {
+            get
+            {
+                return _contactDetails;
+            }
+            set
+            {
+                OncontactDetailsChanging(value);
+                ReportPropertyChanging("contactDetails");
+                _contactDetails = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("contactDetails");
+                OncontactDetailsChanged();
+            }
+        }
+        private global::System.String _contactDetails;
+        partial void OncontactDetailsChanging(global::System.String value);
+        partial void OncontactDetailsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean upsizeTs
+        {
+            get
+            {
+                return _upsizeTs;
+            }
+            set
+            {
+                OnupsizeTsChanging(value);
+                ReportPropertyChanging("upsizeTs");
+                _upsizeTs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("upsizeTs");
+                OnupsizeTsChanged();
+            }
+        }
+        private global::System.Boolean _upsizeTs;
+        partial void OnupsizeTsChanging(global::System.Boolean value);
+        partial void OnupsizeTsChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1110,18 +1300,18 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_PropertyDetails", "PropertyFieldCategories")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_PropertyDetails", "PropertyFieldCategory")]
         public EntityCollection<PropertyFieldCategory> PropertyFieldCategories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyFieldCategories");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyFieldCategory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyFieldCategories", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyFieldCategory", value);
                 }
             }
         }
@@ -1132,18 +1322,18 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_PropertyDetails", "PropertyFieldDepartments")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_PropertyDetails", "PropertyFieldDepartment")]
         public EntityCollection<PropertyFieldDepartment> PropertyFieldDepartments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyFieldDepartments");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyFieldDepartment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyFieldDepartments", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyFieldDepartment", value);
                 }
             }
         }
@@ -1154,24 +1344,23 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyRooms_PropertyDetails", "PropertyRooms")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyRooms_PropertyDetails", "PropertyRoom")]
         public EntityCollection<PropertyRoom> PropertyRooms
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyRoom>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyRooms");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyRoom>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyRoom");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyRoom>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyRooms", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyRoom>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyRoom", value);
                 }
             }
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1196,7 +1385,6 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1395,7 +1583,6 @@ namespace EstateAgentEntityModel
         partial void OnDateLastAmendedChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1405,16 +1592,16 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_PropertyDetails", "PropertyDetails")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_PropertyDetails", "PropertyDetail")]
         public PropertyDetail PropertyDetail
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetails").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetail").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetails").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetail").Value = value;
             }
         }
         /// <summary>
@@ -1426,13 +1613,13 @@ namespace EstateAgentEntityModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetails");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetail");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetails", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_PropertyDetails", "PropertyDetail", value);
                 }
             }
         }
@@ -1443,16 +1630,16 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_RefCategories", "RefCategories")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_RefCategories", "RefCategory")]
         public RefCategory RefCategory
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategories").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategory").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategories").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategory").Value = value;
             }
         }
         /// <summary>
@@ -1464,19 +1651,18 @@ namespace EstateAgentEntityModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategories");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategories", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "RefCategory", value);
                 }
             }
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1501,7 +1687,6 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1700,7 +1885,6 @@ namespace EstateAgentEntityModel
         partial void OnDateLastAmendedChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1710,16 +1894,16 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetails")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetail")]
         public PropertyDetail PropertyDetail
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetails").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetail").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetails").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetail").Value = value;
             }
         }
         /// <summary>
@@ -1731,13 +1915,13 @@ namespace EstateAgentEntityModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetails");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetail");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetails", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_PropertyDetails", "PropertyDetail", value);
                 }
             }
         }
@@ -1748,16 +1932,16 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_RefDepartments", "RefDepartments")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_RefDepartments", "RefDepartment")]
         public RefDepartment RefDepartment
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartments").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartment").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartments").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartment").Value = value;
             }
         }
         /// <summary>
@@ -1769,19 +1953,18 @@ namespace EstateAgentEntityModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartments");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartments", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "RefDepartment", value);
                 }
             }
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1806,7 +1989,6 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2269,7 +2451,6 @@ namespace EstateAgentEntityModel
         partial void OnDateLastAmendedChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2279,16 +2460,16 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyRooms_PropertyDetails", "PropertyDetails")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyRooms_PropertyDetails", "PropertyDetail")]
         public PropertyDetail PropertyDetail
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetails").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetail").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetails").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetail").Value = value;
             }
         }
         /// <summary>
@@ -2300,19 +2481,18 @@ namespace EstateAgentEntityModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetails");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetail");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetails", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyDetail>("SimplicityWebEstateAgentModel.FK_PropertyRooms_PropertyDetails", "PropertyDetail", value);
                 }
             }
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2337,7 +2517,6 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2560,7 +2739,6 @@ namespace EstateAgentEntityModel
         partial void OnDateLastAmendedChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2570,24 +2748,23 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_RefCategories", "PropertyFieldCategories")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldCategories_RefCategories", "PropertyFieldCategory")]
         public EntityCollection<PropertyFieldCategory> PropertyFieldCategories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "PropertyFieldCategories");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "PropertyFieldCategory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "PropertyFieldCategories", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldCategory>("SimplicityWebEstateAgentModel.FK_PropertyFieldCategories_RefCategories", "PropertyFieldCategory", value);
                 }
             }
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2612,7 +2789,6 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2835,7 +3011,6 @@ namespace EstateAgentEntityModel
         partial void OnDateLastAmendedChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2845,24 +3020,23 @@ namespace EstateAgentEntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_RefDepartments", "PropertyFieldDepartments")]
+        [EdmRelationshipNavigationPropertyAttribute("SimplicityWebEstateAgentModel", "FK_PropertyFieldDepartments_RefDepartments", "PropertyFieldDepartment")]
         public EntityCollection<PropertyFieldDepartment> PropertyFieldDepartments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "PropertyFieldDepartments");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "PropertyFieldDepartment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "PropertyFieldDepartments", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PropertyFieldDepartment>("SimplicityWebEstateAgentModel.FK_PropertyFieldDepartments_RefDepartments", "PropertyFieldDepartment", value);
                 }
             }
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2887,7 +3061,6 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2966,7 +3139,6 @@ namespace EstateAgentEntityModel
         partial void OnImpCodeChanged();
 
         #endregion
-
     
     }
     
@@ -2992,7 +3164,6 @@ namespace EstateAgentEntityModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -3071,11 +3242,9 @@ namespace EstateAgentEntityModel
         partial void OnImpCodeChanged();
 
         #endregion
-
     
     }
 
     #endregion
-
     
 }

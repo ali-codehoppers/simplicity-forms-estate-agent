@@ -67,6 +67,14 @@
     <Property Name="DateCreated" Type="datetime" />
     <Property Name="LastAmendedBy" Type="int" />
     <Property Name="DateLastAmended" Type="datetime" />
+    <Property Name="dateVisit" Type="datetime" />
+    <Property Name="visitDetails" Type="ntext" />
+    <Property Name="contactName" Type="nvarchar" MaxLength="128" />
+    <Property Name="contactTelHome" Type="nvarchar" MaxLength="128" />
+    <Property Name="contactTelWork" Type="nvarchar" MaxLength="128" />
+    <Property Name="contactTelWorkExt" Type="nvarchar" MaxLength="128" />
+    <Property Name="contactDetails" Type="ntext" />
+    <Property Name="upsizeTs" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="PropertyFieldCategories">
     <Key>

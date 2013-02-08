@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UNCHS", "UNCHS\", "{0D0B609D-14BF-492E-BBFC-D73DD1792CA2}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -19,7 +19,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UNCHS", "UNCHS\", "{0D0B609
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "2019"
+		VWDPort = "32613"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplicity.Data", "..\..\Simplicity\trunk\Simplicity\Simplicity.Data\Simplicity.Data.csproj", "{DA278DCC-0126-472F-B027-D391BFD610E1}"
