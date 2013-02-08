@@ -1,7 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="TestPages_Default" %>
 
-<%@ Register Src="../Common/UserControls/AutoCompleteGridControl.ascx" TagName="AutoCompleteGridControl"
-    TagPrefix="uc1" %>
+<%--<%@ Register Src="../Common/UserControls/AutoCompleteGridControl.ascx" TagName="AutoCompleteGridControl"
+    TagPrefix="uc1" %>--%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -92,7 +92,7 @@
         </asp:ObjectDataSource>
             
     </div>
-        <uc1:AutoCompleteGridControl ID="AutoCompleteGridControl1" runat="server" />
+        <%--<uc1:AutoCompleteGridControl ID="AutoCompleteGridControl1" runat="server" />--%>
     </form>
     
 </body>

@@ -13,7 +13,7 @@ public partial class TestPages_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        AutoCompleteGridControl1.AutoCompleteDataSource = ObjectDataSource1;
+        //AutoCompleteGridControl1.AutoCompleteDataSource = ObjectDataSource1;
         //SigninSheetGenerator s = new SigninSheetGenerator();
         //s.Generate();
     }
