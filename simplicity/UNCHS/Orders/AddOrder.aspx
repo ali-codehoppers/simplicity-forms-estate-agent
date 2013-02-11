@@ -56,7 +56,7 @@
         #leftMenuDiv
         {
             height: 1180px;
-            }
+        }
     </style>
     <script type="text/javascript">
 
@@ -193,13 +193,24 @@
         <div class="text_field" style="padding-bottom:5px;height:27px;">
             <span>House/Flat No:</span><asp:TextBox ID="tbAddressNo" CssClass="field_txt" runat="server"></asp:TextBox></div>
 
-            <!---->
+        <div class="text_field" style="padding-bottom:5px;height:27px">
+            <span>Address:</span><asp:TextBox ID="tbAddress1" CssClass="field_txt" runat="server"></asp:TextBox></div>
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
+            <asp:TextBox ID="tbAddress2" CssClass="field_txt" runat="server"></asp:TextBox></div>
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
+            <asp:TextBox ID="tbAddress3" CssClass="field_txt" runat="server"></asp:TextBox></div>
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
+            <asp:TextBox ID="tbAddress4" CssClass="field_txt" runat="server"></asp:TextBox></div>
+        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
+            <asp:TextBox ID="tbAddress5" CssClass="field_txt" runat="server"></asp:TextBox></div>
+        <div class="text_field" style="padding-bottom:5px;height:27px">
+            <span>Post Code:</span><asp:TextBox ID="tbPostalCode" CssClass="field_txt" runat="server"></asp:TextBox></div>
             
-            <div class="text_field" style="padding-bottom:5px;height:27px;">
-                <span>Date Visit</span><asp:TextBox ID="TextBoxDateVisit" CssClass="field_txt" runat="server"></asp:TextBox></div>
+        <div class="text_field" style="padding-bottom:5px;height:27px;">
+            <span>Date Visit</span><asp:TextBox ID="TextBoxDateVisit" CssClass="field_txt" runat="server"></asp:TextBox></div>
             
             
-            <div class="text_field" style="padding:0 0 7px 0;">
+        <div class="text_field" style="padding:0 0 7px 0;">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td style="vertical-align: middle;">
@@ -275,19 +286,6 @@
             </div>
             
             <!---->
-
-        <div class="text_field" style="padding-bottom:5px;height:27px">
-            <span>Address:</span><asp:TextBox ID="tbAddress1" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
-            <asp:TextBox ID="tbAddress2" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
-            <asp:TextBox ID="tbAddress3" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
-            <asp:TextBox ID="tbAddress4" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
-            <asp:TextBox ID="tbAddress5" CssClass="field_txt" runat="server"></asp:TextBox></div>
-        <div class="text_field" style="padding-bottom:5px;height:27px">
-            <span>Post Code:</span><asp:TextBox ID="tbPostalCode" CssClass="field_txt" runat="server"></asp:TextBox></div>
         
         <div class="text_field" style="padding-bottom:5px;height:27px;" >
             <span>Valuation Code:</span><asp:TextBox ID="ValuationCodeTextBoxId" CssClass="field_txt" runat="server"></asp:TextBox></div>
