@@ -2,7 +2,7 @@
     <div class="left_nav_pnl" style="text-align:center; margin-top:20px;">
         ADMIN NAVIGATION
     </div>
-    <div style="background-color:White; width:252px;">
+    <div id="leftMenuDiv" style="background-color:White; width:252px;">
     <asp:TreeView ID="UserMenuTree" runat="server" ExpandDepth="FullyExpand" CollapseImageUrl="~/Images/arrow_bottom.jpg" NoExpandImageUrl="~/Images/arrow_left.jpg"
     ExpandImageUrl="~/Images/arrow_left.jpg" NodeStyle-CssClass="left_nav_link" NodeStyle-HorizontalPadding="10px" style="padding-left:10px;">
         <Nodes>
