@@ -2,7 +2,7 @@
 <div class="left_nav_pnl" style="text-align: center;">
     MAIN NAVIGATION
 </div>
-<div style="background-color: White; width: 252px;">
+<div id="leftMenuDiv" style="background-color: White; width: 252px; ">
    
     <div id="cover"><asp:Image runat="server" ID="Image3" ImageUrl="~/Images/loadingCir.gif" /></div>
     <ul id="red" class="treeview-red" style="width: 100%; min-height: 330px;display:none;">

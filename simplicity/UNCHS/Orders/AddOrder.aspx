@@ -53,6 +53,10 @@
         a.txt_blue:link, a.txt_blue:visited {
             color:white;
         }
+        #leftMenuDiv
+        {
+            height: 1180px;
+            }
     </style>
     <script type="text/javascript">
 
