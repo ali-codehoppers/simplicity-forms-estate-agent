@@ -28,6 +28,7 @@
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/jquery-1.4.2.min.js")%>"></script>
     <link rel="stylesheet" href="<%=this.ResolveClientUrl("~/Includes/treeview/jquery.treeview.css")%>" />
     <link rel="stylesheet" href="<%=this.ResolveClientUrl("~/Includes/treeview/screen.css")%>" /> 
+    
     <script src="<%=this.ResolveClientUrl("~/Includes/treeview/jquery.treeview.js")%>" type="text/javascript"></script>
 	<script src="<%=this.ResolveClientUrl("~/Includes/treeview/lib/jquery.cookie.js")%>" type="text/javascript"></script>
     <script src="<%=this.ResolveClientUrl("~/Includes/ui/jquery.ui.core.js")%>" type="text/javascript"></script>
@@ -252,6 +253,10 @@
             
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-ui-1.9.1.custom/js/jquery-1.8.2.js")%>"></script>
     <script type="text/javascript" src="<%=this.ResolveClientUrl("~/jquery-ui-1.9.1.custom/js/jquery-ui-1.9.1.custom.min.js")%>"></script>
+    <!--zain-->
+    <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/Common/StyleSheets/jquery-ui-timepicker-addon.css")%>" />
+    <script type="text/javascript" src="<%=this.ResolveClientUrl("~/Includes/jquery-ui-timepicker-addon.js")%>"></script>
+    <!--zain-->
     <link rel="stylesheet" type="text/css" href="<%=this.ResolveClientUrl("~/jquery-ui-1.9.1.custom/css/custom-theme/jquery-ui-1.9.1.custom.css")%>" />
         <style type="text/css">
         .ui-dialog .ui-dialog-buttonpane {

@@ -56,7 +56,7 @@ public partial class Orders_AddOrder : DepartmentPage
                     TextBoxVisitDetails.Text = propertyDetail.visitDetails;
                     if (propertyDetail.dateVisit != null)
                     {
-                        TextBoxDateVisit.Text = propertyDetail.dateVisit.Value.ToShortDateString();
+                        TextBoxDateVisit.Text = propertyDetail.dateVisit.Value.ToString();
                     }
                     else
                     {
@@ -321,7 +321,7 @@ public partial class Orders_AddOrder : DepartmentPage
             propertyDetail.visitDetails = TextBoxVisitDetails.Text;
             if (TextBoxDateVisit.Text != null && TextBoxDateVisit.Text != "")
             {
-                propertyDetail.dateVisit = Convert.ToDateTime(TextBoxDateVisit.Text);
+                propertyDetail.dateVisit = Convert.ToDateTime(TextBoxDateVisit.Text+":00.000");
             }
                 //property.upsizeTs = TextBoxUpsizeTs.;
             
@@ -410,7 +410,8 @@ public partial class Orders_AddOrder : DepartmentPage
         propertyDetail.visitDetails = TextBoxVisitDetails.Text;
         if (TextBoxDateVisit.Text != null && TextBoxDateVisit.Text != "")
         {
-            propertyDetail.dateVisit = Convert.ToDateTime(TextBoxDateVisit.Text);
+
+            propertyDetail.dateVisit = DateTime.Parse(TextBoxDateVisit.Text);
         }
         //zain
 
