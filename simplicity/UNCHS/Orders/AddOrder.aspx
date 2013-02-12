@@ -399,7 +399,7 @@
 
         $(function () {
 
-            $("#<%=TextBoxDateVisit.ClientID%>").datepicker({ dateFormat: 'yy-mm-dd' });
+            $("#<%=TextBoxDateVisit.ClientID%>").datetimepicker({ dateFormat: 'yy-mm-dd' });
 
         });
     </script>
