@@ -141,7 +141,7 @@ public partial class Orders_AddOrder : DepartmentPage
             propertyDetail.visitDetails = TextBoxVisitDetails.Text;
             if (TextBoxDateVisit.Text != null && TextBoxDateVisit.Text != "")
             {
-                propertyDetail.dateVisit = Convert.ToDateTime(TextBoxDateVisit.Text);
+                propertyDetail.dateVisit = DateTime.Parse(TextBoxDateVisit.Text);
             }
 
             
