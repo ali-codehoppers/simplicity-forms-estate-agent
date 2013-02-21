@@ -56,6 +56,12 @@ public abstract class VerifyLoginPage : GenericPage
                         Session[WebConstants.Session.COMPANY_NAME] = session.User.Company.Name;
                         loggedInUserCoId = session.User.Company.CompanyID;
 
+                        var userAuthorisedForThisProduct = session.User.UserProducts.Where(userProd => userProd.ProductID == EAProductId);
+                        if (userAuthorisedForThisProduct.Count() <= 0)
+                        {
+                            Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You are not authorized to access Estate Agent");
+                        }
+
                         //going to check for licenses                        
                         List<CompanyProduct> companyProducts = (from cp in databaseContext.CompanyProducts where cp.CompanyID == session.User.Company.CompanyID && cp.ProductID == EAProductId select cp).ToList<CompanyProduct>();
                         int numOfLicenses = 0;
@@ -99,7 +105,7 @@ public abstract class VerifyLoginPage : GenericPage
                             }
                             if (!isTrial)
                             {
-                                Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You are not authorized to access Health and Safety");
+                                Response.Redirect(AppSettings["SimplicityErrorURL"] + "?" + "message" + "=You are not authorized to access Estate Agent");
                             }
                             else
                             {
