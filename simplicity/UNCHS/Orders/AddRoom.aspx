@@ -10,6 +10,13 @@
 
 
     <script type="text/javascript">
+        function validate() {
+            if (document.getElementById("<%=HeadingTextBox.ClientID%>").value == "") {
+                alert("A room must have a Name");
+                return false;
+            }
+            return true;
+        }
         $(document).ready(function () {
 
             var dialogOpts = {
@@ -316,7 +323,7 @@
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                    <asp:LinkButton ID="SaveRoomButton" runat="server" OnClick="SaveNewRoomDetails" CssClass="txt_white">Save</asp:LinkButton>
+                    <asp:LinkButton ID="SaveRoomButton" runat="server" OnClick="SaveNewRoomDetails" CssClass="txt_white" OnClientClick="return validate();">Save</asp:LinkButton>
                 </div>
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
