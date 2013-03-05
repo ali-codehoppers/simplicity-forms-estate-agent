@@ -75,7 +75,10 @@ public partial class Order_AddRoom : RoomDetailPage
                     RoomWidthInInches.Value = propRoom.RoomWidthIn.ToString();
                 if (propRoom.RoomWidthText != null)
                     RoomWidthText.Value = propRoom.RoomWidthText.ToString();
-                TabControl1.Selected = propRoom.RoomHeading.ToString() + WebConstants.ToSplit.ROOM_TAB_SPLIT + propRoom.Sequence;
+                if (propRoom.RoomHeading != null)
+                {
+                    TabControl1.Selected = propRoom.RoomHeading.ToString() + WebConstants.ToSplit.ROOM_TAB_SPLIT + propRoom.Sequence;
+                }
                 TabControl1.RefreshTabs();
             }
             

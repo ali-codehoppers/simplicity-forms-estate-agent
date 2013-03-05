@@ -17,6 +17,9 @@ public partial class Orders_AddOrderPeople : RoomDetailPage
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
+        TabControl1.Selected = "Room Details";
+        TabControl1.RefreshTabs();
+       
         try
         {
             if (!IsPostBack)

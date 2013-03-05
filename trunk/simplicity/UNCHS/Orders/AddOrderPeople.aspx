@@ -307,6 +307,7 @@
 				            </div>
 				            <div style="margin-bottom:5px;">
                                 <asp:TextBox ID="HeadingTextBox" runat="server" Text='<%# Eval("RoomHeading") %>' style="width:100%;"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="HeadingTextBox" Display="Dynamic"></asp:RequiredFieldValidator>
 				            </div>
 				            <div class="sameHeight">
 					            <span>Dimensions</span>
