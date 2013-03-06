@@ -113,37 +113,46 @@
         	    <img src="Images_Estate/logo.png" width="413" height="382" alt="logo"/>
             </div>
             <div class="fields-panel-positioning">
+
+                <div style="background-image:url('Images_Estate/panel.png');background-repeat:no-repeat;width:354px;height:280px;padding-left:18px;padding-top:20px;">
+                    
+                    <div style="float:right;padding-right:40px;">
+                        <img src="Images_Estate/get_touch.png" width="124" height="18" alt="get in touch" />
+                    </div>
+                    <div style="clear:both"></div>
+                    <div>
+                        <asp:Label runat="server" ID="errorBox" Visible="false" style="color:red;font-size:16px;">Incorrect username or password</asp:Label>
+            	    </div>
+                    <div style="display:inline-block;margin-bottom:5px;font-size:18px">
+	            	    Username:
+                    </div>
+                    <div>
+                        <asp:TextBox ID="tbUserName" runat="server" CssClass="txtbox" style="margin-bottom:10px;"></asp:TextBox>
+                        <div>
+                            <asp:RequiredFieldValidator runat="server" ID="reqUserName" ControlToValidate="tbUserName" ErrorMessage="* Username Required" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div style="display:inline-block;margin-bottom:5px;font-size:18px">
+	            	    password:
+                    </div>
+                    <div>
+                        <asp:TextBox ID="tbPassword" runat="server" TextMode="Password" CssClass="txtbox"></asp:TextBox>
+                        <div>
+                            <asp:RequiredFieldValidator runat="server" ID="reqPassword" ControlToValidate="tbPassword" ErrorMessage="* Password Required" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <asp:ImageButton runat="server" Width="147" Height="59" ImageUrl="Images_Estate/login_btn.png" ID="btnLogin" OnClick="btnLogin_Click" AlternateText="Login" />
+                    </div>
+                    
+                </div>
                 <div>
-                    <img src="Images_Estate/panel.png" width="354" height="294" alt="username and password" />
+
                     <div style="display:inline-block;width:175px; float:left;">
                         <asp:ImageButton runat="server" Width="175" Height="58" ImageUrl="Images_Estate/forgot_psswdd.png" ID="ForgotPasswordButton" OnClick="btnForgot_Password_Click" AlternateText="Forgot Password" />
                     </div>
                     <div style="display:inline-block;width:175px; float:left;">
                         <asp:ImageButton runat="server" Width="175" Height="58" ImageUrl="Images_Estate/sign_up.png" ID="SignUpButton" OnClick="btnSign_Up_Click" AlternateText="Sign Up Here" />
-                    </div>
-                </div>
-                <div class="get-in-touch-positioning">
-                    <img src="Images_Estate/get_touch.png" width="124" height="18" alt="get in touch" />
-                </div>
-                <div style="clear:both;"></div>
-                <div class="fields-box">
-                    <div>
-                        <asp:Label runat="server" ID="errorBox" Visible="false" style="color:red;font-size:16px;">Incorrect username or password</asp:Label>
-            	    </div>
-                    <div style="display:inline-block;margin-bottom:5px;">
-	            	    Username:
-                    </div>
-                    <div>
-                        <asp:TextBox ID="tbUserName" runat="server" CssClass="txtbox" style="margin-bottom:10px;"></asp:TextBox>
-                    </div>
-                    <div style="display:inline-block;margin-bottom:5px;">
-	            	    password:
-                    </div>
-                    <div>
-                        <asp:TextBox ID="tbPassword" runat="server" TextMode="Password" CssClass="txtbox"></asp:TextBox>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <asp:ImageButton runat="server" Width="147" Height="59" ImageUrl="Images_Estate/login_btn.png" ID="btnLogin" OnClick="btnLogin_Click" AlternateText="Login" />
                     </div>
                 </div>
     	    </div>

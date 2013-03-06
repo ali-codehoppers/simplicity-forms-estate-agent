@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
     <script type="text/javascript">
         function deleteCategory(categId) {
-            if (confirm("are you sure?")) {
+            if (confirm("Are you sure you want to delete this Category?")) {
                 $("#categoryId").val(categId);
                 return true;
             }

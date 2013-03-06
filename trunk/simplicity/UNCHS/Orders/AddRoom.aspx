@@ -10,13 +10,13 @@
 
 
     <script type="text/javascript">
-        function validate() {
+        /*function validate() {
             if (document.getElementById("<%=HeadingTextBox.ClientID%>").value == "") {
                 alert("A room must have a Name");
                 return false;
             }
             return true;
-        }
+        }*/
         $(document).ready(function () {
 
             var dialogOpts = {
@@ -58,7 +58,7 @@
                 var feet = null;
                 var inches = null;
                 if (meter != "") {
-                    feets = meter * 3.281;
+                    feets = meter * 3.28084;
                     feet = parseInt(feets);
                     inches = (feets - feet) * 12.0;
                     $("#LengthInFeetTextBox").attr("value", (feet).toFixed(2));
@@ -79,7 +79,7 @@
                     if (isNaN(feet) != true) {
                         if (isNaN(inches) != true)
                             feet = feet + (inches / 12.0);
-                        meter = feet / 3.281;
+                        meter = feet / 3.28084;
                         $("#LengthInMTextBox").attr("value", (meter).toFixed(2));
                     }
                     else if (isNaN(inches) != true && isNaN(feet) == true)
@@ -94,7 +94,7 @@
                 var feet = null;
                 var inches = null;
                 if (meter != "") {
-                    feets = meter * 3.281;
+                    feets = meter * 3.28084;
                     feet = parseInt(feets);
                     inches = (feets - feet) * 12.0;
                     $("#WidthInFeetTextBox").attr("value", (feet).toFixed(2));
@@ -115,7 +115,7 @@
                     if (isNaN(feet) != true) {
                         if (isNaN(inches) != true)
                             feet = feet + (inches / 12.0);
-                        meter = feet / 3.281;
+                        meter = feet / 3.28084;
                         $("#WidthInMTextBox").attr("value", (meter).toFixed(2));
                     }
                     else if (isNaN(inches) != true && isNaN(feet) == true)
@@ -277,7 +277,7 @@
 				    </div>
 				    <div style="margin-bottom:5px;">
                         <asp:TextBox ID="RoomNoTextBox" clientidmode="Static" style="width:100%;" runat="server" Enabled="false"></asp:TextBox>
-				    </div>
+                    </div>
 				    <div class="sameHeight">
 					    <span>&nbsp;</span>
 				    </div>
@@ -291,19 +291,20 @@
 					    <span>Heading</span>
 				    </div>
 				    <div style="margin-bottom:5px;">
-                        <asp:TextBox ID="HeadingTextBox" runat="server" clientidmode="Static" style="width:100%;"></asp:TextBox>
+                        <asp:TextBox ID="HeadingTextBox" runat="server" clientidmode="Static" style="width:90%;"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ID="reqHeading" ControlToValidate="HeadingTextBox" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
 				    </div>
 				    <div class="sameHeight">
 					    <span>Dimensions</span>
 				    </div>
 				    <div style="margin-bottom:5px;">
-                        <asp:TextBox ID="DimensionsTextBox" clientidmode="Static" style="width:100%;" Enabled="false" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="DimensionsTextBox" clientidmode="Static"  style="width:90%;" Enabled="false" runat="server"></asp:TextBox>
 				    </div>
 				    <div class="sameHeight">
 					    <span>Aspect</span>
 				    </div>
 				    <div style="margin-bottom:5px;">
-                        <asp:TextBox style="width:100%;" clientidmode="Static" ID="AspectTextBox" runat="server"></asp:TextBox>
+                        <asp:TextBox style="width:90%;" clientidmode="Static" ID="AspectTextBox" runat="server"></asp:TextBox>
 				    </div>
 			    </div>
 			    <div class="column3">
@@ -323,7 +324,7 @@
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                    <asp:LinkButton ID="SaveRoomButton" runat="server" OnClick="SaveNewRoomDetails" CssClass="txt_white" OnClientClick="return validate();">Save</asp:LinkButton>
+                    <asp:LinkButton ID="SaveRoomButton" runat="server" OnClick="SaveNewRoomDetails" CssClass="txt_white" >Save</asp:LinkButton>
                 </div>
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
