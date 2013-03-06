@@ -33,9 +33,9 @@ public partial class Common_TabControl : System.Web.UI.UserControl
             int propertyId = int.Parse(Request[WebConstants.Request.PROPERTY_ORDER_ID]);
             menuItems.Add("Main", "AddOrder.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyId);
             menuItems.Add("Room Details", "AddOrderPeople.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyId);
-            
-            hlAddRoom.Visible = true;
-            hlAddRoom.NavigateUrl = "~/Orders/AddRoom.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyId;
+
+            hlAddRoomPannel.Visible = true;
+            linkAddRoom.NavigateUrl = "~/Orders/AddRoom.aspx?" + WebConstants.Request.PROPERTY_ORDER_ID + "=" + propertyId;
 
             SimplicityWebEstateAgentEntities estateAgentDB = new SimplicityWebEstateAgentEntities();
             IEnumerable<EstateAgentEntityModel.PropertyRoom> propertyRooms = (from propRooms in estateAgentDB.PropertyRooms where propRooms.PropertySequence == propertyId select propRooms);

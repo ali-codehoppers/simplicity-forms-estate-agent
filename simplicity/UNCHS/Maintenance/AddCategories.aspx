@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Common/Main.master" AutoEventWireup="true"
-     CodeFile="AddCategories.aspx.cs" Inherits="Maintenance_AddCategories" Title="Add Category" %>
+    CodeFile="AddCategories.aspx.cs" Inherits="Maintenance_AddCategories" Title="Add Category" %>
 
 <asp:Content ContentPlaceHolderID="HeadContentPlaceHolder" ID="Content3" runat="server">
     <style type="text/css">
@@ -36,33 +36,33 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="Server">
-    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height:350px;">
-        <div class="ddl_field" style="padding-bottom:5px;">
+    <div style="background-color: White; padding: 15px 10px 25px 10px; min-height: 350px;">
+        <div class="ddl_field" style="padding-bottom: 5px;">
             <asp:Label ID="lblCompany" runat="server" Text="Company:"></asp:Label>
-            <asp:DropDownList ID="ddlCompany" runat="server" DataTextField="Name"  CssClass="dropdown_txt"
+            <asp:DropDownList ID="ddlCompany" runat="server" DataTextField="Name" CssClass="dropdown_txt"
                 DataValueField="CompanyID">
             </asp:DropDownList>
         </div>
-        <div class="text_field" style="padding-bottom:5px;">
-            <div style="float:left; width:200px;">
-                        <span>Category Description:</span>
+        <div class="text_field" style="padding-bottom: 5px;">
+            <div style="float: left; width: 200px;">
+                <span>Category Description:</span>
             </div>
-                        <asp:TextBox ID="txtCategoryDescription" runat="server" Rows="5" CssClass="text_area" TextMode="MultiLine" style="width:300px"></asp:TextBox>
-
+            <asp:TextBox ID="txtCategoryDescription" runat="server" Rows="5" CssClass="text_area"
+                TextMode="MultiLine" Style="width: 300px"></asp:TextBox>
+            <asp:RequiredFieldValidator runat="server" ID="reqCategoryDescription" ControlToValidate="txtCategoryDescription" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
         </div>
         <div class="button_bar">
             <div style="float: left">
                 <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnSave" runat="server" CssClass="txt_white" OnClick="btnSave_Click" >Save</asp:LinkButton>
-                <asp:LinkButton ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update"  CssClass="txt_white"></asp:LinkButton>
+                <asp:LinkButton ID="btnSave" runat="server" CssClass="txt_white" OnClick="btnSave_Click">Save</asp:LinkButton>
+                <asp:LinkButton ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update"
+                    CssClass="txt_white"></asp:LinkButton>
             </div>
-            
-                <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
-            
-         </div>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+            <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
+        </div>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" Visible="false"/>
     </div>
     <div style="float: left; width: 100%">
         <div class="floatLeft">

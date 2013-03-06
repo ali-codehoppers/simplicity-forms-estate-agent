@@ -3,7 +3,7 @@
 <asp:Content ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
     <script type="text/javascript">
         function deleteDepartment(deptId) {
-            if (confirm("are you sure?")) {
+            if (confirm("Are you sure you want to delete this Department?")) {
                 $("#deptId").val(deptId);
                 return true;
             }

@@ -54,7 +54,7 @@
                 var feet = null;
                 var inches = null;
                 if (meter != "") {
-                    feets = meter * 3.281;
+                    feets = meter * 3.28084;
                     feet = parseInt(feets);
                     inches = (feets - feet) * 12.0;
                     $("#LengthInFeetTextBox").attr("value", (feet).toFixed(2));
@@ -75,7 +75,7 @@
                     if (isNaN(feet) != true) {
                         if (isNaN(inches) != true)
                             feet = feet + (inches / 12.0);
-                        meter = feet / 3.281;
+                        meter = feet / 3.28084;
                         $("#LengthInMTextBox").attr("value", (meter).toFixed(2));
                     }
                     else if (isNaN(inches) != true && isNaN(feet) == true)
@@ -90,7 +90,7 @@
                 var feet = null;
                 var inches = null;
                 if (meter != "") {
-                    feets = meter * 3.281;
+                    feets = meter * 3.28084;
                     feet = parseInt(feets);
                     inches = (feets - feet) * 12.0;
                     $("#WidthInFeetTextBox").attr("value", (feet).toFixed(2));
@@ -111,7 +111,7 @@
                     if (isNaN(feet) != true) {
                         if (isNaN(inches) != true)
                             feet = feet + (inches / 12.0);
-                        meter = feet / 3.281;
+                        meter = feet / 3.28084;
                         $("#WidthInMTextBox").attr("value", (meter).toFixed(2));
                     }
                     else if (isNaN(inches) != true && isNaN(feet) == true)
@@ -306,20 +306,20 @@
 					            <span>Heading</span>
 				            </div>
 				            <div style="margin-bottom:5px;">
-                                <asp:TextBox ID="HeadingTextBox" runat="server" Text='<%# Eval("RoomHeading") %>' style="width:100%;"></asp:TextBox>
+                                <asp:TextBox ID="HeadingTextBox" runat="server" Text='<%# Eval("RoomHeading") %>' style="width:90%;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="HeadingTextBox" Display="Dynamic"></asp:RequiredFieldValidator>
 				            </div>
 				            <div class="sameHeight">
 					            <span>Dimensions</span>
 				            </div>
 				            <div style="margin-bottom:5px;">
-                                <asp:TextBox ID="DimensionsTextBox" style="width:100%;" Text='<%# Eval("RoomLengthM")+"m("+Eval("RoomLengthFt")+"&#39;"+Eval("RoomLengthIn")+"\") X " + Eval("RoomWidthM")+"m("+Eval("RoomWidthFt")+"&#39;"+Eval("RoomWidthIn")+"\")"  %>' Enabled="false" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="DimensionsTextBox" style="width:90%;" Text='<%# Eval("RoomLengthM")+"m("+Eval("RoomLengthFt")+"&#39;"+Eval("RoomLengthIn")+"\") X " + Eval("RoomWidthM")+"m("+Eval("RoomWidthFt")+"&#39;"+Eval("RoomWidthIn")+"\")"  %>' Enabled="false" runat="server"></asp:TextBox>
 				            </div>
 				            <div class="sameHeight">
 					            <span>Aspect</span>
 				            </div>
 				            <div style="margin-bottom:5px;">
-                                <asp:TextBox style="width:100%;" ID="AspectTextBox" Text='<%# Eval("RoomAspect") %>' runat="server"></asp:TextBox>
+                                <asp:TextBox style="width:90%;" ID="AspectTextBox" Text='<%# Eval("RoomAspect") %>' runat="server"></asp:TextBox>
 				            </div>
 			            </div>
 			            <div class="column3">

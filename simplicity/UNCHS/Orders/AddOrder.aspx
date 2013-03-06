@@ -9,12 +9,16 @@
         .text_area {
             padding:0px;
         }
+        .text_field_dialog
+        {
+            padding-bottom: 8px;    
+        }
         .text_field_dialog span
         {
             width: 300px;
             height: 100%;
             display: inline-block;
-            padding-bottom: 8px;
+            
             font-weight: bold;
             font-size: 12px;
         }
@@ -78,7 +82,8 @@
 							        constraintoviewport: false,
 							        draggable: true
 							    });
-            copyDialog.render();
+			copyDialog.render();
+            
 
         }
         YAHOO.util.Event.onDOMReady(renderDialog);
@@ -133,22 +138,34 @@
                 <asp:HiddenField ID="HiddenField1" runat="server" />
                 <span>House/Flat No:</span><asp:TextBox ID="tbPopupFlat" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
+            <div class="text_field_dialog" style="padding:0px;">
+                <span style="height:0px"></span>
+                <asp:RequiredFieldValidator ValidationGroup="popUpPannel" runat="server" ID="reqPopupFlat" ControlToValidate="tbPopupFlat" ErrorMessage="* House/Flat No Required" Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>
             <div class="text_field_dialog">
                 <span>Address:</span><asp:TextBox ID="tbPopupAddress1" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+            <div class="text_field_dialog" style="padding:0px;">
+                <span style="height:0px"></span>
+                <asp:RequiredFieldValidator ValidationGroup="popUpPannel" runat="server" ID="reqPopupAddress1" ControlToValidate="tbPopupAddress1" ErrorMessage="* Address Required" Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>
+            <div class="text_field_dialog" style="padding-left: 300px;">
                 <asp:TextBox ID="tbPopupAddress2" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+            <div class="text_field_dialog" style="padding-left: 300px;">
                 <asp:TextBox ID="tbPopupAddress3" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
-            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+            <div class="text_field_dialog" style="padding-left: 300px;">
                 <asp:TextBox ID="tbPopupAddress4" runat="server" CssClass="field_txt"></asp:TextBox></div>
-            <div class="text_field_dialog" style="padding-left: 300px; padding-bottom: 5px;">
+            <div class="text_field_dialog" style="padding-left: 300px;">
                 <asp:TextBox ID="tbPopupAddress5" runat="server" CssClass="field_txt"></asp:TextBox>
             </div>
             <div class="text_field_dialog">
                 <span>Postal Code:</span><asp:TextBox ID="tbPopupPostCode" runat="server" CssClass="field_txt"></asp:TextBox>
+            </div>
+            <div class="text_field_dialog" style="padding:0px;">
+                <span style="height:0px"></span>
+                <asp:RequiredFieldValidator ValidationGroup="popUpPannel" runat="server" ID="reqPopupPostCode" ControlToValidate="tbPopupPostCode" ErrorMessage="* Postal Code Required" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="ft" style="text-align: center">
@@ -156,7 +173,7 @@
                 <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
             </div>
             <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                <asp:LinkButton ID="btnCreate" runat="server" OnClick="btnCreate_Click" CssClass="txt_white"
+                <asp:LinkButton ID="btnCreate" runat="server" OnClick="btnCreate_Click" CssClass="txt_white" ValidationGroup="popUpPannel"
                     Width="150px">Continue</asp:LinkButton>
             </div>
             <div style="float: left">
@@ -191,10 +208,20 @@
             </asp:DropDownList>
         </div>
         <div class="text_field" style="padding-bottom:5px;height:27px;">
-            <span>House/Flat No:</span><asp:TextBox ID="tbAddressNo" CssClass="field_txt" runat="server"></asp:TextBox></div>
+            <span>House/Flat No:</span><asp:TextBox ID="tbAddressNo" CssClass="field_txt" runat="server"></asp:TextBox>
+        </div>
+        <div class="text_field" style="padding:0px;">
+                <span style="height:0px;padding:0px;"></span>
+                <asp:RequiredFieldValidator ValidationGroup="textPannel" runat="server" ID="reqAddressNo" ControlToValidate="tbAddressNo" ErrorMessage="* House/Flat No Required" Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>
 
         <div class="text_field" style="padding-bottom:5px;height:27px">
             <span>Address:</span><asp:TextBox ID="tbAddress1" CssClass="field_txt" runat="server"></asp:TextBox></div>
+        <div class="text_field" style="padding: 0px;">
+            <span style="height: 0px; padding: 0px;"></span>
+            <asp:RequiredFieldValidator ValidationGroup="textPannel" runat="server" ID="reqAddress1"
+                ControlToValidate="tbAddress1" ErrorMessage="* Address Required" Display="Dynamic"></asp:RequiredFieldValidator>
+        </div>
         <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
             <asp:TextBox ID="tbAddress2" CssClass="field_txt" runat="server"></asp:TextBox></div>
         <div class="text_field" style="padding-bottom: 5px; padding-left: 400px;height:27px;">
@@ -205,7 +232,11 @@
             <asp:TextBox ID="tbAddress5" CssClass="field_txt" runat="server"></asp:TextBox></div>
         <div class="text_field" style="padding-bottom:5px;height:27px">
             <span>Post Code:</span><asp:TextBox ID="tbPostalCode" CssClass="field_txt" runat="server"></asp:TextBox></div>
-            
+        <div class="text_field" style="padding: 0px;">
+            <span style="height: 0px; padding: 0px;"></span>
+            <asp:RequiredFieldValidator ValidationGroup="textPannel" runat="server" ID="reqPostalCode"
+                ControlToValidate="tbPostalCode" ErrorMessage="* Post Code Required" Display="Dynamic"></asp:RequiredFieldValidator>
+        </div>    
         <div class="text_field" style="padding-bottom:5px;height:27px;">
             <span>Date Visit</span><asp:TextBox ID="TextBoxDateVisit" CssClass="field_txt" runat="server"></asp:TextBox></div>
             
@@ -358,7 +389,7 @@
                     <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                 </div>
                 <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                    <asp:LinkButton ID="ShowDetailsOrAddRoomButton" runat="server" OnClick="ShowRoomDetails" CssClass="txt_white">Room Details</asp:LinkButton>
+                    <asp:LinkButton ID="ShowDetailsOrAddRoomButton" ValidationGroup="textPannel" runat="server" OnClick="ShowRoomDetails" CssClass="txt_white">Room Details</asp:LinkButton>
                 </div>
                 <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
@@ -370,7 +401,7 @@
                         <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/btn_submit.jpg" />
                     </div>
                     <div style="float: left; height: 23px; padding-top: 8px; background-image: url('<%=this.ResolveClientUrl("~/images/btn_submit_mid.jpg")%>')">
-                        <asp:LinkButton ID="SavePropertyDetailsButton" runat="server" OnClick="SavePropertyDetails" CssClass="txt_white">Save</asp:LinkButton>
+                        <asp:LinkButton ID="SavePropertyDetailsButton"  ValidationGroup="textPannel"  runat="server" OnClick="SavePropertyDetails" CssClass="txt_white">Save</asp:LinkButton>
                     </div>
                     <asp:Image ID="Image10" runat="server" ImageUrl="~/Images/btn_submit_right.jpg" />
             </div>
@@ -398,9 +429,7 @@
     <script type="text/javascript">
 
         $(function () {
-
             $("#<%=TextBoxDateVisit.ClientID%>").datetimepicker({ dateFormat: 'yy-mm-dd' });
-
         });
     </script>
     </div>
